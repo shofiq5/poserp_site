@@ -7,7 +7,7 @@ const title = 'Daily Sales Report App for Shops — POS Plan';
 const description =
   "See today's sales, dues, and cash position instantly — no spreadsheet exports. POS Plan gives small shop owners a clear daily and monthly view of the business.";
 const base = import.meta.env.BASE_URL;
-const canonical = `https://erpboss.com${base}/reports`;
+const canonical = `https://erpboss.com${base}/reports/`;
 
 const faqJsonLd = {
   '@context': 'https://schema.org',
@@ -125,7 +125,7 @@ const points = [
     <div class="container">
       <div class="cta-banner">
         <h2>See your shop's numbers clearly</h2>
-        <p>Reports pull directly from <a href={`${base}/inventory`} style="color:white;text-decoration:underline;">stock</a> and <a href={`${base}/barcode`} style="color:white;text-decoration:underline;">billing</a>.</p>
+        <p>Reports pull directly from <a href={`${base}/inventory/`} style="color:white;text-decoration:underline;">stock</a> and <a href={`${base}/barcode/`} style="color:white;text-decoration:underline;">billing</a>.</p>
         <a class="btn btn-primary" href="https://poserpdev.erpboss.com/signup">Start your free trial</a>
       </div>
     </div>
