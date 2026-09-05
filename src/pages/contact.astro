@@ -6,7 +6,8 @@ import Footer from '../components/Footer.astro';
 const title = 'Contact — POS Plan';
 const description =
   "Questions about POS Plan for your shop? Reach out and we'll help you get set up — no email required to try it first.";
-const canonical = 'https://erpboss.com/contact';
+const base = import.meta.env.BASE_URL;
+const canonical = `https://erpboss.com${base}/contact`;
 ---
 
 <Base title={title} description={description} canonical={canonical}>
@@ -42,7 +43,7 @@ const canonical = 'https://erpboss.com/contact';
           </svg>
         </div>
         <h3>Before you sign up</h3>
-        <p>Most questions are answered on <a href="/features">features</a> — multi-outlet support, installments, and barcode compatibility are all covered there.</p>
+        <p>Most questions are answered on <a href={`${base}/features`}>features</a> — multi-outlet support, installments, and barcode compatibility are all covered there.</p>
       </div>
 
       <div class="card contact-card">

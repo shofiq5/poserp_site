@@ -1,12 +1,16 @@
 ---
 const year = new Date().getFullYear();
+
+// Marketing site lives at erpboss.com/pos/* (apex stays a separate site) -
+// BASE_URL is "/pos" (no trailing slash) from the `base` option in astro.config.mjs.
+const base = import.meta.env.BASE_URL;
 ---
 
 <footer class="footer">
   <div class="container footer-inner">
     <div class="footer-cols">
       <div class="footer-brand">
-        <a href="/" class="brand">
+        <a href={`${base}/`} class="brand">
           <span class="brand-mark" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="3" y="4" width="18" height="16" rx="3" fill="currentColor" opacity="0.15"/>
@@ -22,17 +26,17 @@ const year = new Date().getFullYear();
       <div>
         <h4>Product</h4>
         <ul>
-          <li><a href="/features">Features</a></li>
-          <li><a href="/inventory">Inventory</a></li>
-          <li><a href="/barcode">Barcode billing</a></li>
-          <li><a href="/reports">Reports</a></li>
+          <li><a href={`${base}/features`}>Features</a></li>
+          <li><a href={`${base}/inventory`}>Inventory</a></li>
+          <li><a href={`${base}/barcode`}>Barcode billing</a></li>
+          <li><a href={`${base}/reports`}>Reports</a></li>
         </ul>
       </div>
 
       <div>
         <h4>Company</h4>
         <ul>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href={`${base}/contact`}>Contact</a></li>
           <li><a href="https://poserpdev.erpboss.com/login">Log in</a></li>
           <li><a href="https://poserpdev.erpboss.com/signup">Start free trial</a></li>
         </ul>

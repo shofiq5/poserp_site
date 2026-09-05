@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://erpboss.com/sitemap-index.xml
+Sitemap: https://erpboss.com/pos/sitemap-index.xml

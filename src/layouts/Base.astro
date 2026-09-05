@@ -8,17 +8,21 @@ export interface Props {
 
 const { title, description, canonical, jsonLd = [] } = Astro.props;
 
+// Marketing site lives at erpboss.com/pos/* (apex stays a separate site) -
+// import.meta.env.BASE_URL is "/pos" (no trailing slash) from the `base` option in astro.config.mjs.
+const base = import.meta.env.BASE_URL;
+
 const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'POS Plan',
-  url: 'https://erpboss.com',
-  logo: 'https://erpboss.com/favicon.svg',
+  url: `https://erpboss.com${base}/`,
+  logo: `https://erpboss.com${base}/favicon.svg`,
   sameAs: [],
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer support',
-    url: 'https://erpboss.com/contact',
+    url: `https://erpboss.com${base}/contact`,
   },
 };
 ---
@@ -41,7 +45,7 @@ const orgJsonLd = {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
 
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

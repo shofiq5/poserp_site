@@ -6,7 +6,10 @@ import Footer from '../components/Footer.astro';
 const title = 'POS Plan — Simple POS Software for Small Shops';
 const description =
   'POS Plan is a simple point-of-sale app built for small retailers and mobile shops. Sell, track stock, and see daily sales from your phone — no email needed to start.';
-const canonical = 'https://erpboss.com/';
+// Marketing site lives at erpboss.com/pos/* (apex stays a separate site) -
+// BASE_URL is "/pos" (no trailing slash) from the `base` option in astro.config.mjs.
+const base = import.meta.env.BASE_URL;
+const canonical = `https://erpboss.com${base}/`;
 
 const faqJsonLd = {
   '@context': 'https://schema.org',
@@ -84,7 +87,7 @@ const steps = [
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://poserpdev.erpboss.com/signup">Start your free trial</a>
-          <a class="btn btn-ghost" href="/features">Explore features</a>
+          <a class="btn btn-ghost" href={`${base}/features`}>Explore features</a>
         </div>
         <p class="subnote">No credit card required. Sign up with just your mobile number.</p>
       </div>
@@ -202,7 +205,7 @@ const steps = [
     <div class="container">
       <div class="cta-banner">
         <h2>Ready to run your shop from your phone?</h2>
-        <p>Explore <a href="/features" style="color:white;text-decoration:underline;">features</a>, or jump straight in.</p>
+        <p>Explore <a href={`${base}/features`} style="color:white;text-decoration:underline;">features</a>, or jump straight in.</p>
         <a class="btn btn-primary" href="https://poserpdev.erpboss.com/signup">Start your free trial</a>
       </div>
     </div>

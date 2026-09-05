@@ -6,7 +6,8 @@ import Footer from '../components/Footer.astro';
 const title = 'Barcode POS Billing Software — POS Plan';
 const description =
   "Scan to bill, scan to check price, scan to check stock. POS Plan works with any USB or Bluetooth barcode scanner — no special hardware required.";
-const canonical = 'https://erpboss.com/barcode';
+const base = import.meta.env.BASE_URL;
+const canonical = `https://erpboss.com${base}/barcode`;
 
 const faqJsonLd = {
   '@context': 'https://schema.org',
@@ -120,7 +121,7 @@ const points = [
     <div class="container">
       <div class="cta-banner">
         <h2>Speed up your counter today</h2>
-        <p>See how scans feed straight into <a href="/reports" style="color:white;text-decoration:underline;">daily reports</a>.</p>
+        <p>See how scans feed straight into <a href={`${base}/reports`} style="color:white;text-decoration:underline;">daily reports</a>.</p>
         <a class="btn btn-primary" href="https://poserpdev.erpboss.com/signup">Start your free trial</a>
       </div>
     </div>
