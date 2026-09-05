@@ -1,6 +1,6 @@
 ---
-const SIGNUP_URL = 'https://app.erpboss.com/frontend/signup';
-const LOGIN_URL = 'https://app.erpboss.com/frontend/login';
+const SIGNUP_URL = 'https://poserpdev.erpboss.com/signup';
+const LOGIN_URL = 'https://poserpdev.erpboss.com/login';
 
 const links = [
   { href: '/features', label: 'Features' },
@@ -11,8 +11,8 @@ const links = [
 ];
 ---
 
-<!-- CTA -> app.erpboss.com/frontend/signup (see plan_marketing_site.md "Facts": there is no
-     rewrite from "/" on the app host, so every link here must include the /frontend prefix). -->
+<!-- CTA -> poserpdev.erpboss.com/signup — the app's permanent domain (replaces the earlier
+     app.erpboss.com/frontend/* URLs; this host serves the SPA at root, no /frontend prefix). -->
 <header class="nav">
   <div class="container nav-inner">
     <a href="/" class="brand">
