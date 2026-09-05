@@ -5,11 +5,42 @@ import Footer from '../components/Footer.astro';
 
 const title = 'Daily Sales Report App for Shops — POS Plan';
 const description =
-  'See today\'s sales, dues, and cash position instantly — no spreadsheet exports. POS Plan gives small shop owners a clear daily and monthly view of the business.';
+  "See today's sales, dues, and cash position instantly — no spreadsheet exports. POS Plan gives small shop owners a clear daily and monthly view of the business.";
 const canonical = 'https://erpboss.com/reports';
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Can I see reports for a specific date range?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, reports can be filtered by date so you can check a single day, a week, or a longer range, not just "today."',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What does "Daily Closing" do?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Daily Closing locks a date so its sales and payments can no longer be edited afterward, which keeps the day\'s numbers reliable once more than one staff member has access to the till.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I see reports across all my outlets at once?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, if you run multiple outlets you can see combined totals across all of them, or filter down to a single outlet.',
+      },
+    },
+  ],
+};
 ---
 
-<Base title={title} description={description} canonical={canonical}>
+<Base title={title} description={description} canonical={canonical} jsonLd={[faqJsonLd]}>
   <Nav slot="nav" />
 
   <h1>Know today's numbers without asking anyone</h1>
@@ -19,25 +50,51 @@ const canonical = 'https://erpboss.com/reports';
     what's still owed by customers, and the cash currently in hand.
   </p>
 
-  <h2>Daily closing</h2>
+  <h2>Daily closing keeps the numbers trustworthy</h2>
   <p>
     Close the day once you're done, and that date locks — past sales and payments can't be
     silently edited after the fact, which matters when more than one person handles the till.
+    If a mistake needs fixing on a closed day, it goes through a correction, not a quiet edit
+    that changes what the report already showed.
   </p>
 
   <h2>Dues and installments at a glance</h2>
   <p>
     See exactly who owes money and how much is due today versus overdue, whether it's a simple
-    running balance or a scheduled installment plan for a larger purchase.
+    running balance or a scheduled installment plan for a larger purchase. A dashboard tile and
+    sidebar badge surface how many customers are due or overdue today, so it's visible without
+    digging into a separate report.
+  </p>
+
+  <h2>Cash book</h2>
+  <p>
+    A running log of cash movements — sales received, payments collected, other cash in or out —
+    so the till balance is something you can check against the report, instead of reconstructing
+    it from memory at the end of the week.
+  </p>
+
+  <h2>Stock and purchase reports</h2>
+  <p>
+    Alongside sales, see stock levels and recent purchases from suppliers in the same place —
+    useful for spotting what needs reordering without switching to a separate inventory tool.
   </p>
 
   <h2>Multi-outlet totals</h2>
   <p>
     Running more than one shop location? See combined totals across outlets, or drill into a
-    single outlet's numbers — same report, either view.
+    single outlet's numbers — same report, either view, so you're not adding up several
+    spreadsheets by hand to get one answer.
   </p>
 
-  <p>Reports pull directly from <a href="/inventory">stock</a> and billing — no manual entry, no export step. See <a href="/pricing">pricing</a> to get started.</p>
+  <h2>Who sees what</h2>
+  <p>
+    Reports respect the same staff roles as the rest of POS Plan: an owner sees everything, a
+    manager typically sees operational reports, and a cashier's access stays focused on the
+    till, not shop-wide profit and dues.
+  </p>
+
+  <p>Reports pull directly from <a href="/inventory">stock</a> and <a href="/barcode">billing</a>
+  — no manual entry, no export step. See <a href="/pricing">pricing</a> to get started.</p>
   <p><a href="https://app.erpboss.com/frontend/signup">Start your free trial</a></p>
 
   <Footer slot="footer" />

@@ -5,11 +5,42 @@ import Footer from '../components/Footer.astro';
 
 const title = 'Barcode POS Billing Software — POS Plan';
 const description =
-  'Scan to bill, scan to check price, scan to check stock. POS Plan works with any USB or Bluetooth barcode scanner — no special hardware required.';
+  "Scan to bill, scan to check price, scan to check stock. POS Plan works with any USB or Bluetooth barcode scanner — no special hardware required.";
 const canonical = 'https://erpboss.com/barcode';
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What kind of barcode scanner works with POS Plan?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Any standard USB or Bluetooth barcode scanner that emulates a keyboard works — there is nothing proprietary to buy or configure.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I use POS Plan without a barcode scanner?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Every product can also be found by name search from the same billing screen, so you can start selling on day one and add a scanner later.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I create barcodes for products that don\'t have one?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, you can assign your own product codes for loose or repackaged goods and print labels, so everything in your shop is scannable even without a manufacturer barcode.',
+      },
+    },
+  ],
+};
 ---
 
-<Base title={title} description={description} canonical={canonical}>
+<Base title={title} description={description} canonical={canonical} jsonLd={[faqJsonLd]}>
   <Nav slot="nav" />
 
   <h1>Barcode billing, without buying new hardware</h1>
@@ -19,28 +50,50 @@ const canonical = 'https://erpboss.com/barcode';
     or check remaining stock, all with a single scan.
   </p>
 
+  <h2>Scan to bill</h2>
+  <p>
+    Scan an item and it's added to the current sale at its set price, with quantity ready to
+    adjust if the customer's buying more than one. Scan the same code again to bump the
+    quantity, or switch to search for anything without a printed code. The goal is a bill that
+    takes seconds per item, not a form to fill in.
+  </p>
+
+  <h2>Scan to check price or stock — without starting a sale</h2>
+  <p>
+    A customer asking "how much for this?" or "do you have this in stock?" doesn't need a full
+    billing screen. A quick scan brings up the price and remaining quantity, so the answer is
+    immediate even when the item isn't being sold right now.
+  </p>
+
   <h2>Works with the scanner you already have</h2>
   <p>
     Any standard USB or Bluetooth barcode scanner works as a keyboard-emulating input — there's
     nothing to configure or pair beyond what the scanner itself needs. No proprietary hardware,
-    no lock-in.
+    no lock-in to a specific device brand.
   </p>
 
   <h2>No scanner yet? Search still works</h2>
   <p>
     Barcode scanning speeds things up, but it isn't required. Every product can be found by
     name search from the same billing screen, so you can start selling on day one and add a
-    scanner later.
+    scanner later once the shop is up and running.
   </p>
 
   <h2>Barcodes for products you print yourself</h2>
   <p>
     Selling loose or repackaged goods without a manufacturer barcode? Assign your own product
     codes and print labels, so everything — including your own stock — is scannable at the
-    counter.
+    counter, not just factory-packaged items.
   </p>
 
-  <p>Barcode scans also drive <a href="/inventory">stock tracking</a> automatically. See <a href="/reports">daily reports</a> next.</p>
+  <h2>Barcode scans and stock stay in sync</h2>
+  <p>
+    Every scanned sale updates <a href="/inventory">stock</a> in the same step — there's no
+    separate reconciliation between "what the barcode system says sold" and "what inventory
+    thinks is left," because they're the same system.
+  </p>
+
+  <p>See how the numbers add up at the end of the day on <a href="/reports">reports</a>.</p>
   <p><a href="https://app.erpboss.com/frontend/signup">Start your free trial</a></p>
 
   <Footer slot="footer" />

@@ -7,9 +7,40 @@ const title = 'POS Plan — Simple POS Software for Small Shops';
 const description =
   'POS Plan is a simple point-of-sale app built for small retailers and mobile shops. Sell, track stock, and see daily sales from your phone — $3/month, no email needed to start.';
 const canonical = 'https://erpboss.com/';
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What kind of shops is POS Plan built for?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'POS Plan started with mobile phone shops in mind, but it works for any small retail counter — general stores, pharmacies, electronics shops, clothing shops — anywhere one or a few people ring up sales and track stock.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do I need my own hardware to use POS Plan?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. POS Plan runs in a web browser on any phone, tablet, or computer you already have. A barcode scanner and receipt printer help but are optional.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How long does it take to get started?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sign up with your mobile number and a WhatsApp code — no email, no paperwork. Add your first products and you can start billing the same day.',
+      },
+    },
+  ],
+};
 ---
 
-<Base title={title} description={description} canonical={canonical}>
+<Base title={title} description={description} canonical={canonical} jsonLd={[faqJsonLd]}>
   <Nav slot="nav" />
 
   <section class="hero">
@@ -29,21 +60,58 @@ const canonical = 'https://erpboss.com/';
       <li><strong>Works the way a shop counter works.</strong> Barcode scan, quick search, and a running total — built for speed during a queue.</li>
       <li><strong>Know your stock without counting it.</strong> Every sale updates inventory automatically, across one or many outlets.</li>
       <li><strong>See the day's numbers instantly.</strong> Daily sales, dues, and cash — without exporting anything to a spreadsheet.</li>
+      <li><strong>Priced for a small shop's margins.</strong> $3/month, not $30 — because a corner shop's software bill shouldn't compete with rent.</li>
     </ul>
+  </section>
+
+  <section>
+    <h2>What a day looks like with POS Plan</h2>
+    <p>
+      A customer walks up. You scan the item or search it by name, the price and running total
+      show instantly, and you take cash, card, or split payment — including a partial payment on
+      account if it's a regular customer buying on credit. Stock for that item drops by one, no
+      separate step required.
+    </p>
+    <p>
+      At close of day, you tap "Daily Closing." That locks the day's sales and payments so
+      nothing gets silently edited later — useful the moment more than one person handles the
+      till. The next morning, the dashboard shows yesterday's total, what's still owed by
+      customers, and what's running low on the shelf.
+    </p>
   </section>
 
   <section>
     <h2>Built for how small retail actually runs</h2>
     <p>
-      Most POS software is built for chains with an IT department. POS Plan strips that down to
-      what a mobile shop, pharmacy, or general store actually needs day to day: fast billing,
-      accurate stock, and a clear picture of who owes what. It runs in the browser on any phone
-      or tablet — no register hardware, no installation.
+      Most POS software is built for chains with an IT department: multi-currency ledgers,
+      approval workflows, modules you'll never touch. POS Plan strips that down to what a mobile
+      shop, pharmacy, or general store actually needs day to day: fast billing, accurate stock,
+      and a clear picture of who owes what. It runs in the browser on any phone or tablet — no
+      register hardware, no installation, no IT visit.
     </p>
     <p>
-      Explore what's inside: <a href="/features">features</a>, <a href="/inventory">inventory
-      &amp; stock tracking</a>, <a href="/barcode">barcode billing</a>, and
-      <a href="/reports">daily sales reports</a>. Or go straight to <a href="/pricing">pricing</a>.
+      If you run more than one outlet, POS Plan tracks stock and staff per location under a
+      single account, so you're not paying for or juggling a separate system per shop.
+    </p>
+  </section>
+
+  <section>
+    <h2>Who's behind the counter, and what they can do</h2>
+    <p>
+      A shop is rarely run by one person alone. POS Plan gives each staff member a role —
+      <strong>Owner</strong>, <strong>Manager</strong>, or <strong>Cashier</strong> — so a cashier
+      can ring up sales without being able to see profit margins or edit yesterday's closed sales,
+      while the owner keeps full visibility and control. No shared login, no guessing who did what.
+    </p>
+  </section>
+
+  <section>
+    <h2>Explore POS Plan</h2>
+    <p>
+      See the full list on <a href="/features">features</a>, or go straight to a specific area:
+      <a href="/inventory">inventory &amp; stock tracking</a>, <a href="/barcode">barcode
+      billing</a>, and <a href="/reports">daily sales reports</a>. Ready to see the price?
+      Check <a href="/pricing">pricing</a>.
     </p>
   </section>
 

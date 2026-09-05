@@ -5,11 +5,42 @@ import Footer from '../components/Footer.astro';
 
 const title = 'Mobile Shop Inventory Software — POS Plan';
 const description =
-  'Track stock automatically as you sell. POS Plan updates inventory on every sale, supports IMEI tracking for mobile shops, and works across multiple outlets.';
+  "Track stock automatically as you sell. POS Plan updates inventory on every sale and purchase, supports IMEI tracking for mobile shops, and works across multiple outlets.";
 const canonical = 'https://erpboss.com/inventory';
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Does stock update automatically when I make a sale?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Every sale reduces stock for the items sold immediately, with no separate stock-adjustment step required.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I track individual phones by IMEI?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Products can be tracked by individual serial number or IMEI, so you know exactly which unit sold rather than just a total count.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I move stock between two of my outlets?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, stock transfers between outlets are logged the same way a sale is, so nothing goes missing in a handoff between locations.',
+      },
+    },
+  ],
+};
 ---
 
-<Base title={title} description={description} canonical={canonical}>
+<Base title={title} description={description} canonical={canonical} jsonLd={[faqJsonLd]}>
   <Nav slot="nav" />
 
   <h1>Stock tracking that updates itself</h1>
@@ -17,29 +48,51 @@ const canonical = 'https://erpboss.com/inventory';
     The most common inventory mistake in a small shop isn't a bad process — it's no process.
     Stock gets counted by memory, and gaps only show up when a customer asks for something
     that's supposedly "in stock" but isn't. POS Plan closes that gap by tying stock directly to
-    every sale, automatically.
+    every sale and every purchase, automatically, so the number on screen matches what's on the
+    shelf.
+  </p>
+
+  <h2>Stock moves with every transaction, not on a schedule</h2>
+  <p>
+    Sell an item and its quantity drops the moment the sale is completed. Buy stock in from a
+    supplier and it's added the moment that purchase is recorded. A return brings it back. There
+    is no nightly batch job or manual "sync stock" button — the count you see is the count as of
+    right now.
   </p>
 
   <h2>Built for mobile shops: IMEI &amp; serial tracking</h2>
   <p>
-    Selling phones means every unit is unique. POS Plan lets you track individual items by IMEI
-    or serial number, not just a generic product count — so you always know exactly which unit
-    sold, and which units are still on the shelf.
+    Selling phones means every unit is unique — two units of the "same model" are not
+    interchangeable once one of them is sold. POS Plan lets you track individual items by IMEI
+    or serial number, not just a generic product count, so you always know exactly which unit
+    sold, and which specific units are still on the shelf. This matters for warranty claims and
+    for repair jobs, where a device needs to be matched to its original sale.
   </p>
 
   <h2>Low-stock visibility</h2>
   <p>
-    See what's running low before a customer asks for it. No spreadsheet exports, no manual
-    stock-take just to find out what to reorder.
+    See what's running low before a customer asks for it and you have to say no. Instead of a
+    manual stock-take or a spreadsheet export just to find out what to reorder, the dashboard
+    surfaces low-stock items directly.
+  </p>
+
+  <h2>Purchases feed stock in, sales and returns take it back out</h2>
+  <p>
+    Recording a purchase from a supplier and completing a sale use the same stock ledger under
+    the hood — so a report of "what's on hand" is always a real-time answer, not a snapshot from
+    whenever someone last updated a spreadsheet. Returns adjust the same way, crediting stock
+    back automatically.
   </p>
 
   <h2>Multiple outlets, one account</h2>
   <p>
     Running more than one shop? Stock is tracked per outlet, with transfers between outlets
-    logged the same way a sale is — so nothing disappears in a handoff between locations.
+    logged the same way a sale is — so nothing disappears in a handoff between locations, and
+    each outlet's numbers stay accurate independently even as you also see them combined.
   </p>
 
-  <p>See how billing and stock work together on the <a href="/barcode">barcode page</a>, or check <a href="/pricing">pricing</a>.</p>
+  <p>See how billing and stock work together on the <a href="/barcode">barcode page</a>, how
+  stock feeds into daily numbers on <a href="/reports">reports</a>, or check <a href="/pricing">pricing</a>.</p>
   <p><a href="https://app.erpboss.com/frontend/signup">Start your free trial</a></p>
 
   <Footer slot="footer" />

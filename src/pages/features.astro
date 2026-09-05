@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 
 const title = 'Features — POS Plan';
 const description =
-  'Everything a small shop needs from a POS: fast billing, barcode scanning, stock tracking, customer dues, and daily reports. Nothing an enterprise back office needs and you don\'t.';
+  "Everything a small shop needs from a POS: fast billing, barcode scanning, stock tracking, customer dues, installments, multi-outlet support, and daily reports.";
 const canonical = 'https://erpboss.com/features';
 
 const faqJsonLd = {
@@ -25,7 +25,7 @@ const faqJsonLd = {
       name: 'Can I use POS Plan on more than one outlet?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes, POS Plan supports multiple outlets under one shop account, with stock and staff tracked per outlet.',
+        text: 'Yes, POS Plan supports multiple outlets under one shop account, with stock and staff tracked per outlet and stock transfers logged between them.',
       },
     },
     {
@@ -33,7 +33,15 @@ const faqJsonLd = {
       name: 'Do I need to know accounting to use it?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'No. POS Plan is built for shop owners, not accountants — daily sales, stock, and customer dues are shown in plain terms.',
+        text: 'No. POS Plan is built for shop owners, not accountants — daily sales, stock, and customer dues are shown in plain terms, not ledger entries.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can customers pay in installments?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. POS Plan supports installment plans for larger purchases, with a dashboard showing what is due today, what is overdue, and a guided way to take a payment against a plan.',
       },
     },
   ],
@@ -46,38 +54,101 @@ const faqJsonLd = {
   <h1>Everything a small shop needs. Nothing it doesn't.</h1>
   <p>
     POS Plan focuses on the handful of things a small retailer actually does every day: sell,
-    restock, and keep track of who owes what. Each area below is deliberately simple — see the
-    dedicated pages for detail.
+    restock, collect what's owed, and keep track of the money. Every feature below ships in the
+    same $3/month plan — there's no higher tier hiding the parts you'd actually need.
   </p>
 
   <h2>Billing</h2>
   <p>
     Search products by name or scan a barcode, add them to the sale, and take cash, card, or a
-    partial payment on account. Built for speed during a queue at the counter.
+    partial payment on account. Built for speed during a queue at the counter — the whole flow
+    from "customer walks up" to "receipt printed" takes a handful of taps.
+  </p>
+  <p>
+    Returns are handled the same way: pull up the original sale, select what's being returned,
+    and stock and the customer's balance are adjusted automatically — no separate spreadsheet to
+    reconcile against.
   </p>
 
   <h2><a href="/inventory">Inventory &amp; stock</a></h2>
   <p>
-    Every sale updates stock automatically. Track quantity per product, get a picture of what's
-    running low, and manage stock across multiple outlets if you have more than one shop.
+    Every sale updates stock automatically, and every purchase from a supplier adds to it.
+    Track quantity per product, see what's running low before a customer asks for it, and manage
+    stock across multiple outlets if you have more than one shop, including transfers between
+    locations.
   </p>
 
   <h2><a href="/barcode">Barcode support</a></h2>
   <p>
     Scan to bill, scan to look up a price, scan to check stock — barcode support is built into
-    billing and inventory, not bolted on as an add-on.
+    billing and inventory, not bolted on as an add-on. Works with any standard USB or Bluetooth
+    scanner.
   </p>
 
   <h2><a href="/reports">Daily reports</a></h2>
   <p>
-    See today's sales, dues, and cash position without exporting anything. Reports are built for
-    a quick end-of-day check, not a finance department.
+    See today's sales, dues, and cash position without exporting anything. A "Daily Closing"
+    step locks each day's numbers, so past sales and payments can't be silently edited once a
+    day is closed. Reports are built for a quick end-of-day check, not a finance department.
   </p>
 
-  <h2>Customers &amp; dues</h2>
+  <h2>Customers, dues &amp; installments</h2>
   <p>
-    Keep a simple record of regular customers and what they owe on credit — including
-    installment plans for larger purchases sold on payments over time.
+    Keep a simple record of regular customers and what they owe on credit. For larger purchases
+    sold on payments over time, POS Plan runs a full installment plan: a schedule of due dates,
+    a dashboard of what's due today versus overdue, and a "Take Payment" flow that applies a
+    payment across unpaid installments automatically, starting with the oldest due. Shops with
+    pre-existing manual dues can bring them in as a starting balance rather than re-billing them.
+  </p>
+
+  <h2>Purchases &amp; suppliers</h2>
+  <p>
+    Record what you buy in from suppliers, and stock updates the same way it does on a sale —
+    just in the other direction. Keep a simple list of suppliers instead of tracking purchases
+    on paper or in a separate notebook.
+  </p>
+
+  <h2>Cash book</h2>
+  <p>
+    A running log of cash in and cash out — sales, payments received, and other cash movements —
+    so the till balance is something you can check, not something you have to reconstruct at
+    the end of the week.
+  </p>
+
+  <h2>Multi-outlet support</h2>
+  <p>
+    Running more than one shop? Add outlets under a single account, assign staff to a specific
+    outlet, and see combined or per-outlet numbers in reports — without paying for or juggling a
+    separate system per location.
+  </p>
+
+  <h2>Roles for your staff</h2>
+  <p>
+    Every staff member gets a role — <strong>Owner</strong>, <strong>Manager</strong>, or
+    <strong>Cashier</strong> — with access scoped to what that role should see and do. A cashier
+    can ring up sales without seeing margins or editing a closed day; a manager gets broader
+    access without full ownership controls.
+  </p>
+
+  <h2>Repair jobs</h2>
+  <p>
+    For shops that also repair what they sell — phones, electronics — track a repair job from
+    intake to handover: what came in, what's being done, and what the customer owes when it's
+    picked up.
+  </p>
+
+  <h2>Corporate sales</h2>
+  <p>
+    Selling in bulk to a business or reseller account, alongside your regular walk-in customers?
+    POS Plan keeps corporate/reseller sales distinct from everyday retail sales, without needing
+    a separate system for it.
+  </p>
+
+  <h2>Multi-tenant, built to keep shops separate</h2>
+  <p>
+    POS Plan runs many shops on shared infrastructure, but each shop's data — customers,
+    products, sales, staff — is isolated from every other shop on the platform. What you enter
+    is yours to see; nothing crosses over between accounts.
   </p>
 
   <p><a href="https://app.erpboss.com/frontend/signup">Start your free trial</a> — no email needed.</p>
