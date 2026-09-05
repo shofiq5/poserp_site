@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Page not found — POS Plan';
+const description = 'The page you\'re looking for doesn\'t exist.';
+const canonical = 'https://erpboss.com/404';
+---
+
+<Base title={title} description={description} canonical={canonical}>
+  <Nav slot="nav" />
+
+  <section class="section center-text">
+    <div class="container">
+      <span class="eyebrow">404</span>
+      <h1>This page doesn't exist</h1>
+      <p class="lede breadcrumb-lede center-mx">
+        The link may be outdated, or the page has moved. Here are some places to go instead:
+      </p>
+      <div class="not-found-links">
+        <a class="btn btn-primary" href="/">Go to homepage</a>
+        <a class="btn btn-ghost" href="/features">See features</a>
+        <a class="btn btn-ghost" href="/contact">Contact us</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Base>
+
+<style>
+  .center-text { text-align: center; }
+  .center-mx { margin-left: auto; margin-right: auto; }
+  .not-found-links {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+</style>
