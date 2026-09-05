@@ -12,38 +12,69 @@ const canonical = 'https://erpboss.com/contact';
 <Base title={title} description={description} canonical={canonical}>
   <Nav slot="nav" />
 
-  <h1>Talk to us</h1>
-  <p>
-    Have a question before you sign up, need help getting your shop set up, or already a
-    customer and stuck on something? Reach out directly — there's no support ticket queue to
-    wait in.
-  </p>
+  <section class="section-tight">
+    <div class="container center-text">
+      <span class="eyebrow">Contact</span>
+      <h1>Talk to us</h1>
+      <p class="lede breadcrumb-lede center-mx">
+        Have a question before you sign up, need help getting set up, or already a customer and
+        stuck on something? Reach out directly — there's no support ticket queue to wait in.
+      </p>
+    </div>
+  </section>
 
-  <h2>Get in touch</h2>
-  <ul>
-    <li>Email: <a href="mailto:hello@erpboss.com">hello@erpboss.com</a></li>
-  </ul>
+  <section class="section">
+    <div class="container contact-grid">
+      <div class="card contact-card">
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16v16H4zM4 4l8 8 8-8"></path>
+          </svg>
+        </div>
+        <h3>Email</h3>
+        <p><a href="mailto:hello@erpboss.com">hello@erpboss.com</a></p>
+      </div>
 
-  <h2>Before you sign up</h2>
-  <p>
-    Most questions about whether POS Plan fits your shop are answered on
-    <a href="/features">features</a> and <a href="/pricing">pricing</a> — multi-outlet support,
-    installment plans, barcode compatibility, and what happens on a missed payment are all
-    covered there. If your question is more specific to your shop, email us and we'll answer
-    directly.
-  </p>
+      <div class="card contact-card">
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path>
+          </svg>
+        </div>
+        <h3>Before you sign up</h3>
+        <p>Most questions are answered on <a href="/features">features</a> — multi-outlet support, installments, and barcode compatibility are all covered there.</p>
+      </div>
 
-  <h2>Already a customer</h2>
-  <p>
-    For account, billing, or data questions on an existing shop, email from the address linked
-    to your account where possible — it helps us find your shop faster and answer without back
-    and forth.
-  </p>
+      <div class="card contact-card">
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2M11 3a4 4 0 110 8 4 4 0 010-8z"></path>
+          </svg>
+        </div>
+        <h3>Already a customer</h3>
+        <p>For account, billing, or data questions, email from the address linked to your account where possible — it helps us find your shop faster.</p>
+      </div>
+    </div>
+  </section>
 
-  <p>
-    Prefer to just try it? <a href="https://app.erpboss.com/frontend/signup">Start your free
-    trial</a> — sign up with your mobile number, no email needed.
-  </p>
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Prefer to just try it?</h2>
+        <p>Sign up with your mobile number — no email needed.</p>
+        <a class="btn btn-primary" href="https://app.erpboss.com/frontend/signup">Start your free trial</a>
+      </div>
+    </div>
+  </section>
 
   <Footer slot="footer" />
 </Base>
+
+<style>
+  .center-text { text-align: center; }
+  .center-mx { margin-left: auto; margin-right: auto; }
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+  .contact-card { text-align: center; }
+  .contact-card p { color: var(--muted); font-size: 0.92rem; margin: 0; }
+  .contact-card .icon-badge { margin: 0 auto 1rem; }
+</style>

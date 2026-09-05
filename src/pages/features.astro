@@ -46,112 +46,144 @@ const faqJsonLd = {
     },
   ],
 };
+
+const features = [
+  {
+    title: 'Billing',
+    text: "Search by name or scan a barcode, take cash, card, or a partial payment on account. Returns pull up the original sale and adjust stock and balance automatically.",
+    icon: 'M13 2L3 14h7l-1 8 10-12h-7l1-8z',
+    href: null,
+  },
+  {
+    title: 'Inventory & stock',
+    text: 'Every sale and purchase updates stock automatically. See what\'s running low, and manage stock across multiple outlets with logged transfers.',
+    icon: 'M21 8l-9-5-9 5 9 5 9-5zM3 8v8l9 5 9-5V8M12 13v8',
+    href: '/inventory',
+  },
+  {
+    title: 'Barcode support',
+    text: 'Scan to bill, check a price, or check stock. Works with any standard USB or Bluetooth scanner — no proprietary hardware.',
+    icon: 'M4 4h4v16H4zM10 4h1v16h-1zM13 4h2v16h-2zM17 4h1v16h-1zM20 4h1v16h-1z',
+    href: '/barcode',
+  },
+  {
+    title: 'Daily reports',
+    text: 'See sales, dues, and cash position without exporting anything. Daily Closing locks each day so past numbers can\'t be silently edited.',
+    icon: 'M4 19V9M10 19V5M16 19v-7M22 19H2',
+    href: '/reports',
+  },
+  {
+    title: 'Customers, dues & installments',
+    text: 'Track what regular customers owe on credit, and run full installment plans with due/overdue dashboards and waterfall payments.',
+    icon: 'M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zM3 21c0-4 4-6 9-6s9 2 9 6',
+    href: null,
+  },
+  {
+    title: 'Purchases & suppliers',
+    text: 'Record what you buy from suppliers — stock updates the same way it does on a sale, just in reverse.',
+    icon: 'M3 3h2l2.4 12.4a2 2 0 002 1.6h8.2a2 2 0 002-1.6L21 8H6',
+    href: null,
+  },
+  {
+    title: 'Cash book',
+    text: 'A running log of cash in and out, so the till balance is something you can check, not reconstruct.',
+    icon: 'M2 7h20v10H2zM2 7l10-4 10 4M9 12a3 3 0 106 0 3 3 0 00-6 0z',
+    href: null,
+  },
+  {
+    title: 'Multi-outlet support',
+    text: 'Add outlets under one account, assign staff per location, and see combined or per-outlet reports.',
+    icon: 'M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M14 9h1M14 13h1M9 21v-4h6v4',
+    href: null,
+  },
+  {
+    title: 'Roles for your staff',
+    text: 'Owner, Manager, Cashier — access scoped to what each role should see and do.',
+    icon: 'M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2M11 3a4 4 0 110 8 4 4 0 010-8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75',
+    href: null,
+  },
+  {
+    title: 'Repair jobs',
+    text: 'Track a repair from intake to handover — what came in, what\'s being done, and what\'s owed on pickup.',
+    icon: 'M14.7 6.3a4 4 0 10-5.4 5.4L2 19v3h3l7.3-7.3a4 4 0 005.4-5.4z',
+    href: null,
+  },
+  {
+    title: 'Corporate sales',
+    text: 'Keep bulk business/reseller sales distinct from everyday retail, without a separate system.',
+    icon: 'M3 21h18M6 21V9l6-4 6 4v12M9 9h.01M15 9h.01M9 13h.01M15 13h.01',
+    href: null,
+  },
+  {
+    title: 'Multi-tenant, kept separate',
+    text: 'Every shop\'s data is isolated from every other shop on the platform — nothing crosses over.',
+    icon: 'M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z',
+    href: null,
+  },
+];
 ---
 
 <Base title={title} description={description} canonical={canonical} jsonLd={[faqJsonLd]}>
   <Nav slot="nav" />
 
-  <h1>Everything a small shop needs. Nothing it doesn't.</h1>
-  <p>
-    POS Plan focuses on the handful of things a small retailer actually does every day: sell,
-    restock, collect what's owed, and keep track of the money. Every feature below ships in the
-    same $3/month plan — there's no higher tier hiding the parts you'd actually need.
-  </p>
+  <section class="section-tight">
+    <div class="container">
+      <span class="eyebrow">Everything included</span>
+      <h1>Everything a small shop needs. Nothing it doesn't.</h1>
+      <p class="lede breadcrumb-lede">
+        POS Plan focuses on the handful of things a small retailer actually does every day: sell,
+        restock, collect what's owed, and keep track of the money. Every feature below is
+        included — there's no higher tier hiding the parts you'd actually need.
+      </p>
+    </div>
+  </section>
 
-  <h2>Billing</h2>
-  <p>
-    Search products by name or scan a barcode, add them to the sale, and take cash, card, or a
-    partial payment on account. Built for speed during a queue at the counter — the whole flow
-    from "customer walks up" to "receipt printed" takes a handful of taps.
-  </p>
-  <p>
-    Returns are handled the same way: pull up the original sale, select what's being returned,
-    and stock and the customer's balance are adjusted automatically — no separate spreadsheet to
-    reconcile against.
-  </p>
+  <section class="section section-alt">
+    <div class="container">
+      <div class="grid grid-3">
+        {features.map((f) => (
+          <div class="card feature-card">
+            <div class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d={f.icon}></path>
+              </svg>
+            </div>
+            <h3>{f.href ? <a href={f.href}>{f.title}</a> : f.title}</h3>
+            <p>{f.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-  <h2><a href="/inventory">Inventory &amp; stock</a></h2>
-  <p>
-    Every sale updates stock automatically, and every purchase from a supplier adds to it.
-    Track quantity per product, see what's running low before a customer asks for it, and manage
-    stock across multiple outlets if you have more than one shop, including transfers between
-    locations.
-  </p>
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">FAQ</span>
+      <h2>Common questions</h2>
+      <div class="faq-list">
+        {faqJsonLd.mainEntity.map((qa) => (
+          <details class="faq-item">
+            <summary>{qa.name}</summary>
+            <p>{qa.acceptedAnswer.text}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
 
-  <h2><a href="/barcode">Barcode support</a></h2>
-  <p>
-    Scan to bill, scan to look up a price, scan to check stock — barcode support is built into
-    billing and inventory, not bolted on as an add-on. Works with any standard USB or Bluetooth
-    scanner.
-  </p>
-
-  <h2><a href="/reports">Daily reports</a></h2>
-  <p>
-    See today's sales, dues, and cash position without exporting anything. A "Daily Closing"
-    step locks each day's numbers, so past sales and payments can't be silently edited once a
-    day is closed. Reports are built for a quick end-of-day check, not a finance department.
-  </p>
-
-  <h2>Customers, dues &amp; installments</h2>
-  <p>
-    Keep a simple record of regular customers and what they owe on credit. For larger purchases
-    sold on payments over time, POS Plan runs a full installment plan: a schedule of due dates,
-    a dashboard of what's due today versus overdue, and a "Take Payment" flow that applies a
-    payment across unpaid installments automatically, starting with the oldest due. Shops with
-    pre-existing manual dues can bring them in as a starting balance rather than re-billing them.
-  </p>
-
-  <h2>Purchases &amp; suppliers</h2>
-  <p>
-    Record what you buy in from suppliers, and stock updates the same way it does on a sale —
-    just in the other direction. Keep a simple list of suppliers instead of tracking purchases
-    on paper or in a separate notebook.
-  </p>
-
-  <h2>Cash book</h2>
-  <p>
-    A running log of cash in and cash out — sales, payments received, and other cash movements —
-    so the till balance is something you can check, not something you have to reconstruct at
-    the end of the week.
-  </p>
-
-  <h2>Multi-outlet support</h2>
-  <p>
-    Running more than one shop? Add outlets under a single account, assign staff to a specific
-    outlet, and see combined or per-outlet numbers in reports — without paying for or juggling a
-    separate system per location.
-  </p>
-
-  <h2>Roles for your staff</h2>
-  <p>
-    Every staff member gets a role — <strong>Owner</strong>, <strong>Manager</strong>, or
-    <strong>Cashier</strong> — with access scoped to what that role should see and do. A cashier
-    can ring up sales without seeing margins or editing a closed day; a manager gets broader
-    access without full ownership controls.
-  </p>
-
-  <h2>Repair jobs</h2>
-  <p>
-    For shops that also repair what they sell — phones, electronics — track a repair job from
-    intake to handover: what came in, what's being done, and what the customer owes when it's
-    picked up.
-  </p>
-
-  <h2>Corporate sales</h2>
-  <p>
-    Selling in bulk to a business or reseller account, alongside your regular walk-in customers?
-    POS Plan keeps corporate/reseller sales distinct from everyday retail sales, without needing
-    a separate system for it.
-  </p>
-
-  <h2>Multi-tenant, built to keep shops separate</h2>
-  <p>
-    POS Plan runs many shops on shared infrastructure, but each shop's data — customers,
-    products, sales, staff — is isolated from every other shop on the platform. What you enter
-    is yours to see; nothing crosses over between accounts.
-  </p>
-
-  <p><a href="https://app.erpboss.com/frontend/signup">Start your free trial</a> — no email needed.</p>
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Try it with your own products today</h2>
+        <p>No email needed — sign up with your mobile number.</p>
+        <a class="btn btn-primary" href="https://app.erpboss.com/frontend/signup">Start your free trial</a>
+      </div>
+    </div>
+  </section>
 
   <Footer slot="footer" />
 </Base>
+
+<style>
+  .faq-list { max-width: 44rem; }
+</style>

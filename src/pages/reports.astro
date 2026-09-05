@@ -25,7 +25,7 @@ const faqJsonLd = {
       name: 'What does "Daily Closing" do?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Daily Closing locks a date so its sales and payments can no longer be edited afterward, which keeps the day\'s numbers reliable once more than one staff member has access to the till.',
+        text: "Daily Closing locks a date so its sales and payments can no longer be edited afterward, which keeps the day's numbers reliable once more than one staff member has access to the till.",
       },
     },
     {
@@ -38,64 +38,101 @@ const faqJsonLd = {
     },
   ],
 };
+
+const points = [
+  {
+    title: 'Daily closing keeps numbers trustworthy',
+    text: 'Close the day and that date locks — past sales and payments can\'t be silently edited once more than one person handles the till.',
+    icon: 'M9 12l2 2 4-4M12 22c5.5-1.5 8-6 8-11V5l-8-3-8 3v6c0 5 2.5 9.5 8 11z',
+  },
+  {
+    title: 'Dues and installments at a glance',
+    text: 'See who owes money and what\'s due today versus overdue — a dashboard tile and sidebar badge keep it visible without a separate report.',
+    icon: 'M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zM3 21c0-4 4-6 9-6s9 2 9 6',
+  },
+  {
+    title: 'Cash book',
+    text: 'A running log of cash in and out, so the till balance is something you check against the report, not reconstruct from memory.',
+    icon: 'M2 7h20v10H2zM2 7l10-4 10 4M9 12a3 3 0 106 0 3 3 0 00-6 0z',
+  },
+  {
+    title: 'Stock & purchase reports',
+    text: 'See stock levels and recent supplier purchases alongside sales — spot what needs reordering without a separate tool.',
+    icon: 'M21 8l-9-5-9 5 9 5 9-5zM3 8v8l9 5 9-5V8M12 13v8',
+  },
+  {
+    title: 'Multi-outlet totals',
+    text: 'See combined totals across outlets, or drill into a single outlet\'s numbers — same report, either view.',
+    icon: 'M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M14 9h1M14 13h1M9 21v-4h6v4',
+  },
+  {
+    title: 'Who sees what',
+    text: 'Reports respect staff roles: an owner sees everything, a cashier\'s access stays focused on the till.',
+    icon: 'M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2M11 3a4 4 0 110 8 4 4 0 010-8z',
+  },
+];
 ---
 
 <Base title={title} description={description} canonical={canonical} jsonLd={[faqJsonLd]}>
   <Nav slot="nav" />
 
-  <h1>Know today's numbers without asking anyone</h1>
-  <p>
-    For a lot of small shop owners, "how did today go?" means flipping through a paper register
-    or texting a manager. POS Plan answers that question the moment you open it — today's sales,
-    what's still owed by customers, and the cash currently in hand.
-  </p>
+  <section class="section-tight">
+    <div class="container">
+      <span class="eyebrow">Reports</span>
+      <h1>Know today's numbers without asking anyone</h1>
+      <p class="lede breadcrumb-lede">
+        For a lot of small shop owners, "how did today go?" means flipping through a paper
+        register or texting a manager. POS Plan answers that the moment you open it.
+      </p>
+    </div>
+  </section>
 
-  <h2>Daily closing keeps the numbers trustworthy</h2>
-  <p>
-    Close the day once you're done, and that date locks — past sales and payments can't be
-    silently edited after the fact, which matters when more than one person handles the till.
-    If a mistake needs fixing on a closed day, it goes through a correction, not a quiet edit
-    that changes what the report already showed.
-  </p>
+  <section class="section section-alt">
+    <div class="container">
+      <div class="grid grid-3">
+        {points.map((p) => (
+          <div class="card feature-card">
+            <div class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d={p.icon}></path>
+              </svg>
+            </div>
+            <h3>{p.title}</h3>
+            <p>{p.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-  <h2>Dues and installments at a glance</h2>
-  <p>
-    See exactly who owes money and how much is due today versus overdue, whether it's a simple
-    running balance or a scheduled installment plan for a larger purchase. A dashboard tile and
-    sidebar badge surface how many customers are due or overdue today, so it's visible without
-    digging into a separate report.
-  </p>
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">FAQ</span>
+      <h2>Common questions</h2>
+      <div class="faq-list">
+        {faqJsonLd.mainEntity.map((qa) => (
+          <details class="faq-item">
+            <summary>{qa.name}</summary>
+            <p>{qa.acceptedAnswer.text}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
 
-  <h2>Cash book</h2>
-  <p>
-    A running log of cash movements — sales received, payments collected, other cash in or out —
-    so the till balance is something you can check against the report, instead of reconstructing
-    it from memory at the end of the week.
-  </p>
-
-  <h2>Stock and purchase reports</h2>
-  <p>
-    Alongside sales, see stock levels and recent purchases from suppliers in the same place —
-    useful for spotting what needs reordering without switching to a separate inventory tool.
-  </p>
-
-  <h2>Multi-outlet totals</h2>
-  <p>
-    Running more than one shop location? See combined totals across outlets, or drill into a
-    single outlet's numbers — same report, either view, so you're not adding up several
-    spreadsheets by hand to get one answer.
-  </p>
-
-  <h2>Who sees what</h2>
-  <p>
-    Reports respect the same staff roles as the rest of POS Plan: an owner sees everything, a
-    manager typically sees operational reports, and a cashier's access stays focused on the
-    till, not shop-wide profit and dues.
-  </p>
-
-  <p>Reports pull directly from <a href="/inventory">stock</a> and <a href="/barcode">billing</a>
-  — no manual entry, no export step. See <a href="/pricing">pricing</a> to get started.</p>
-  <p><a href="https://app.erpboss.com/frontend/signup">Start your free trial</a></p>
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>See your shop's numbers clearly</h2>
+        <p>Reports pull directly from <a href="/inventory" style="color:white;text-decoration:underline;">stock</a> and <a href="/barcode" style="color:white;text-decoration:underline;">billing</a>.</p>
+        <a class="btn btn-primary" href="https://app.erpboss.com/frontend/signup">Start your free trial</a>
+      </div>
+    </div>
+  </section>
 
   <Footer slot="footer" />
 </Base>
+
+<style>
+  .faq-list { max-width: 44rem; }
+</style>

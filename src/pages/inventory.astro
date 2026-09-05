@@ -38,62 +38,97 @@ const faqJsonLd = {
     },
   ],
 };
+
+const points = [
+  {
+    title: 'Real-time, not batch',
+    text: 'Sell an item and quantity drops immediately. Buy stock in and it\'s added immediately. No nightly sync, no manual "refresh stock" button.',
+    icon: 'M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8',
+  },
+  {
+    title: 'IMEI & serial tracking',
+    text: 'Selling phones means every unit is unique. Track by IMEI or serial number, not just a generic count — useful for warranty and repair jobs.',
+    icon: 'M7 2h10a1 1 0 011 1v18a1 1 0 01-1 1H7a1 1 0 01-1-1V3a1 1 0 011-1zM9 18h6',
+  },
+  {
+    title: 'Low-stock visibility',
+    text: 'See what\'s running low before a customer asks for it — no manual stock-take or spreadsheet export needed.',
+    icon: 'M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z',
+  },
+  {
+    title: 'Purchases feed stock in',
+    text: 'Purchases from suppliers and sales/returns use the same stock ledger — "what\'s on hand" is always a real-time answer.',
+    icon: 'M3 3h2l2.4 12.4a2 2 0 002 1.6h8.2a2 2 0 002-1.6L21 8H6',
+  },
+  {
+    title: 'Multiple outlets, one account',
+    text: 'Stock is tracked per outlet, with transfers between outlets logged the same way a sale is.',
+    icon: 'M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M14 9h1M14 13h1M9 21v-4h6v4',
+  },
+];
 ---
 
 <Base title={title} description={description} canonical={canonical} jsonLd={[faqJsonLd]}>
   <Nav slot="nav" />
 
-  <h1>Stock tracking that updates itself</h1>
-  <p>
-    The most common inventory mistake in a small shop isn't a bad process — it's no process.
-    Stock gets counted by memory, and gaps only show up when a customer asks for something
-    that's supposedly "in stock" but isn't. POS Plan closes that gap by tying stock directly to
-    every sale and every purchase, automatically, so the number on screen matches what's on the
-    shelf.
-  </p>
+  <section class="section-tight">
+    <div class="container">
+      <span class="eyebrow">Inventory</span>
+      <h1>Stock tracking that updates itself</h1>
+      <p class="lede breadcrumb-lede">
+        The most common inventory mistake in a small shop isn't a bad process — it's no process.
+        POS Plan ties stock directly to every sale and purchase, automatically, so the number on
+        screen matches what's on the shelf.
+      </p>
+    </div>
+  </section>
 
-  <h2>Stock moves with every transaction, not on a schedule</h2>
-  <p>
-    Sell an item and its quantity drops the moment the sale is completed. Buy stock in from a
-    supplier and it's added the moment that purchase is recorded. A return brings it back. There
-    is no nightly batch job or manual "sync stock" button — the count you see is the count as of
-    right now.
-  </p>
+  <section class="section section-alt">
+    <div class="container">
+      <div class="grid grid-2">
+        {points.map((p) => (
+          <div class="card feature-card">
+            <div class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d={p.icon}></path>
+              </svg>
+            </div>
+            <h3>{p.title}</h3>
+            <p>{p.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-  <h2>Built for mobile shops: IMEI &amp; serial tracking</h2>
-  <p>
-    Selling phones means every unit is unique — two units of the "same model" are not
-    interchangeable once one of them is sold. POS Plan lets you track individual items by IMEI
-    or serial number, not just a generic product count, so you always know exactly which unit
-    sold, and which specific units are still on the shelf. This matters for warranty claims and
-    for repair jobs, where a device needs to be matched to its original sale.
-  </p>
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">FAQ</span>
+      <h2>Common questions</h2>
+      <div class="faq-list">
+        {faqJsonLd.mainEntity.map((qa) => (
+          <details class="faq-item">
+            <summary>{qa.name}</summary>
+            <p>{qa.acceptedAnswer.text}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
 
-  <h2>Low-stock visibility</h2>
-  <p>
-    See what's running low before a customer asks for it and you have to say no. Instead of a
-    manual stock-take or a spreadsheet export just to find out what to reorder, the dashboard
-    surfaces low-stock items directly.
-  </p>
-
-  <h2>Purchases feed stock in, sales and returns take it back out</h2>
-  <p>
-    Recording a purchase from a supplier and completing a sale use the same stock ledger under
-    the hood — so a report of "what's on hand" is always a real-time answer, not a snapshot from
-    whenever someone last updated a spreadsheet. Returns adjust the same way, crediting stock
-    back automatically.
-  </p>
-
-  <h2>Multiple outlets, one account</h2>
-  <p>
-    Running more than one shop? Stock is tracked per outlet, with transfers between outlets
-    logged the same way a sale is — so nothing disappears in a handoff between locations, and
-    each outlet's numbers stay accurate independently even as you also see them combined.
-  </p>
-
-  <p>See how billing and stock work together on the <a href="/barcode">barcode page</a>, how
-  stock feeds into daily numbers on <a href="/reports">reports</a>, or check <a href="/pricing">pricing</a>.</p>
-  <p><a href="https://app.erpboss.com/frontend/signup">Start your free trial</a></p>
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Know your stock without counting it</h2>
+        <p>See how billing and stock work together on <a href="/barcode" style="color:white;text-decoration:underline;">barcode</a>.</p>
+        <a class="btn btn-primary" href="https://app.erpboss.com/frontend/signup">Start your free trial</a>
+      </div>
+    </div>
+  </section>
 
   <Footer slot="footer" />
 </Base>
+
+<style>
+  .faq-list { max-width: 44rem; }
+</style>

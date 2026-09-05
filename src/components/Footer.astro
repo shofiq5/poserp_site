@@ -3,31 +3,99 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="footer">
-  <div class="footer-inner">
-    <p>&copy; {year} POS Plan. All rights reserved.</p>
-    <nav class="links">
-      <a href="/features">Features</a>
-      <a href="/pricing">Pricing</a>
-      <a href="/contact">Contact</a>
-      <a href="https://app.erpboss.com/frontend/login">Log in</a>
-    </nav>
+  <div class="container footer-inner">
+    <div class="footer-cols">
+      <div class="footer-brand">
+        <a href="/" class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="4" width="18" height="16" rx="3" fill="currentColor" opacity="0.15"/>
+              <path d="M7 9h10M7 13h6M7 17h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              <circle cx="17" cy="16.5" r="2.5" fill="currentColor"/>
+            </svg>
+          </span>
+          POS Plan
+        </a>
+        <p>Simple POS software for small retailers and mobile shops. No email needed to start.</p>
+      </div>
+
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/features">Features</a></li>
+          <li><a href="/inventory">Inventory</a></li>
+          <li><a href="/barcode">Barcode billing</a></li>
+          <li><a href="/reports">Reports</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="https://app.erpboss.com/frontend/login">Log in</a></li>
+          <li><a href="https://app.erpboss.com/frontend/signup">Start free trial</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {year} POS Plan. All rights reserved.</p>
+    </div>
   </div>
 </footer>
 
 <style>
-  .footer { border-top: 1px solid var(--border); margin-top: 2rem; }
-  .footer-inner {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
-    color: var(--muted);
-    font-size: 0.85rem;
+  .footer {
+    border-top: 1px solid var(--border);
+    background: var(--bg-alt);
+    margin-top: 2rem;
   }
-  .links { display: flex; gap: 1rem; }
-  .links a { text-decoration: none; color: var(--muted); }
-  .links a:hover { color: var(--fg); }
+  .footer-inner { padding: 3rem 1.5rem 2rem; }
+  .footer-cols {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  .footer-brand .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    color: var(--fg);
+    margin-bottom: 0.75rem;
+  }
+  .footer-brand .brand-mark { color: var(--primary); display: inline-flex; }
+  .footer-brand .brand-mark svg { width: 1.8rem; height: 1.8rem; }
+  .footer-brand p { color: var(--muted); font-size: 0.9rem; max-width: 24rem; margin: 0; }
+
+  h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--fg);
+    margin: 0 0 0.9rem;
+  }
+  .footer ul { list-style: none; padding: 0; margin: 0; }
+  .footer li { margin-bottom: 0.6rem; }
+  .footer a { text-decoration: none; color: var(--muted); font-size: 0.9rem; }
+  .footer a:hover { color: var(--primary-dark); }
+
+  .footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+  .footer-bottom p { margin: 0; }
+
+  @media (max-width: 720px) {
+    .footer-cols { grid-template-columns: 1fr 1fr; }
+    .footer-brand { grid-column: 1 / -1; }
+  }
 </style>
