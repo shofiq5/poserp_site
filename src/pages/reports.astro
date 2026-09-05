@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Daily Sales Report App for Shops — POS Plan';
+const description =
+  'See today\'s sales, dues, and cash position instantly — no spreadsheet exports. POS Plan gives small shop owners a clear daily and monthly view of the business.';
+const canonical = 'https://erpboss.com/reports';
+---
+
+<Base title={title} description={description} canonical={canonical}>
+  <Nav slot="nav" />
+
+  <h1>Know today's numbers without asking anyone</h1>
+  <p>
+    For a lot of small shop owners, "how did today go?" means flipping through a paper register
+    or texting a manager. POS Plan answers that question the moment you open it — today's sales,
+    what's still owed by customers, and the cash currently in hand.
+  </p>
+
+  <h2>Daily closing</h2>
+  <p>
+    Close the day once you're done, and that date locks — past sales and payments can't be
+    silently edited after the fact, which matters when more than one person handles the till.
+  </p>
+
+  <h2>Dues and installments at a glance</h2>
+  <p>
+    See exactly who owes money and how much is due today versus overdue, whether it's a simple
+    running balance or a scheduled installment plan for a larger purchase.
+  </p>
+
+  <h2>Multi-outlet totals</h2>
+  <p>
+    Running more than one shop location? See combined totals across outlets, or drill into a
+    single outlet's numbers — same report, either view.
+  </p>
+
+  <p>Reports pull directly from <a href="/inventory">stock</a> and billing — no manual entry, no export step. See <a href="/pricing">pricing</a> to get started.</p>
+  <p><a href="https://app.erpboss.com/frontend/signup">Start your free trial</a></p>
+
+  <Footer slot="footer" />
+</Base>

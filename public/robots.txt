@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://erpboss.com/sitemap-index.xml

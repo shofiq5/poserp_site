@@ -1,0 +1,85 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Pricing — $3/month POS Software | POS Plan';
+const description =
+  'POS Plan costs $3 per month, per shop. No setup fee, no hidden charges, cancel anytime. Start with a free trial — sign up with just your mobile number.';
+const canonical = 'https://erpboss.com/pricing';
+
+const productJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'POS Plan',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  offers: {
+    '@type': 'Offer',
+    price: '3',
+    priceCurrency: 'USD',
+    billingIncrement: 'P1M',
+    url: 'https://erpboss.com/pricing',
+  },
+};
+---
+
+<Base title={title} description={description} canonical={canonical} jsonLd={[productJsonLd]}>
+  <Nav slot="nav" />
+
+  <h1>Simple pricing: $3/month per shop</h1>
+  <p>
+    One plan, one price, no tiers to compare. Every feature — billing, inventory, barcode
+    support, customer dues, and reports — is included from day one.
+  </p>
+
+  <div class="price-card">
+    <p class="amount">$3<span>/month per shop</span></p>
+    <ul>
+      <li>Unlimited sales &amp; products</li>
+      <li>Multiple outlets supported</li>
+      <li>Daily sales &amp; stock reports</li>
+      <li>Customer dues &amp; installment tracking</li>
+      <li>WhatsApp OTP signup — no email required</li>
+    </ul>
+    <a class="cta" href="https://app.erpboss.com/frontend/signup">Start your free trial</a>
+  </div>
+
+  <h2>Why so cheap?</h2>
+  <p>
+    POS Plan is built specifically for small retailers — mobile shops, pharmacies, general
+    stores — where a $30–$50/month POS system is simply not worth it. Keeping the feature set
+    focused on what a small shop actually uses is what makes $3/month possible without cutting
+    corners on the essentials.
+  </p>
+
+  <h2>Cancel anytime</h2>
+  <p>
+    There's no contract. If POS Plan isn't the right fit for your shop, you can stop at any
+    time — your data stays exportable, not locked in.
+  </p>
+
+  <Footer slot="footer" />
+</Base>
+
+<style>
+  .price-card {
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    max-width: 24rem;
+    margin: 1.5rem 0;
+  }
+  .amount { font-size: 2.5rem; font-weight: 700; margin: 0 0 1rem; }
+  .amount span { font-size: 1rem; font-weight: 400; color: var(--muted); }
+  .price-card ul { margin: 0 0 1.5rem; padding-left: 1.25rem; }
+  .cta {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    padding: 0.65rem 1.25rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+  }
+</style>

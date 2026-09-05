@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Mobile Shop Inventory Software — POS Plan';
+const description =
+  'Track stock automatically as you sell. POS Plan updates inventory on every sale, supports IMEI tracking for mobile shops, and works across multiple outlets.';
+const canonical = 'https://erpboss.com/inventory';
+---
+
+<Base title={title} description={description} canonical={canonical}>
+  <Nav slot="nav" />
+
+  <h1>Stock tracking that updates itself</h1>
+  <p>
+    The most common inventory mistake in a small shop isn't a bad process — it's no process.
+    Stock gets counted by memory, and gaps only show up when a customer asks for something
+    that's supposedly "in stock" but isn't. POS Plan closes that gap by tying stock directly to
+    every sale, automatically.
+  </p>
+
+  <h2>Built for mobile shops: IMEI &amp; serial tracking</h2>
+  <p>
+    Selling phones means every unit is unique. POS Plan lets you track individual items by IMEI
+    or serial number, not just a generic product count — so you always know exactly which unit
+    sold, and which units are still on the shelf.
+  </p>
+
+  <h2>Low-stock visibility</h2>
+  <p>
+    See what's running low before a customer asks for it. No spreadsheet exports, no manual
+    stock-take just to find out what to reorder.
+  </p>
+
+  <h2>Multiple outlets, one account</h2>
+  <p>
+    Running more than one shop? Stock is tracked per outlet, with transfers between outlets
+    logged the same way a sale is — so nothing disappears in a handoff between locations.
+  </p>
+
+  <p>See how billing and stock work together on the <a href="/barcode">barcode page</a>, or check <a href="/pricing">pricing</a>.</p>
+  <p><a href="https://app.erpboss.com/frontend/signup">Start your free trial</a></p>
+
+  <Footer slot="footer" />
+</Base>

@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Contact — POS Plan';
+const description =
+  'Questions about POS Plan for your shop? Reach out and we\'ll help you get set up — no email required to try it first.';
+const canonical = 'https://erpboss.com/contact';
+---
+
+<Base title={title} description={description} canonical={canonical}>
+  <Nav slot="nav" />
+
+  <h1>Talk to us</h1>
+  <p>
+    Have a question before you sign up, or need help getting your shop set up in POS Plan?
+    Reach out — we respond directly, no support ticket queue.
+  </p>
+
+  <ul>
+    <li>Email: <a href="mailto:hello@erpboss.com">hello@erpboss.com</a></li>
+  </ul>
+
+  <p>
+    Prefer to just try it? <a href="https://app.erpboss.com/frontend/signup">Start your free
+    trial</a> — sign up with your mobile number, no email needed.
+  </p>
+
+  <Footer slot="footer" />
+</Base>

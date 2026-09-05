@@ -1,0 +1,67 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'POS Plan — Simple POS Software for Small Shops';
+const description =
+  'POS Plan is a simple point-of-sale app built for small retailers and mobile shops. Sell, track stock, and see daily sales from your phone — $3/month, no email needed to start.';
+const canonical = 'https://erpboss.com/';
+---
+
+<Base title={title} description={description} canonical={canonical}>
+  <Nav slot="nav" />
+
+  <section class="hero">
+    <h1>POS software built for the small shop owner, not the enterprise back office</h1>
+    <p class="lede">
+      Ring up sales, track stock, and know what you sold today — from a phone, in a busy
+      mobile shop or any small retail counter. No accounting degree required.
+    </p>
+    <a class="cta" href="https://app.erpboss.com/frontend/signup">Start your free trial</a>
+    <p class="subnote">$3/month per shop. Sign up with just your mobile number.</p>
+  </section>
+
+  <section>
+    <h2>Why small shop owners pick POS Plan</h2>
+    <ul>
+      <li><strong>No email needed.</strong> Sign up and verify with a WhatsApp code sent to your phone.</li>
+      <li><strong>Works the way a shop counter works.</strong> Barcode scan, quick search, and a running total — built for speed during a queue.</li>
+      <li><strong>Know your stock without counting it.</strong> Every sale updates inventory automatically, across one or many outlets.</li>
+      <li><strong>See the day's numbers instantly.</strong> Daily sales, dues, and cash — without exporting anything to a spreadsheet.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Built for how small retail actually runs</h2>
+    <p>
+      Most POS software is built for chains with an IT department. POS Plan strips that down to
+      what a mobile shop, pharmacy, or general store actually needs day to day: fast billing,
+      accurate stock, and a clear picture of who owes what. It runs in the browser on any phone
+      or tablet — no register hardware, no installation.
+    </p>
+    <p>
+      Explore what's inside: <a href="/features">features</a>, <a href="/inventory">inventory
+      &amp; stock tracking</a>, <a href="/barcode">barcode billing</a>, and
+      <a href="/reports">daily sales reports</a>. Or go straight to <a href="/pricing">pricing</a>.
+    </p>
+  </section>
+
+  <Footer slot="footer" />
+</Base>
+
+<style>
+  .hero { text-align: center; padding: 2rem 0 3rem; }
+  .hero h1 { font-size: 2rem; margin-bottom: 0.75rem; }
+  .lede { color: var(--muted); max-width: 40rem; margin: 0 auto 1.5rem; }
+  .cta {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+  }
+  .subnote { color: var(--muted); font-size: 0.85rem; margin-top: 0.75rem; }
+</style>

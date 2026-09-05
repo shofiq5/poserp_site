@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Barcode POS Billing Software — POS Plan';
+const description =
+  'Scan to bill, scan to check price, scan to check stock. POS Plan works with any USB or Bluetooth barcode scanner — no special hardware required.';
+const canonical = 'https://erpboss.com/barcode';
+---
+
+<Base title={title} description={description} canonical={canonical}>
+  <Nav slot="nav" />
+
+  <h1>Barcode billing, without buying new hardware</h1>
+  <p>
+    A queue at the counter is not the moment to type a product name letter by letter. POS Plan
+    supports barcode scanning at every step of billing — add an item to a sale, check its price,
+    or check remaining stock, all with a single scan.
+  </p>
+
+  <h2>Works with the scanner you already have</h2>
+  <p>
+    Any standard USB or Bluetooth barcode scanner works as a keyboard-emulating input — there's
+    nothing to configure or pair beyond what the scanner itself needs. No proprietary hardware,
+    no lock-in.
+  </p>
+
+  <h2>No scanner yet? Search still works</h2>
+  <p>
+    Barcode scanning speeds things up, but it isn't required. Every product can be found by
+    name search from the same billing screen, so you can start selling on day one and add a
+    scanner later.
+  </p>
+
+  <h2>Barcodes for products you print yourself</h2>
+  <p>
+    Selling loose or repackaged goods without a manufacturer barcode? Assign your own product
+    codes and print labels, so everything — including your own stock — is scannable at the
+    counter.
+  </p>
+
+  <p>Barcode scans also drive <a href="/inventory">stock tracking</a> automatically. See <a href="/reports">daily reports</a> next.</p>
+  <p><a href="https://app.erpboss.com/frontend/signup">Start your free trial</a></p>
+
+  <Footer slot="footer" />
+</Base>
