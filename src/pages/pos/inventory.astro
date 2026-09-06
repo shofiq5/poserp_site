@@ -1,13 +1,12 @@
 ---
-import Base from '../layouts/Base.astro';
-import Nav from '../components/Nav.astro';
-import Footer from '../components/Footer.astro';
+import Base from '../../layouts/Base.astro';
+import PosNav from '../../components/PosNav.astro';
+import Footer from '../../components/Footer.astro';
 
 const title = 'Mobile Shop Inventory Software — POS Plan';
 const description =
   "Track stock automatically as you sell. POS Plan updates inventory on every sale and purchase, supports IMEI tracking for mobile shops, and works across multiple outlets.";
-const base = import.meta.env.BASE_URL;
-const canonical = `https://erpboss.com${base}/inventory/`;
+const canonical = 'https://erpboss.com/pos/inventory/';
 
 const faqJsonLd = {
   '@context': 'https://schema.org',
@@ -70,7 +69,7 @@ const points = [
 ---
 
 <Base title={title} description={description} canonical={canonical} jsonLd={[faqJsonLd]}>
-  <Nav slot="nav" />
+  <PosNav slot="nav" />
 
   <section class="section-tight">
     <div class="container">
@@ -121,7 +120,7 @@ const points = [
     <div class="container">
       <div class="cta-banner">
         <h2>Know your stock without counting it</h2>
-        <p>See how billing and stock work together on <a href={`${base}/barcode/`} style="color:white;text-decoration:underline;">barcode</a>.</p>
+        <p>See how billing and stock work together on <a href="/pos/barcode/" style="color:white;text-decoration:underline;">barcode</a>.</p>
         <a class="btn btn-primary" href="https://poserpdev.erpboss.com/signup">Start your free trial</a>
       </div>
     </div>

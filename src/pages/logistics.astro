@@ -1,0 +1,116 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'AWBix — Freight Forwarding Software with Airline EDI | ERPBoss';
+const description =
+  'AWBix runs air, sea and courier shipments in one system, with EDI connectivity to airlines so AWB data is sent electronically instead of retyped. Request a demo.';
+const canonical = 'https://erpboss.com/logistics/';
+
+const AWBIX_URL = 'https://awbix.com/';
+const DEMO_MAILTO = 'mailto:hello@awbix.com?subject=AWBIX%20demo%20request';
+
+const capabilities = [
+  {
+    title: 'Airline connectivity (EDI)',
+    text: 'Send AWB and House AWB data electronically to airlines, and receive status updates back automatically — instead of rekeying the same shipment into a portal.',
+    icon: 'M4 12h16M12 4v16M6.3 6.3l11.4 11.4M17.7 6.3L6.3 17.7',
+  },
+  {
+    title: 'EGM & IGM processing',
+    text: 'Export and import manifests generated from the same AWB data you already captured, so the manifest matches the shipment by construction.',
+    icon: 'M8 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2h-3M8 3v4h8V3M8 12h8M8 16h5',
+  },
+  {
+    title: 'Air, sea & courier jobs',
+    text: 'One system across all three modes — air freight, ocean shipments and courier consignments — rather than a separate tool and a separate spreadsheet per mode.',
+    icon: 'M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20',
+  },
+  {
+    title: 'AWB & B/L Studio',
+    text: 'Produce air waybills and bills of lading from the job record, with the details already filled in and checked before anything leaves the desk.',
+    icon: 'M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zM14 2v6h6M8 13h8M8 17h5',
+  },
+  {
+    title: 'Client hub',
+    text: 'Give customers a place to raise booking requests and follow their shipments, so status chasing stops arriving as phone calls.',
+    icon: 'M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zM3 21c0-4 4-6 9-6s9 2 9 6',
+  },
+  {
+    title: 'Quotations, billing & accounts',
+    text: 'Rates and quotes flow into the job, the job into the invoice, and the invoice into the books — one set of numbers from booking to reconciliation.',
+    icon: 'M2 7h20v10H2zM2 7l10-4 10 4M9 12a3 3 0 106 0 3 3 0 00-6 0z',
+  },
+];
+---
+
+<Base title={title} description={description} canonical={canonical}>
+  <Nav slot="nav" />
+
+  <section class="section-tight">
+    <div class="container">
+      <span class="eyebrow">AWBix · Logistics</span>
+      <h1>One system. Every shipment. Zero retyping.</h1>
+      <p class="lede breadcrumb-lede">
+        AWBix is ERPBoss's freight platform for forwarders moving cargo by air, sea and courier.
+        Its core idea is simple: shipment data should be captured once and then sent
+        electronically — to the airline, onto the manifest, into the invoice — instead of being
+        retyped at every handoff.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href={DEMO_MAILTO}>Request a demo</a>
+        <a class="btn btn-ghost" href={AWBIX_URL}>Visit awbix.com</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <span class="eyebrow">What it does</span>
+      <h2>Everything a forwarder runs on, in one platform</h2>
+      <div class="grid grid-3">
+        {capabilities.map((c) => (
+          <div class="card feature-card">
+            <div class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d={c.icon}></path>
+              </svg>
+            </div>
+            <h3>{c.title}</h3>
+            <p>{c.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Why EDI matters</span>
+      <h2>Your data should arrive before your cargo does</h2>
+      <p class="section-lede breadcrumb-lede">
+        Retyping shipment details into an airline portal is where delays and billing disputes
+        start: a digit changes, acceptance is held up, and the invoice no longer matches what
+        was flown. Electronic messaging removes the retyping step, which removes the class of
+        error that comes with it — and gets your data to the carrier ahead of the freight.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>See it against your own shipments</h2>
+        <p>AWBix is sold with a walkthrough rather than a signup form — so you can check it does what your desk actually needs.</p>
+        <a class="btn btn-primary" href={DEMO_MAILTO}>Request a demo</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Base>
+
+<style>
+  .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+</style>

@@ -1,13 +1,12 @@
 ---
-import Base from '../layouts/Base.astro';
-import Nav from '../components/Nav.astro';
-import Footer from '../components/Footer.astro';
+import Base from '../../layouts/Base.astro';
+import PosNav from '../../components/PosNav.astro';
+import Footer from '../../components/Footer.astro';
 
 const title = 'Features — POS Plan';
 const description =
   "Everything a small shop needs from a POS: fast billing, barcode scanning, stock tracking, customer dues, installments, multi-outlet support, and daily reports.";
-const base = import.meta.env.BASE_URL;
-const canonical = `https://erpboss.com${base}/features/`;
+const canonical = 'https://erpboss.com/pos/features/';
 
 const faqJsonLd = {
   '@context': 'https://schema.org',
@@ -59,19 +58,19 @@ const features = [
     title: 'Inventory & stock',
     text: 'Every sale and purchase updates stock automatically. See what\'s running low, and manage stock across multiple outlets with logged transfers.',
     icon: 'M21 8l-9-5-9 5 9 5 9-5zM3 8v8l9 5 9-5V8M12 13v8',
-    href: `${base}/inventory/`,
+    href: '/pos/inventory/',
   },
   {
     title: 'Barcode support',
     text: 'Scan to bill, check a price, or check stock. Works with any standard USB or Bluetooth scanner — no proprietary hardware.',
     icon: 'M4 4h4v16H4zM10 4h1v16h-1zM13 4h2v16h-2zM17 4h1v16h-1zM20 4h1v16h-1z',
-    href: `${base}/barcode/`,
+    href: '/pos/barcode/',
   },
   {
     title: 'Daily reports',
     text: 'See sales, dues, and cash position without exporting anything. Daily Closing locks each day so past numbers can\'t be silently edited.',
     icon: 'M4 19V9M10 19V5M16 19v-7M22 19H2',
-    href: `${base}/reports/`,
+    href: '/pos/reports/',
   },
   {
     title: 'Customers, dues & installments',
@@ -125,7 +124,7 @@ const features = [
 ---
 
 <Base title={title} description={description} canonical={canonical} jsonLd={[faqJsonLd]}>
-  <Nav slot="nav" />
+  <PosNav slot="nav" />
 
   <section class="section-tight">
     <div class="container">

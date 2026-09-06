@@ -1,0 +1,249 @@
+---
+import Base from '../../layouts/Base.astro';
+import PosNav from '../../components/PosNav.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = 'POS Plan — Simple POS Software for Small Shops';
+const description =
+  'POS Plan is a simple point-of-sale app built for small retailers and mobile shops. Sell, track stock, and see daily sales from your phone — no email needed to start.';
+const canonical = 'https://erpboss.com/pos/';
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What kind of shops is POS Plan built for?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'POS Plan started with mobile phone shops in mind, but it works for any small retail counter — general stores, pharmacies, electronics shops, clothing shops — anywhere one or a few people ring up sales and track stock.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do I need my own hardware to use POS Plan?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. POS Plan runs in a web browser on any phone, tablet, or computer you already have. A barcode scanner and receipt printer help but are optional.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How long does it take to get started?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sign up with your mobile number and a WhatsApp code — no email, no paperwork. Add your first products and you can start billing the same day.',
+      },
+    },
+  ],
+};
+
+const benefits = [
+  {
+    title: 'No email needed',
+    text: 'Sign up and verify with a WhatsApp code sent straight to your phone.',
+    icon: 'M2 5.5C2 4.12 3.12 3 4.5 3h15A2.5 2.5 0 0122 5.5v13a2.5 2.5 0 01-2.5 2.5h-15A2.5 2.5 0 012 18.5v-13z M2 6l10 7 10-7',
+  },
+  {
+    title: 'Built for the counter',
+    text: 'Barcode scan, quick search, running total — made for speed during a queue.',
+    icon: 'M13 2L3 14h7l-1 8 10-12h-7l1-8z',
+  },
+  {
+    title: 'Stock tracks itself',
+    text: 'Every sale updates inventory automatically, across one or many outlets.',
+    icon: 'M21 8l-9-5-9 5 9 5 9-5zM3 8v8l9 5 9-5V8M12 13v8',
+  },
+  {
+    title: "Today's numbers, instantly",
+    text: 'Daily sales, dues, and cash — no exporting to a spreadsheet.',
+    icon: 'M4 19V9M10 19V5M16 19v-7M22 19H2',
+  },
+];
+
+const steps = [
+  { n: '01', title: 'A customer walks up', text: 'Scan the item or search it by name — price and running total show instantly.' },
+  { n: '02', title: 'Take the payment', text: 'Cash, card, or a partial payment on account for a regular customer buying on credit.' },
+  { n: '03', title: 'Stock updates itself', text: "The item's quantity drops the moment the sale completes — no separate step." },
+  { n: '04', title: 'Close the day', text: 'Tap Daily Closing to lock the numbers, then see stock, dues and totals the next morning.' },
+];
+---
+
+<Base title={title} description={description} canonical={canonical} jsonLd={[faqJsonLd]}>
+  <PosNav slot="nav" />
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">POS for small retailers</span>
+        <h1>POS software built for the small shop owner, not the enterprise back office</h1>
+        <p class="lede breadcrumb-lede">
+          Ring up sales, track stock, and know what you sold today — from a phone, in a busy
+          mobile shop or any small retail counter. No accounting degree required.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://poserpdev.erpboss.com/signup">Start your free trial</a>
+          <a class="btn btn-ghost" href="/pos/features/">Explore features</a>
+        </div>
+        <p class="subnote">No credit card required. Sign up with just your mobile number.</p>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 360 420" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="phoneGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#2563eb"/>
+              <stop offset="1" stop-color="#1e3a8a"/>
+            </linearGradient>
+          </defs>
+          <rect x="30" y="10" width="300" height="400" rx="28" fill="#0b1220"/>
+          <rect x="42" y="30" width="276" height="360" rx="16" fill="#ffffff"/>
+          <rect x="42" y="30" width="276" height="60" rx="16" fill="url(#phoneGrad)"/>
+          <text x="62" y="66" font-family="Lexend, sans-serif" font-size="18" fill="#ffffff" font-weight="700">Today's Sale</text>
+          <g font-family="Inter, sans-serif" font-size="13" fill="#0f172a">
+            <rect x="62" y="108" width="236" height="1" fill="#e2e8f0"/>
+            <text x="62" y="134">Phone case</text>
+            <text x="270" y="134" text-anchor="end">$8.00</text>
+            <rect x="62" y="146" width="236" height="1" fill="#e2e8f0"/>
+            <text x="62" y="172">Screen protector</text>
+            <text x="270" y="172" text-anchor="end">$3.50</text>
+            <rect x="62" y="184" width="236" height="1" fill="#e2e8f0"/>
+            <text x="62" y="210">Charging cable</text>
+            <text x="270" y="210" text-anchor="end">$5.00</text>
+            <rect x="62" y="222" width="236" height="1" fill="#e2e8f0"/>
+          </g>
+          <rect x="42" y="330" width="276" height="60" rx="0" fill="#eff6ff"/>
+          <text x="62" y="366" font-family="Lexend, sans-serif" font-size="15" font-weight="700" fill="#1e3a8a">Total</text>
+          <text x="270" y="366" text-anchor="end" font-family="Lexend, sans-serif" font-size="15" font-weight="700" fill="#1e3a8a">$16.50</text>
+          <circle cx="180" cy="405" r="4" fill="#94a3b8"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="grid grid-2 benefits-grid">
+        {benefits.map((b) => (
+          <div class="card feature-card">
+            <div class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d={b.icon}></path>
+              </svg>
+            </div>
+            <h3>{b.title}</h3>
+            <p>{b.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">How it works</span>
+      <h2>What a day looks like with POS Plan</h2>
+      <div class="grid grid-3 steps-grid">
+        {steps.map((s) => (
+          <div class="step">
+            <div class="step-n">{s.n}</div>
+            <h3>{s.title}</h3>
+            <p>{s.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container roles-grid">
+      <div>
+        <span class="eyebrow">Your whole team</span>
+        <h2>Who's behind the counter, and what they can do</h2>
+        <p class="section-lede">
+          A shop is rarely run by one person alone. Every staff member gets a role, so access
+          matches responsibility — no shared login, no guessing who did what.
+        </p>
+      </div>
+      <div class="grid grid-3 role-cards">
+        <div class="card">
+          <h3>Owner</h3>
+          <p>Full visibility and control — profit, dues, staff, and settings.</p>
+        </div>
+        <div class="card">
+          <h3>Manager</h3>
+          <p>Runs day-to-day operations without full ownership controls.</p>
+        </div>
+        <div class="card">
+          <h3>Cashier</h3>
+          <p>Rings up sales at the counter, without seeing margins or editing closed days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">FAQ</span>
+      <h2>Common questions</h2>
+      <div class="faq-list">
+        {faqJsonLd.mainEntity.map((qa) => (
+          <details class="faq-item">
+            <summary>{qa.name}</summary>
+            <p>{qa.acceptedAnswer.text}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Ready to run your shop from your phone?</h2>
+        <p>Explore <a href="/pos/features/" style="color:white;text-decoration:underline;">features</a>, or jump straight in.</p>
+        <a class="btn btn-primary" href="https://poserpdev.erpboss.com/signup">Start your free trial</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Base>
+
+<style>
+  .hero { padding: 3.5rem 0 1rem; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+  .subnote { color: var(--muted); font-size: 0.85rem; margin: 0; }
+  .hero-art svg { width: 100%; height: auto; filter: drop-shadow(0 30px 60px rgba(15, 23, 42, 0.18)); }
+
+  .step { position: relative; padding-top: 0.25rem; }
+  .step-n {
+    font-family: 'Lexend', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--primary-light);
+    -webkit-text-stroke: 1.5px var(--primary);
+    margin-bottom: 0.5rem;
+  }
+  .step h3 { margin-bottom: 0.3rem; }
+  .step p { color: var(--muted); font-size: 0.95rem; }
+
+  .roles-grid { display: grid; gap: 2rem; }
+  .role-cards .card { text-align: center; }
+  .role-cards h3 { color: var(--primary-dark); }
+  .role-cards p { color: var(--muted); font-size: 0.9rem; margin: 0; }
+
+  .faq-list { max-width: 44rem; }
+
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-art { max-width: 20rem; margin: 0 auto; }
+  }
+</style>

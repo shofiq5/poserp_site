@@ -1,13 +1,12 @@
 ---
-import Base from '../layouts/Base.astro';
-import Nav from '../components/Nav.astro';
-import Footer from '../components/Footer.astro';
+import Base from '../../layouts/Base.astro';
+import PosNav from '../../components/PosNav.astro';
+import Footer from '../../components/Footer.astro';
 
 const title = 'Daily Sales Report App for Shops — POS Plan';
 const description =
   "See today's sales, dues, and cash position instantly — no spreadsheet exports. POS Plan gives small shop owners a clear daily and monthly view of the business.";
-const base = import.meta.env.BASE_URL;
-const canonical = `https://erpboss.com${base}/reports/`;
+const canonical = 'https://erpboss.com/pos/reports/';
 
 const faqJsonLd = {
   '@context': 'https://schema.org',
@@ -75,7 +74,7 @@ const points = [
 ---
 
 <Base title={title} description={description} canonical={canonical} jsonLd={[faqJsonLd]}>
-  <Nav slot="nav" />
+  <PosNav slot="nav" />
 
   <section class="section-tight">
     <div class="container">
@@ -125,7 +124,7 @@ const points = [
     <div class="container">
       <div class="cta-banner">
         <h2>See your shop's numbers clearly</h2>
-        <p>Reports pull directly from <a href={`${base}/inventory/`} style="color:white;text-decoration:underline;">stock</a> and <a href={`${base}/barcode/`} style="color:white;text-decoration:underline;">billing</a>.</p>
+        <p>Reports pull directly from <a href="/pos/inventory/" style="color:white;text-decoration:underline;">stock</a> and <a href="/pos/barcode/" style="color:white;text-decoration:underline;">billing</a>.</p>
         <a class="btn btn-primary" href="https://poserpdev.erpboss.com/signup">Start your free trial</a>
       </div>
     </div>

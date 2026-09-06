@@ -3,200 +3,121 @@ import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 
-const title = 'POS Plan — Simple POS Software for Small Shops';
+const title = 'ERPBoss — Business Software for Retail and Logistics';
 const description =
-  'POS Plan is a simple point-of-sale app built for small retailers and mobile shops. Sell, track stock, and see daily sales from your phone — no email needed to start.';
-// Marketing site lives at erpboss.com/pos/* (apex stays a separate site) -
-// BASE_URL is "/pos" (no trailing slash) from the `base` option in astro.config.mjs.
-const base = import.meta.env.BASE_URL;
-const canonical = `https://erpboss.com${base}/`;
+  'ERPBoss builds two products: POS Plan, a simple point-of-sale for small retailers, and AWBix, a freight system for air, sea and courier operations with airline EDI connectivity.';
+const canonical = 'https://erpboss.com/';
 
-const faqJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'What kind of shops is POS Plan built for?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'POS Plan started with mobile phone shops in mind, but it works for any small retail counter — general stores, pharmacies, electronics shops, clothing shops — anywhere one or a few people ring up sales and track stock.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Do I need my own hardware to use POS Plan?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'No. POS Plan runs in a web browser on any phone, tablet, or computer you already have. A barcode scanner and receipt printer help but are optional.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How long does it take to get started?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Sign up with your mobile number and a WhatsApp code — no email, no paperwork. Add your first products and you can start billing the same day.',
-      },
-    },
-  ],
-};
-
-const benefits = [
+const products = [
   {
-    title: 'No email needed',
-    text: 'Sign up and verify with a WhatsApp code sent straight to your phone.',
-    icon: 'M2 5.5C2 4.12 3.12 3 4.5 3h15A2.5 2.5 0 0122 5.5v13a2.5 2.5 0 01-2.5 2.5h-15A2.5 2.5 0 012 18.5v-13z M2 6l10 7 10-7',
+    name: 'POS Plan',
+    tag: 'Retail',
+    href: '/pos/',
+    blurb:
+      'A simple point-of-sale for small shops. Ring up sales, track stock, and see the day\'s numbers from a phone — no accounting degree required.',
+    points: ['Barcode billing & fast search', 'Stock that updates on every sale', 'Customer dues & installments', 'Daily sales, cash and stock reports'],
+    cta: 'Explore POS Plan',
+    icon: 'M3 6h18l-1.5 12H4.5L3 6zM8 10a4 4 0 008 0',
   },
   {
-    title: 'Built for the counter',
-    text: 'Barcode scan, quick search, running total — made for speed during a queue.',
-    icon: 'M13 2L3 14h7l-1 8 10-12h-7l1-8z',
+    name: 'AWBix',
+    tag: 'Logistics',
+    href: '/logistics/',
+    blurb:
+      'A freight platform for forwarders running air, sea and courier shipments — with EDI connectivity to airlines so shipment data stops being retyped.',
+    points: ['Airline EDI: AWB & House AWB data', 'EGM & IGM processing', 'Air, ocean and courier jobs', 'Quotations, billing and accounts'],
+    cta: 'Explore AWBix',
+    icon: 'M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20M4 7h16M4 17h16',
   },
-  {
-    title: 'Stock tracks itself',
-    text: 'Every sale updates inventory automatically, across one or many outlets.',
-    icon: 'M21 8l-9-5-9 5 9 5 9-5zM3 8v8l9 5 9-5V8M12 13v8',
-  },
-  {
-    title: "Today's numbers, instantly",
-    text: 'Daily sales, dues, and cash — no exporting to a spreadsheet.',
-    icon: 'M4 19V9M10 19V5M16 19v-7M22 19H2',
-  },
-];
-
-const steps = [
-  { n: '01', title: 'A customer walks up', text: 'Scan the item or search it by name — price and running total show instantly.' },
-  { n: '02', title: 'Take the payment', text: 'Cash, card, or a partial payment on account for a regular customer buying on credit.' },
-  { n: '03', title: 'Stock updates itself', text: "The item's quantity drops the moment the sale completes — no separate step." },
-  { n: '04', title: 'Close the day', text: 'Tap Daily Closing to lock the numbers, then see stock, dues and totals the next morning.' },
 ];
 ---
 
-<Base title={title} description={description} canonical={canonical} jsonLd={[faqJsonLd]}>
+<Base title={title} description={description} canonical={canonical}>
   <Nav slot="nav" />
 
   <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <span class="eyebrow">POS for small retailers</span>
-        <h1>POS software built for the small shop owner, not the enterprise back office</h1>
-        <p class="lede breadcrumb-lede">
-          Ring up sales, track stock, and know what you sold today — from a phone, in a busy
-          mobile shop or any small retail counter. No accounting degree required.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="https://poserpdev.erpboss.com/signup">Start your free trial</a>
-          <a class="btn btn-ghost" href={`${base}/features/`}>Explore features</a>
-        </div>
-        <p class="subnote">No credit card required. Sign up with just your mobile number.</p>
-      </div>
-
-      <div class="hero-art" aria-hidden="true">
-        <svg viewBox="0 0 360 420" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="phoneGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#2563eb"/>
-              <stop offset="1" stop-color="#1e3a8a"/>
-            </linearGradient>
-          </defs>
-          <rect x="30" y="10" width="300" height="400" rx="28" fill="#0b1220"/>
-          <rect x="42" y="30" width="276" height="360" rx="16" fill="#ffffff"/>
-          <rect x="42" y="30" width="276" height="60" rx="16" fill="url(#phoneGrad)"/>
-          <text x="62" y="66" font-family="Lexend, sans-serif" font-size="18" fill="#ffffff" font-weight="700">Today's Sale</text>
-          <g font-family="Inter, sans-serif" font-size="13" fill="#0f172a">
-            <rect x="62" y="108" width="236" height="1" fill="#e2e8f0"/>
-            <text x="62" y="134">Phone case</text>
-            <text x="270" y="134" text-anchor="end">$8.00</text>
-            <rect x="62" y="146" width="236" height="1" fill="#e2e8f0"/>
-            <text x="62" y="172">Screen protector</text>
-            <text x="270" y="172" text-anchor="end">$3.50</text>
-            <rect x="62" y="184" width="236" height="1" fill="#e2e8f0"/>
-            <text x="62" y="210">Charging cable</text>
-            <text x="270" y="210" text-anchor="end">$5.00</text>
-            <rect x="62" y="222" width="236" height="1" fill="#e2e8f0"/>
-          </g>
-          <rect x="42" y="330" width="276" height="60" rx="0" fill="#eff6ff"/>
-          <text x="62" y="366" font-family="Lexend, sans-serif" font-size="15" font-weight="700" fill="#1e3a8a">Total</text>
-          <text x="270" y="366" text-anchor="end" font-family="Lexend, sans-serif" font-size="15" font-weight="700" fill="#1e3a8a">$16.50</text>
-          <circle cx="180" cy="405" r="4" fill="#94a3b8"/>
-        </svg>
-      </div>
+    <div class="container">
+      <span class="eyebrow">Two products, one company</span>
+      <h1>Software for the people who actually run the operation</h1>
+      <p class="lede">
+        ERPBoss builds working software for two very different desks — the retail counter and
+        the freight office. Both are built on the same idea: the person doing the job should be
+        able to run the system without a consultant.
+      </p>
     </div>
   </section>
 
-  <section class="section section-alt">
+  <section class="section-tight">
     <div class="container">
-      <div class="grid grid-2 benefits-grid">
-        {benefits.map((b) => (
-          <div class="card feature-card">
-            <div class="icon-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d={b.icon}></path>
-              </svg>
+      <div class="product-grid">
+        {products.map((p) => (
+          <article class="card product-card">
+            <div class="product-head">
+              <div class="icon-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d={p.icon}></path>
+                </svg>
+              </div>
+              <span class="product-tag">{p.tag}</span>
             </div>
-            <h3>{b.title}</h3>
-            <p>{b.text}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <span class="eyebrow">How it works</span>
-      <h2>What a day looks like with POS Plan</h2>
-      <div class="grid grid-3 steps-grid">
-        {steps.map((s) => (
-          <div class="step">
-            <div class="step-n">{s.n}</div>
-            <h3>{s.title}</h3>
-            <p>{s.text}</p>
-          </div>
+            <h2>{p.name}</h2>
+            <p class="product-blurb">{p.blurb}</p>
+            <ul class="product-points">
+              {p.points.map((pt) => (
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6L9 17l-5-5"></path>
+                  </svg>
+                  {pt}
+                </li>
+              ))}
+            </ul>
+            <a class="btn btn-primary" href={p.href}>{p.cta}</a>
+          </article>
         ))}
       </div>
     </div>
   </section>
 
   <section class="section section-alt">
-    <div class="container roles-grid">
-      <div>
-        <span class="eyebrow">Your whole team</span>
-        <h2>Who's behind the counter, and what they can do</h2>
-        <p class="section-lede">
-          A shop is rarely run by one person alone. Every staff member gets a role, so access
-          matches responsibility — no shared login, no guessing who did what.
-        </p>
-      </div>
-      <div class="grid grid-3 role-cards">
-        <div class="card">
-          <h3>Owner</h3>
-          <p>Full visibility and control — profit, dues, staff, and settings.</p>
-        </div>
-        <div class="card">
-          <h3>Manager</h3>
-          <p>Runs day-to-day operations without full ownership controls.</p>
-        </div>
-        <div class="card">
-          <h3>Cashier</h3>
-          <p>Rings up sales at the counter, without seeing margins or editing closed days.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
     <div class="container">
-      <span class="eyebrow">FAQ</span>
-      <h2>Common questions</h2>
-      <div class="faq-list">
-        {faqJsonLd.mainEntity.map((qa) => (
-          <details class="faq-item">
-            <summary>{qa.name}</summary>
-            <p>{qa.acceptedAnswer.text}</p>
-          </details>
-        ))}
+      <span class="eyebrow">Why both</span>
+      <h2>A shop counter and a freight desk have the same problem</h2>
+      <p class="section-lede breadcrumb-lede">
+        Both are run by small teams under time pressure, and both are usually served either by
+        software built for enterprises they'll never resemble, or by a spreadsheet. We build for
+        the gap in between: systems that hold real operational detail without needing a
+        dedicated administrator to keep them running.
+      </p>
+
+      <div class="grid grid-3">
+        <div class="card feature-card">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"></path>
+            </svg>
+          </div>
+          <h3>Built to be used, not configured</h3>
+          <p>Sensible defaults out of the box. You should be working in it the day you sign up, not scoping an implementation.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"></path>
+            </svg>
+          </div>
+          <h3>Your data stays yours</h3>
+          <p>Every account's data is isolated, exportable, and never held hostage to keep you paying for access to it.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2M11 3a4 4 0 110 8 4 4 0 010-8z"></path>
+            </svg>
+          </div>
+          <h3>Roles, not logins</h3>
+          <p>Owners, managers and staff each see what they should. No shared passwords, no guessing who changed what.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -204,9 +125,9 @@ const steps = [
   <section class="section">
     <div class="container">
       <div class="cta-banner">
-        <h2>Ready to run your shop from your phone?</h2>
-        <p>Explore <a href={`${base}/features/`} style="color:white;text-decoration:underline;">features</a>, or jump straight in.</p>
-        <a class="btn btn-primary" href="https://poserpdev.erpboss.com/signup">Start your free trial</a>
+        <h2>Not sure which one fits?</h2>
+        <p>Tell us what you're running and we'll point you at the right product — or tell you if neither is a fit.</p>
+        <a class="btn btn-primary" href="/contact/">Talk to us</a>
       </div>
     </div>
   </section>
@@ -215,38 +136,48 @@ const steps = [
 </Base>
 
 <style>
-  .hero { padding: 3.5rem 0 1rem; }
-  .hero-grid {
+  .hero { padding: 3.5rem 0 1.5rem; }
+  .hero .lede { max-width: 44rem; font-size: 1.05rem; }
+
+  .product-grid {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .product-card { display: flex; flex-direction: column; }
+  .product-head {
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
   }
-  .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
-  .subnote { color: var(--muted); font-size: 0.85rem; margin: 0; }
-  .hero-art svg { width: 100%; height: auto; filter: drop-shadow(0 30px 60px rgba(15, 23, 42, 0.18)); }
-
-  .step { position: relative; padding-top: 0.25rem; }
-  .step-n {
-    font-family: 'Lexend', sans-serif;
-    font-size: 1.75rem;
-    font-weight: 800;
-    color: var(--primary-light);
-    -webkit-text-stroke: 1.5px var(--primary);
-    margin-bottom: 0.5rem;
+  .product-head .icon-badge { margin-bottom: 0.75rem; }
+  .product-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--primary-dark);
+    background: var(--primary-light);
+    padding: 0.3rem 0.65rem;
+    border-radius: 999px;
   }
-  .step h3 { margin-bottom: 0.3rem; }
-  .step p { color: var(--muted); font-size: 0.95rem; }
-
-  .roles-grid { display: grid; gap: 2rem; }
-  .role-cards .card { text-align: center; }
-  .role-cards h3 { color: var(--primary-dark); }
-  .role-cards p { color: var(--muted); font-size: 0.9rem; margin: 0; }
-
-  .faq-list { max-width: 44rem; }
-
-  @media (max-width: 860px) {
-    .hero-grid { grid-template-columns: 1fr; }
-    .hero-art { max-width: 20rem; margin: 0 auto; }
+  .product-card h2 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .product-blurb { color: var(--muted); font-size: 0.95rem; }
+  .product-points { list-style: none; padding: 0; margin: 0 0 1.5rem; flex: 1; }
+  .product-points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    font-size: 0.92rem;
+    margin-bottom: 0.55rem;
   }
+  .product-points svg {
+    width: 1rem;
+    height: 1rem;
+    color: var(--primary);
+    flex-shrink: 0;
+    margin-top: 0.3rem;
+  }
+  .product-card .btn { align-self: flex-start; }
 </style>

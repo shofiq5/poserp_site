@@ -1,50 +1,57 @@
 ---
 const year = new Date().getFullYear();
-
-// Marketing site lives at erpboss.com/pos/* (apex stays a separate site) -
-// BASE_URL is "/pos" (no trailing slash) from the `base` option in astro.config.mjs.
-const base = import.meta.env.BASE_URL;
 ---
 
 <footer class="footer">
   <div class="container footer-inner">
     <div class="footer-cols">
       <div class="footer-brand">
-        <a href={`${base}/`} class="brand">
+        <a href="/" class="brand">
           <span class="brand-mark" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="3" y="4" width="18" height="16" rx="3" fill="currentColor" opacity="0.15"/>
-              <path d="M7 9h10M7 13h6M7 17h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-              <circle cx="17" cy="16.5" r="2.5" fill="currentColor"/>
+              <rect x="3" y="3" width="8" height="8" rx="2" fill="currentColor"/>
+              <rect x="13" y="3" width="8" height="8" rx="2" fill="currentColor" opacity="0.45"/>
+              <rect x="3" y="13" width="8" height="8" rx="2" fill="currentColor" opacity="0.45"/>
+              <rect x="13" y="13" width="8" height="8" rx="2" fill="currentColor"/>
             </svg>
           </span>
-          POS Plan
+          ERPBoss
         </a>
-        <p>Simple POS software for small retailers and mobile shops. No email needed to start.</p>
+        <p>Business software for the operators who run it themselves — retail counters and freight desks.</p>
       </div>
 
       <div>
-        <h4>Product</h4>
+        <h4>POS Plan</h4>
         <ul>
-          <li><a href={`${base}/features/`}>Features</a></li>
-          <li><a href={`${base}/inventory/`}>Inventory</a></li>
-          <li><a href={`${base}/barcode/`}>Barcode billing</a></li>
-          <li><a href={`${base}/reports/`}>Reports</a></li>
+          <li><a href="/pos/">Overview</a></li>
+          <li><a href="/pos/features/">Features</a></li>
+          <li><a href="/pos/inventory/">Inventory</a></li>
+          <li><a href="/pos/barcode/">Barcode billing</a></li>
+          <li><a href="/pos/reports/">Reports</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>AWBix Logistics</h4>
+        <ul>
+          <li><a href="/logistics/">Overview</a></li>
+          <li><a href="https://awbix.com/">awbix.com</a></li>
+          <li><a href="https://awbix.com/#connectivity">Airline connectivity</a></li>
         </ul>
       </div>
 
       <div>
         <h4>Company</h4>
         <ul>
-          <li><a href={`${base}/contact/`}>Contact</a></li>
-          <li><a href="https://poserpdev.erpboss.com/login">Log in</a></li>
-          <li><a href="https://poserpdev.erpboss.com/signup">Start free trial</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="https://poserpdev.erpboss.com/login">POS log in</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; {year} POS Plan. All rights reserved.</p>
+      <p>&copy; {year} ERPBoss. All rights reserved.</p>
     </div>
   </div>
 </footer>
@@ -58,7 +65,7 @@ const base = import.meta.env.BASE_URL;
   .footer-inner { padding: 3rem 1.5rem 2rem; }
   .footer-cols {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
     gap: 2rem;
     margin-bottom: 2.5rem;
   }
@@ -74,8 +81,8 @@ const base = import.meta.env.BASE_URL;
     margin-bottom: 0.75rem;
   }
   .footer-brand .brand-mark { color: var(--primary); display: inline-flex; }
-  .footer-brand .brand-mark svg { width: 1.8rem; height: 1.8rem; }
-  .footer-brand p { color: var(--muted); font-size: 0.9rem; max-width: 24rem; margin: 0; }
+  .footer-brand .brand-mark svg { width: 1.5rem; height: 1.5rem; }
+  .footer-brand p { color: var(--muted); font-size: 0.9rem; max-width: 22rem; margin: 0; }
 
   h4 {
     font-family: 'Inter', sans-serif;
@@ -98,7 +105,7 @@ const base = import.meta.env.BASE_URL;
   }
   .footer-bottom p { margin: 0; }
 
-  @media (max-width: 720px) {
+  @media (max-width: 860px) {
     .footer-cols { grid-template-columns: 1fr 1fr; }
     .footer-brand { grid-column: 1 / -1; }
   }

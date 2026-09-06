@@ -1,0 +1,80 @@
+---
+import Base from '../../layouts/Base.astro';
+import PosNav from '../../components/PosNav.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = 'Contact — POS Plan';
+const description =
+  "Questions about POS Plan for your shop? Reach out and we'll help you get set up — no email required to try it first.";
+const canonical = 'https://erpboss.com/pos/contact/';
+---
+
+<Base title={title} description={description} canonical={canonical}>
+  <PosNav slot="nav" />
+
+  <section class="section-tight">
+    <div class="container center-text">
+      <span class="eyebrow">Contact</span>
+      <h1>Talk to us</h1>
+      <p class="lede breadcrumb-lede center-mx">
+        Have a question before you sign up, need help getting set up, or already a customer and
+        stuck on something? Reach out directly — there's no support ticket queue to wait in.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container contact-grid">
+      <div class="card contact-card">
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16v16H4zM4 4l8 8 8-8"></path>
+          </svg>
+        </div>
+        <h3>Email</h3>
+        <p><a href="mailto:hello@erpboss.com">hello@erpboss.com</a></p>
+      </div>
+
+      <div class="card contact-card">
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path>
+          </svg>
+        </div>
+        <h3>Before you sign up</h3>
+        <p>Most questions are answered on <a href="/pos/features/">features</a> — multi-outlet support, installments, and barcode compatibility are all covered there.</p>
+      </div>
+
+      <div class="card contact-card">
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2M11 3a4 4 0 110 8 4 4 0 010-8z"></path>
+          </svg>
+        </div>
+        <h3>Already a customer</h3>
+        <p>For account, billing, or data questions, email from the address linked to your account where possible — it helps us find your shop faster.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Prefer to just try it?</h2>
+        <p>Sign up with your mobile number — no email needed.</p>
+        <a class="btn btn-primary" href="https://poserpdev.erpboss.com/signup">Start your free trial</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Base>
+
+<style>
+  .center-text { text-align: center; }
+  .center-mx { margin-left: auto; margin-right: auto; }
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+  .contact-card { text-align: center; }
+  .contact-card p { color: var(--muted); font-size: 0.92rem; margin: 0; }
+  .contact-card .icon-badge { margin: 0 auto 1rem; }
+</style>
