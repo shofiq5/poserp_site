@@ -1,0 +1,120 @@
+---
+import Base from '../layouts/Base.astro';
+import ErpNav from './ErpNav.astro';
+import Footer from './Footer.astro';
+import { modules } from '../data/erp.js';
+
+const { mod } = Astro.props;
+const canonical = `https://erpboss.com/erp/${mod.slug}/`;
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: mod.faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const others = modules.filter((m) => m.slug !== mod.slug).slice(0, 3);
+---
+
+<Base
+  title={mod.title}
+  description={mod.description}
+  canonical={canonical}
+  theme="erp"
+  jsonLd={[faqJsonLd]}
+>
+  <ErpNav slot="nav" />
+
+  <section class="section-tight">
+    <div class="container">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/erp/">ERP Boss</a> <span aria-hidden="true">/</span> <span>{mod.name}</span>
+      </nav>
+      <span class="eyebrow" data-reveal>{mod.name}</span>
+      <h1 data-reveal>{mod.tagline}</h1>
+      <p class="lede lede-wide" data-reveal>{mod.lede}</p>
+      <div class="btn-row" style="margin-top: var(--sp-5)" data-reveal>
+        <a class="btn btn-primary" href="/contact/">Request a demo</a>
+        <a class="btn btn-ghost" href="/erp/">All ERP modules</a>
+      </div>
+    </div>
+  </section>
+
+  <slot name="visual" />
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2 data-reveal>What you get</h2>
+      <div class="grid grid-3" style="margin-top: var(--sp-6)">
+        {mod.features.map((f) => (
+          <div class="card card-hover feature-card" data-reveal>
+            <div class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d={f.i}></path>
+              </svg>
+            </div>
+            <h3>{f.t}</h3>
+            <p>{f.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow" data-reveal>FAQ</span>
+      <h2 data-reveal>Common questions</h2>
+      <div class="faq-list" style="margin-top: var(--sp-5)" data-reveal>
+        {mod.faqs.map((f) => (
+          <details class="faq-item">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2 data-reveal>Explore the rest of the system</h2>
+      <div class="grid grid-3" style="margin-top: var(--sp-5)">
+        {others.map((m) => (
+          <a class="card card-hover next-card" href={`/erp/${m.slug}/`} data-reveal>
+            <h3>{m.name}</h3>
+            <p>{m.tagline}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner" data-reveal>
+        <h2>See it against your own numbers</h2>
+        <p>ERP Boss is deployed for your company, so a demo runs on a setup that matches how you actually work.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="/contact/">Request a demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Base>
+
+<style>
+  .crumbs { font-size: var(--step--1); color: var(--muted); margin-bottom: var(--sp-4); }
+  .crumbs a { color: var(--accent-strong); text-decoration: none; }
+  .crumbs a:hover { text-decoration: underline; }
+  .crumbs span { margin-inline: 0.35rem; }
+  .next-card { text-decoration: none; display: block; }
+  .next-card h3 { margin-bottom: var(--sp-2); color: var(--accent-strong); }
+  .next-card p { color: var(--muted); font-size: var(--step--1); }
+</style>

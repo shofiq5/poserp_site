@@ -1,0 +1,12 @@
+---
+import ErpModule from '../../components/ErpModule.astro';
+import AccountsMock from '../../components/AccountsMock.astro';
+import { bySlug } from '../../data/erp.js';
+---
+<ErpModule mod={bySlug['accounting']}>
+  <section class="section-tight" slot="visual">
+    <div class="container" data-reveal>
+      <AccountsMock />
+    </div>
+  </section>
+</ErpModule>

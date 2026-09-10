@@ -3,31 +3,70 @@ import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 
-const title = 'ERPBoss — Business Software for Retail and Logistics';
+const title = 'ERPBoss — ERP, POS and Logistics Software for Growing Businesses';
 const description =
-  'ERPBoss builds two products: POS Plan, a simple point-of-sale for small retailers, and AWBix, a freight system for air, sea and courier operations with airline EDI connectivity.';
+  'ERPBoss builds three systems for SMEs: a full ERP, a point-of-sale for retail counters, and CargoXY for air, sea and courier freight. Pick the one that fits your operation.';
 const canonical = 'https://erpboss.com/';
 
 const products = [
   {
-    name: 'POS Plan',
-    tag: 'Retail',
-    href: '/pos/',
+    name: 'ERP Boss',
+    tag: 'ERP',
+    href: '/erp/',
+    theme: 'erp',
+    line: 'Run the whole business on one ledger',
     blurb:
-      'A simple point-of-sale for small shops. Ring up sales, track stock, and see the day\'s numbers from a phone — no accounting degree required.',
-    points: ['Barcode billing & fast search', 'Stock that updates on every sale', 'Customer dues & installments', 'Daily sales, cash and stock reports'],
-    cta: 'Explore POS Plan',
+      'Accounting, inventory, manufacturing, sales, purchasing, HR and projects in a single system — deployed for your company, not shared with anyone else.',
+    points: ['Double-entry accounting, multi-currency', 'Stock, warehouses and valuation', 'Manufacturing, CRM, HR and projects'],
+    cta: 'Explore ERP Boss',
+    icon: 'M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5M9 11h1M14 11h1',
+  },
+  {
+    name: 'POSERP',
+    tag: 'Point of sale',
+    href: '/pos/',
+    theme: 'pos',
+    line: 'The counter, handled',
+    blurb:
+      'Ring up sales, track stock and see the day’s numbers from a phone. Built for shops that have no IT department and no time for one.',
+    points: ['Barcode billing and fast search', 'Stock that updates on every sale', 'Customer dues and installments'],
+    cta: 'Explore POSERP',
     icon: 'M3 6h18l-1.5 12H4.5L3 6zM8 10a4 4 0 008 0',
   },
   {
-    name: 'AWBix',
+    name: 'CargoXY',
     tag: 'Logistics',
     href: '/logistics/',
+    theme: 'cargo',
+    line: 'Every shipment, no retyping',
     blurb:
-      'A freight platform for forwarders running air, sea and courier shipments — with EDI connectivity to airlines so shipment data stops being retyped.',
-    points: ['Airline EDI: AWB & House AWB data', 'EGM & IGM processing', 'Air, ocean and courier jobs', 'Quotations, billing and accounts'],
-    cta: 'Explore AWBix',
+      'Air, sea and courier freight in one platform, with EDI connectivity to airlines so shipment data is transmitted rather than rekeyed at every handoff.',
+    points: ['Airline EDI: AWB and House AWB data', 'EGM & IGM processing', 'Quotations, billing and accounts'],
+    cta: 'Explore CargoXY',
     icon: 'M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20M4 7h16M4 17h16',
+  },
+];
+
+const principles = [
+  {
+    title: 'Built to be used, not configured',
+    text: 'Sensible defaults on day one. You should be working in it the week you start, not scoping an implementation.',
+    icon: 'M13 2L3 14h7l-1 8 10-12h-7l1-8z',
+  },
+  {
+    title: 'Your data stays yours',
+    text: 'Isolated per account, exportable on request, and never held hostage to keep you paying for access to it.',
+    icon: 'M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z',
+  },
+  {
+    title: 'Roles, not shared logins',
+    text: 'Owners, managers and staff each see what they should. No shared passwords, no guessing who changed what.',
+    icon: 'M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2M11 3a4 4 0 110 8 4 4 0 010-8z',
+  },
+  {
+    title: 'One platform underneath',
+    text: 'All three share the same foundations for accounts, permissions and reporting — which is why a small team can maintain them properly.',
+    icon: 'M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z',
   },
 ];
 ---
@@ -37,12 +76,12 @@ const products = [
 
   <section class="hero">
     <div class="container">
-      <span class="eyebrow">Two products, one company</span>
-      <h1>Software for the people who actually run the operation</h1>
-      <p class="lede">
-        ERPBoss builds working software for two very different desks — the retail counter and
-        the freight office. Both are built on the same idea: the person doing the job should be
-        able to run the system without a consultant.
+      <span class="eyebrow" data-reveal>Three products, one company</span>
+      <h1 data-reveal>Software for the people who actually run the operation</h1>
+      <p class="lede lede-wide" data-reveal>
+        A factory floor, a shop counter and a freight desk look nothing alike — but they share a
+        problem. The software built for them is either made for enterprises they will never
+        resemble, or it is a spreadsheet. We build for the gap in between.
       </p>
     </div>
   </section>
@@ -51,24 +90,25 @@ const products = [
     <div class="container">
       <div class="product-grid">
         {products.map((p) => (
-          <article class="card product-card">
+          <article class="card card-hover product-card" data-theme={p.theme} data-reveal>
             <div class="product-head">
               <div class="icon-badge">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
                   <path d={p.icon}></path>
                 </svg>
               </div>
-              <span class="product-tag">{p.tag}</span>
+              <span class="tag">{p.tag}</span>
             </div>
             <h2>{p.name}</h2>
+            <p class="product-line">{p.line}</p>
             <p class="product-blurb">{p.blurb}</p>
-            <ul class="product-points">
+            <ul class="checklist product-points">
               {p.points.map((pt) => (
                 <li>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M20 6L9 17l-5-5"></path>
                   </svg>
-                  {pt}
+                  <span>{pt}</span>
                 </li>
               ))}
             </ul>
@@ -81,53 +121,36 @@ const products = [
 
   <section class="section section-alt">
     <div class="container">
-      <span class="eyebrow">Why both</span>
-      <h2>A shop counter and a freight desk have the same problem</h2>
-      <p class="section-lede breadcrumb-lede">
-        Both are run by small teams under time pressure, and both are usually served either by
-        software built for enterprises they'll never resemble, or by a spreadsheet. We build for
-        the gap in between: systems that hold real operational detail without needing a
-        dedicated administrator to keep them running.
+      <span class="eyebrow" data-reveal>How we build</span>
+      <h2 data-reveal>The same four commitments across all three</h2>
+      <p class="section-lede" data-reveal>
+        Different industries, identical discipline. These are the rules we hold each product to.
       </p>
-
-      <div class="grid grid-3">
-        <div class="card card-hover feature-card">
-          <div class="icon-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"></path>
-            </svg>
+      <div class="grid grid-2" style="margin-top: var(--sp-6)">
+        {principles.map((p) => (
+          <div class="card card-hover feature-card" data-reveal>
+            <div class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d={p.icon}></path>
+              </svg>
+            </div>
+            <h3>{p.title}</h3>
+            <p>{p.text}</p>
           </div>
-          <h3>Built to be used, not configured</h3>
-          <p>Sensible defaults out of the box. You should be working in it the day you sign up, not scoping an implementation.</p>
-        </div>
-        <div class="card card-hover feature-card">
-          <div class="icon-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"></path>
-            </svg>
-          </div>
-          <h3>Your data stays yours</h3>
-          <p>Every account's data is isolated, exportable, and never held hostage to keep you paying for access to it.</p>
-        </div>
-        <div class="card card-hover feature-card">
-          <div class="icon-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2M11 3a4 4 0 110 8 4 4 0 010-8z"></path>
-            </svg>
-          </div>
-          <h3>Roles, not logins</h3>
-          <p>Owners, managers and staff each see what they should. No shared passwords, no guessing who changed what.</p>
-        </div>
+        ))}
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <div class="cta-banner">
+      <div class="cta-banner" data-reveal>
         <h2>Not sure which one fits?</h2>
-        <p>Tell us what you're running and we'll point you at the right product — or tell you if neither is a fit.</p>
-        <a class="btn btn-primary" href="/contact/">Talk to us</a>
+        <p>Tell us what you run and we will point you at the right product — or tell you plainly if none of them is a fit.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="/contact/">Talk to us</a>
+          <a class="btn btn-ghost" href="/about/">About ERPBoss</a>
+        </div>
       </div>
     </div>
   </section>
@@ -136,48 +159,24 @@ const products = [
 </Base>
 
 <style>
-  .hero { padding: 3.5rem 0 1.5rem; }
-  .hero .lede { max-width: 44rem; font-size: 1.05rem; }
+  .hero { padding-block: var(--sp-8) var(--sp-6); }
+  .hero h1 { max-width: 20ch; margin-bottom: var(--sp-5); }
 
   .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
+    gap: var(--sp-5);
   }
   .product-card { display: flex; flex-direction: column; }
   .product-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
+    display: flex; align-items: flex-start; justify-content: space-between; gap: var(--sp-4);
   }
-  .product-head .icon-badge { margin-bottom: 0.75rem; }
-  .product-tag {
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--accent-strong);
-    background: var(--accent-tint);
-    padding: 0.3rem 0.65rem;
-    border-radius: 999px;
+  .product-card h2 { font-size: var(--step-2); margin-bottom: var(--sp-1); }
+  .product-line {
+    color: var(--accent-strong); font-weight: 600; font-size: var(--step--1);
+    margin-bottom: var(--sp-3);
   }
-  .product-card h2 { font-size: 1.5rem; margin-bottom: 0.5rem; }
-  .product-blurb { color: var(--muted); font-size: 0.95rem; }
-  .product-points { list-style: none; padding: 0; margin: 0 0 1.5rem; flex: 1; }
-  .product-points li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.55rem;
-    font-size: 0.92rem;
-    margin-bottom: 0.55rem;
-  }
-  .product-points svg {
-    width: 1rem;
-    height: 1rem;
-    color: var(--accent);
-    flex-shrink: 0;
-    margin-top: 0.3rem;
-  }
+  .product-blurb { color: var(--muted); font-size: var(--step--1); }
+  .product-points { margin: var(--sp-4) 0 var(--sp-5); flex: 1; }
   .product-card .btn { align-self: flex-start; }
 </style>

@@ -1,0 +1,76 @@
+---
+/* Stylized recreation of the Chart of Accounts screen — theme-aware so it
+   sits correctly in light and dark. Replace with a real screenshot in a
+   .device frame once PNGs land in /public/screenshots/. */
+const rows = [
+  { code: '1000', name: 'Assets',              type: 'ASSET',     amt: '1,125,771.50', depth: 0, group: true },
+  { code: '1100', name: 'Current Assets',      type: 'ASSET',     amt: '1,125,771.50', depth: 1, group: true },
+  { code: '1500', name: 'Non-current Assets',  type: 'ASSET',     amt: '0.00',         depth: 1, group: true },
+  { code: '2000', name: 'Liabilities',         type: 'LIABILITY', amt: '0.00',         depth: 0, group: true },
+  { code: '3000', name: 'Equity',              type: 'EQUITY',    amt: '0.00',         depth: 0, group: true },
+  { code: '3300', name: 'Opening Balance Equity', type: 'EQUITY', amt: '0.00',         depth: 1, group: false },
+  { code: '4000', name: 'Income',              type: 'INCOME',    amt: '-1,125,771.50', depth: 0, group: true },
+  { code: '4100', name: 'Sales Revenue',       type: 'INCOME',    amt: '-1,125,771.50', depth: 1, group: true },
+  { code: '5000', name: 'Expenses',            type: 'EXPENSE',   amt: '0.00',         depth: 0, group: true },
+  { code: '5800', name: 'Foreign Exchange Gain / Loss', type: 'EXPENSE', amt: '0.00',  depth: 1, group: false },
+];
+---
+<div class="device" aria-label="Chart of accounts screen">
+  <div class="device-bar"><span class="device-dot"></span><span class="device-dot"></span><span class="device-dot"></span></div>
+  <div class="coa">
+    <div class="coa-head">
+      <div>
+        <strong>Chart of Accounts</strong>
+        <p>Ledger account tree — group accounts hold structure, leaf accounts hold postings.</p>
+      </div>
+    </div>
+    <div class="coa-chips">
+      {['All','Asset','Liability','Equity','Income','Expense'].map((c,i) => (
+        <span class={i === 0 ? 'chip chip-on' : 'chip'}>{c}</span>
+      ))}
+    </div>
+    <ul class="coa-rows">
+      {rows.map((r) => (
+        <li style={`--d:${r.depth}`}>
+          <span class="coa-ico">{r.group ? '▸' : '·'}</span>
+          <span class="coa-code">{r.code}</span>
+          <span class="coa-name">{r.name}</span>
+          <span class="coa-amt">BDT {r.amt}</span>
+          <span class="coa-type">{r.type}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
+
+<style>
+  .coa { padding: var(--sp-5); background: var(--bg-alt); font-size: 0.78rem; }
+  .coa-head strong { font-family: var(--font-display); font-size: var(--step-1); }
+  .coa-head p { color: var(--muted); font-size: 0.75rem; margin-top: 0.15rem; }
+  .coa-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: var(--sp-4) 0; }
+  .chip {
+    padding: 0.2rem 0.6rem; border-radius: 999px;
+    background: var(--surface); border: 1px solid var(--border); color: var(--muted);
+    font-size: 0.7rem;
+  }
+  .chip-on { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .coa-rows {
+    list-style: none; padding: var(--sp-2); margin: 0;
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  }
+  .coa-rows li {
+    display: grid;
+    grid-template-columns: 1rem 2.6rem 1fr auto auto;
+    align-items: center; gap: 0.5rem;
+    padding: 0.3rem 0.5rem 0.3rem calc(0.5rem + var(--d) * 1rem);
+    margin: 0;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .coa-rows li:last-child { border-bottom: 0; }
+  .coa-ico  { color: var(--muted); }
+  .coa-code { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 0.7rem; }
+  .coa-name { font-weight: 600; color: var(--fg); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .coa-amt  { font-variant-numeric: tabular-nums; color: var(--fg-soft); font-size: 0.72rem; white-space: nowrap; }
+  .coa-type { color: var(--muted); font-size: 0.6rem; letter-spacing: 0.06em; }
+  @media (max-width: 560px) { .coa-amt, .coa-type { display: none; } }
+</style>
