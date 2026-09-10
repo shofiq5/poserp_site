@@ -1,0 +1,250 @@
+/* Shared components. Class names are stable API — pages depend on them. */
+
+/* ── Eyebrow ─────────────────────────────────────────────────── */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+  background: var(--accent-tint);
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  margin-bottom: var(--sp-4);
+}
+
+/* ── Buttons — 44px min target ───────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  min-height: 44px;
+  padding: 0.7rem 1.35rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font: inherit;
+  font-size: var(--step--1);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--dur-1) var(--ease),
+              box-shadow var(--dur-2) var(--ease),
+              background var(--dur-1) var(--ease),
+              border-color var(--dur-1) var(--ease);
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: var(--accent-on);
+  box-shadow: var(--shadow-accent);
+}
+.btn-primary:hover { box-shadow: 0 24px 50px -20px color-mix(in srgb, var(--accent) 70%, transparent); }
+
+.btn-ghost {
+  background: var(--surface);
+  color: var(--fg);
+  border-color: var(--border);
+}
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent-strong); }
+
+.btn-quiet { background: transparent; color: var(--accent-strong); padding-inline: 0.4rem; }
+.btn-quiet:hover { color: var(--accent-deep); }
+.btn-block { width: 100%; }
+
+.btn-row { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+.center .btn-row { justify-content: center; }
+
+/* ── Card ────────────────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--sp-5);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--dur-2) var(--ease),
+              transform var(--dur-2) var(--ease),
+              border-color var(--dur-2) var(--ease);
+}
+.card-hover:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent) 32%, var(--border));
+}
+
+.icon-badge {
+  width: 2.75rem; height: 2.75rem;
+  display: grid; place-items: center;
+  flex-shrink: 0;
+  border-radius: 0.8rem;
+  background: var(--accent-tint);
+  color: var(--accent-strong);
+  margin-bottom: var(--sp-4);
+}
+.icon-badge svg { width: 1.35rem; height: 1.35rem; }
+
+.feature-card h3 { margin-bottom: var(--sp-2); }
+.feature-card p  { color: var(--muted); font-size: var(--step--1); }
+
+/* ── Stat band ───────────────────────────────────────────────── */
+.stat-band {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: var(--sp-5);
+  padding: var(--sp-6);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+.stat { text-align: center; }
+.stat-value {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--accent-strong);
+  line-height: 1.1;
+}
+.stat-label { font-size: var(--step--1); color: var(--muted); margin-top: var(--sp-1); }
+
+/* ── Checklist ───────────────────────────────────────────────── */
+.checklist { list-style: none; padding: 0; }
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  font-size: var(--step--1);
+}
+.checklist svg {
+  width: 1.05rem; height: 1.05rem;
+  flex-shrink: 0;
+  margin-top: 0.3em;
+  color: var(--accent);
+}
+
+/* ── FAQ ─────────────────────────────────────────────────────── */
+.faq-list { max-width: 46rem; }
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  margin-bottom: var(--sp-3);
+  padding-inline: var(--sp-5);
+  transition: border-color var(--dur-2) var(--ease);
+}
+.faq-item[open] { border-color: color-mix(in srgb, var(--accent) 40%, var(--border)); }
+.faq-item summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding-block: var(--sp-4);
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '';
+  width: 0.6rem; height: 0.6rem;
+  flex-shrink: 0;
+  border-right: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  transform: rotate(45deg);
+  transition: transform var(--dur-2) var(--ease);
+}
+.faq-item[open] summary::after { transform: rotate(-135deg); }
+.faq-item > p { padding-bottom: var(--sp-4); color: var(--muted); }
+
+/* ── CTA banner ──────────────────────────────────────────────── */
+.cta-banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  padding: var(--sp-8) var(--sp-6);
+  text-align: center;
+  color: #fff;
+  background:
+    radial-gradient(120% 140% at 12% 0%, color-mix(in srgb, var(--accent) 78%, transparent) 0%, transparent 55%),
+    linear-gradient(135deg, var(--accent-deep), var(--accent-strong));
+}
+.cta-banner h2 { color: #fff; }
+.cta-banner p  { color: rgb(255 255 255 / 0.86); max-width: 52ch; margin-inline: auto; }
+.cta-banner .btn-row { justify-content: center; margin-top: var(--sp-5); }
+.cta-banner .btn-primary {
+  background: #fff;
+  color: var(--accent-deep);
+  box-shadow: 0 12px 30px -12px rgb(0 0 0 / 0.45);
+}
+.cta-banner .btn-ghost {
+  background: transparent;
+  color: #fff;
+  border-color: rgb(255 255 255 / 0.5);
+}
+.cta-banner .btn-ghost:hover { border-color: #fff; color: #fff; }
+.cta-banner a:not([class]) { color: #fff; }
+
+/* ── Device frame — for real product screenshots ─────────────── */
+.device {
+  position: relative;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+.device-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0.85rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.device-dot { width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--border); }
+.device-body { display: block; width: 100%; }
+.device-phone { max-width: 20rem; border-radius: var(--radius-xl); }
+
+/* ── Pricing ─────────────────────────────────────────────────── */
+.price-card { display: flex; flex-direction: column; }
+.price-value {
+  font-family: var(--font-display);
+  font-size: var(--step-4);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.price-value span { font-family: var(--font-body); font-size: var(--step--1); font-weight: 400; color: var(--muted); }
+.price-card .checklist { flex: 1; margin-block: var(--sp-5); }
+
+/* ── Misc ────────────────────────────────────────────────────── */
+.tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+  background: var(--accent-tint);
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+}
+.divider { height: 1px; background: var(--border-soft); border: 0; }
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  z-index: 100;
+}
+.skip-link:focus { left: var(--sp-5); }

@@ -1,12 +1,18 @@
 ---
+import '../styles/tokens.css';
+import '../styles/base.css';
+import '../styles/components.css';
+
 export interface Props {
   title: string;
   description: string;
-  canonical: string; // full URL, e.g. "https://erpboss.com/features"
+  canonical: string;
+  /** Accent theme: 'erp' | 'pos' | 'cargo'. Defaults to the company blue. */
+  theme?: 'erp' | 'pos' | 'cargo';
   jsonLd?: Record<string, unknown>[];
 }
 
-const { title, description, canonical, jsonLd = [] } = Astro.props;
+const { title, description, canonical, theme = 'pos', jsonLd = [] } = Astro.props;
 
 const orgJsonLd = {
   '@context': 'https://schema.org',
@@ -24,7 +30,7 @@ const orgJsonLd = {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme={theme}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -33,6 +39,7 @@ const orgJsonLd = {
     <link rel="canonical" href={canonical} />
 
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ERPBoss" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
@@ -47,7 +54,7 @@ const orgJsonLd = {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lexend:wght@600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@600;700;800&display=swap"
     />
 
     <script type="application/ld+json" set:html={JSON.stringify(orgJsonLd)} />
@@ -56,203 +63,34 @@ const orgJsonLd = {
     ))}
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <slot name="nav" />
-    <main>
+    <main id="main">
       <slot />
     </main>
     <slot name="footer" />
+
+    <script>
+      // Reveal on scroll. Anything marked [data-reveal] is already visible if
+      // JS never runs or the user prefers reduced motion — progressive, not required.
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const targets = document.querySelectorAll('[data-reveal]');
+      if (reduce || !('IntersectionObserver' in window)) {
+        targets.forEach((el) => el.classList.add('is-visible'));
+      } else {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
+        );
+        targets.forEach((el) => io.observe(el));
+      }
+    </script>
   </body>
 </html>
-
-<style is:global>
-  :root {
-    color-scheme: light;
-
-    /* Brand */
-    --primary: #2563eb;
-    --primary-dark: #1d4ed8;
-    --primary-darker: #1e3a8a;
-    --primary-light: #eff6ff;
-    --primary-contrast: #ffffff;
-
-    /* Neutrals */
-    --bg: #ffffff;
-    --bg-alt: #f8fafc;
-    --bg-dark: #0b1220;
-    --fg: #0f172a;
-    --muted: #55617a;
-    --border: #e2e8f0;
-
-    /* Effects */
-    --radius-sm: 0.5rem;
-    --radius: 0.875rem;
-    --radius-lg: 1.25rem;
-    --shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 8px 24px -12px rgba(15, 23, 42, 0.12);
-    --shadow-lg: 0 20px 45px -20px rgba(37, 99, 235, 0.35);
-    --container: 1120px;
-  }
-
-  * { box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--fg);
-    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  main { display: block; }
-
-  a { color: inherit; }
-
-  h1, h2, h3 {
-    font-family: 'Lexend', 'Inter', system-ui, sans-serif;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    margin: 0 0 0.75rem;
-  }
-
-  h1 { font-size: clamp(2rem, 1.5rem + 2vw, 3rem); }
-  h2 { font-size: clamp(1.4rem, 1.2rem + 1vw, 1.9rem); }
-  h3 { font-size: 1.15rem; }
-
-  p { margin: 0 0 1rem; color: var(--fg); }
-  p.lede, p.section-lede { color: var(--muted); }
-
-  ul { padding-left: 1.25rem; }
-  li { margin-bottom: 0.4rem; }
-
-  .container {
-    max-width: var(--container);
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
-
-  .section { padding: 3.5rem 0; }
-  .section-tight { padding: 2rem 0; }
-  .section-alt { background: var(--bg-alt); }
-
-  .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--primary-dark);
-    background: var(--primary-light);
-    padding: 0.35rem 0.75rem;
-    border-radius: 999px;
-    margin-bottom: 1rem;
-  }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    font-weight: 600;
-    font-size: 0.95rem;
-    text-decoration: none;
-    padding: 0.7rem 1.4rem;
-    border-radius: var(--radius-sm);
-    border: 1px solid transparent;
-    cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-  }
-  .btn:hover { transform: translateY(-1px); }
-
-  .btn-primary {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: var(--primary-contrast);
-    box-shadow: var(--shadow-lg);
-  }
-  .btn-primary:hover { box-shadow: 0 24px 50px -18px rgba(37, 99, 235, 0.5); }
-
-  .btn-ghost {
-    background: var(--bg);
-    color: var(--fg);
-    border-color: var(--border);
-  }
-  .btn-ghost:hover { border-color: var(--primary); color: var(--primary-dark); }
-
-  .btn-block { width: 100%; }
-
-  .card {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.75rem;
-    box-shadow: var(--shadow);
-  }
-
-  .grid { display: grid; gap: 1.5rem; }
-  .grid-2 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-  .grid-3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-
-  .icon-badge {
-    width: 2.75rem;
-    height: 2.75rem;
-    border-radius: 0.75rem;
-    background: var(--primary-light);
-    color: var(--primary-dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    flex-shrink: 0;
-  }
-  .icon-badge svg { width: 1.4rem; height: 1.4rem; }
-
-  .feature-card h3 { margin-bottom: 0.4rem; }
-  .feature-card p { color: var(--muted); margin-bottom: 0; font-size: 0.95rem; }
-
-  .cta-banner {
-    background: linear-gradient(135deg, var(--primary-darker), var(--primary));
-    color: white;
-    border-radius: var(--radius-lg);
-    padding: 3rem 2rem;
-    text-align: center;
-  }
-  .cta-banner h2 { color: white; }
-  .cta-banner p { color: rgba(255, 255, 255, 0.85); }
-  .cta-banner .btn-primary {
-    background: white;
-    color: var(--primary-dark);
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
-  }
-
-  .faq-item {
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    padding: 0.25rem 1.25rem;
-    margin-bottom: 0.75rem;
-    background: var(--bg);
-  }
-  .faq-item summary {
-    cursor: pointer;
-    font-weight: 600;
-    padding: 1rem 0;
-    list-style: none;
-  }
-  .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-item summary::after {
-    content: '+';
-    float: right;
-    color: var(--primary);
-    font-size: 1.2rem;
-  }
-  .faq-item[open] summary::after { content: '−'; }
-  .faq-item p { padding-bottom: 1rem; color: var(--muted); }
-
-  .breadcrumb-lede { max-width: 42rem; }
-
-  @media (max-width: 720px) {
-    .section { padding: 2.25rem 0; }
-  }
-</style>

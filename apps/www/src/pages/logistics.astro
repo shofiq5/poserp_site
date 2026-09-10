@@ -45,7 +45,7 @@ const capabilities = [
 ];
 ---
 
-<Base title={title} description={description} canonical={canonical}>
+<Base title={title} description={description} canonical={canonical} theme="cargo">
   <Nav slot="nav" />
 
   <section class="section-tight">
@@ -71,7 +71,7 @@ const capabilities = [
       <h2>Everything a forwarder runs on, in one platform</h2>
       <div class="grid grid-3">
         {capabilities.map((c) => (
-          <div class="card feature-card">
+          <div class="card card-hover feature-card">
             <div class="icon-badge">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
                 <path d={c.icon}></path>
