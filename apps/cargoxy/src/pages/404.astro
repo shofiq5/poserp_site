@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Page not found — CargoXY';
+const description = "The page you're looking for doesn't exist.";
+const canonical = 'https://cargoxy.com/404';
+---
+<Base title={title} description={description} canonical={canonical}>
+  <Nav slot="nav" />
+
+  <section class="section center">
+    <div class="container">
+      <span class="eyebrow">404</span>
+      <h1>This page doesn't exist</h1>
+      <p class="lede">The link may be outdated, or the page has moved. Here is where to go instead:</p>
+      <div class="btn-row" style="margin-top: var(--sp-5)">
+        <a class="btn btn-primary" href="/">CargoXY home</a>
+        <a class="btn btn-ghost" href="/air-cargo-edi/">Airline EDI</a>
+        <a class="btn btn-ghost" href="/platform/">Platform</a>
+        <a class="btn btn-ghost" href="/contact/">Request a demo</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Base>
