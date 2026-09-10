@@ -1,0 +1,89 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from './Nav.astro';
+import Footer from './Footer.astro';
+import { pages } from '../data/pages.js';
+
+const { page } = Astro.props;
+const canonical = `https://cargoxy.com/${page.slug}/`;
+const others = pages.filter((p) => p.slug !== page.slug);
+---
+<Base title={page.title} description={page.description} canonical={canonical} jsonLd={[{
+  '@context': 'https://schema.org', '@type': 'FAQPage',
+  mainEntity: page.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}]}>
+  <Nav slot="nav" />
+
+  <section class="section-tight">
+    <div class="container">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">CargoXY</a> <span aria-hidden="true">/</span> <span>{page.nav}</span></nav>
+      <span class="eyebrow" data-reveal>{page.eyebrow}</span>
+      <h1 data-reveal>{page.h1}</h1>
+      <p class="lede lede-wide" data-reveal>{page.lede}</p>
+      <div class="btn-row" style="margin-top: var(--sp-5)" data-reveal>
+        <a class="btn btn-primary" href="/contact/">Request a demo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2 data-reveal>What it does</h2>
+      <div class="grid grid-3" style="margin-top: var(--sp-6)">
+        {page.features.map((f) => (
+          <div class="card card-hover feature-card" data-reveal>
+            <div class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d={f.i}></path></svg>
+            </div>
+            <h3>{f.t}</h3>
+            <p>{f.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow" data-reveal>FAQ</span>
+      <h2 data-reveal>Common questions</h2>
+      <div class="faq-list" style="margin-top: var(--sp-5)" data-reveal>
+        {page.faqs.map((f) => (<details class="faq-item"><summary>{f.q}</summary><p>{f.a}</p></details>))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2 data-reveal>Elsewhere in CargoXY</h2>
+      <div class="grid grid-3" style="margin-top: var(--sp-5)">
+        {others.map((p) => (
+          <a class="card card-hover next-card" href={`/${p.slug}/`} data-reveal>
+            <h3>{p.nav}</h3><p>{p.h1}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner" data-reveal>
+        <h2>See it against your own shipments</h2>
+        <p>Twenty minutes on your routes and your paperwork beats a week of poking at a trial account.</p>
+        <div class="btn-row"><a class="btn btn-primary" href="/contact/">Request a demo</a></div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Base>
+
+<style>
+  .crumbs { font-size: var(--step--1); color: var(--muted); margin-bottom: var(--sp-4); }
+  .crumbs a { color: var(--accent-strong); text-decoration: none; }
+  .crumbs span { margin-inline: 0.35rem; }
+  .next-card { text-decoration: none; display: block; }
+  .next-card h3 { margin-bottom: var(--sp-2); color: var(--accent-strong); }
+  .next-card p { color: var(--muted); font-size: var(--step--1); }
+</style>

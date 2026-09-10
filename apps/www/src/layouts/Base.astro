@@ -1,18 +1,9 @@
 ---
-import '../styles/tokens.css';
-import '../styles/base.css';
-import '../styles/components.css';
+/* erpboss.com wrapper around the shared shell — injects the company's
+   Organization data so individual pages don't have to. */
+import UiBase from '@erpboss/ui/Base.astro';
 
-export interface Props {
-  title: string;
-  description: string;
-  canonical: string;
-  /** Accent theme: 'erp' | 'pos' | 'cargo'. Defaults to the company blue. */
-  theme?: 'erp' | 'pos' | 'cargo';
-  jsonLd?: Record<string, unknown>[];
-}
-
-const { title, description, canonical, theme = 'pos', jsonLd = [] } = Astro.props;
+const { title, description, canonical, theme, jsonLd = [] } = Astro.props;
 
 const orgJsonLd = {
   '@context': 'https://schema.org',
@@ -28,69 +19,15 @@ const orgJsonLd = {
   },
 };
 ---
-
-<!doctype html>
-<html lang="en" data-theme={theme}>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="ERPBoss" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
-
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@600;700;800&display=swap"
-    />
-
-    <script type="application/ld+json" set:html={JSON.stringify(orgJsonLd)} />
-    {jsonLd.map((block) => (
-      <script type="application/ld+json" set:html={JSON.stringify(block)} />
-    ))}
-  </head>
-  <body>
-    <a class="skip-link" href="#main">Skip to content</a>
-    <slot name="nav" />
-    <main id="main">
-      <slot />
-    </main>
-    <slot name="footer" />
-
-    <script>
-      // Reveal on scroll. Anything marked [data-reveal] is already visible if
-      // JS never runs or the user prefers reduced motion — progressive, not required.
-      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const targets = document.querySelectorAll('[data-reveal]');
-      if (reduce || !('IntersectionObserver' in window)) {
-        targets.forEach((el) => el.classList.add('is-visible'));
-      } else {
-        const io = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                io.unobserve(entry.target);
-              }
-            });
-          },
-          { rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
-        );
-        targets.forEach((el) => io.observe(el));
-      }
-    </script>
-  </body>
-</html>
+<UiBase
+  title={title}
+  description={description}
+  canonical={canonical}
+  theme={theme}
+  siteName="ERPBoss"
+  jsonLd={[orgJsonLd, ...jsonLd]}
+>
+  <slot name="nav" slot="nav" />
+  <slot />
+  <slot name="footer" slot="footer" />
+</UiBase>

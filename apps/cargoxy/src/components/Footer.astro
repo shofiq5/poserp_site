@@ -1,0 +1,63 @@
+---
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-cols">
+      <div class="footer-brand">
+        <a href="/" class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.7"/>
+            </svg>
+          </span>
+          CargoXY
+        </a>
+        <p>Freight software for forwarders moving cargo by air, sea and courier — with EDI connectivity built in.</p>
+      </div>
+
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/air-cargo-edi/">Airline EDI</a></li>
+          <li><a href="/ocean/">Ocean freight</a></li>
+          <li><a href="/courier/">Courier</a></li>
+          <li><a href="/platform/">Platform</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="https://erpboss.com/">ERPBoss</a></li>
+          <li><a href="https://erpboss.com/erp/">ERP Boss</a></li>
+          <li><a href="https://erpboss.com/pos/">POSERP</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>&copy; {year} CargoXY — an ERPBoss product. All rights reserved.</p></div>
+  </div>
+</footer>
+
+<style>
+  .footer { border-top: 1px solid var(--border); background: var(--bg-alt); margin-top: var(--sp-6); }
+  .footer-inner { padding-block: var(--sp-7) var(--sp-6); }
+  .footer-cols { display: grid; grid-template-columns: 1.8fr 1fr 1fr; gap: var(--sp-6); margin-bottom: var(--sp-6); }
+  .footer-brand .brand {
+    display: inline-flex; align-items: center; gap: var(--sp-2);
+    font-family: var(--font-display); font-weight: 700; font-size: 1.05rem;
+    text-decoration: none; color: var(--fg); margin-bottom: var(--sp-3);
+  }
+  .footer-brand .brand-mark { color: var(--accent); display: inline-flex; }
+  .footer-brand .brand-mark svg { width: 1.5rem; height: 1.5rem; }
+  .footer-brand p { color: var(--muted); font-size: 0.9rem; max-width: 26rem; }
+  h4 { font-family: var(--font-body); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--sp-3); }
+  .footer ul { list-style: none; padding: 0; }
+  .footer li { margin: 0 0 var(--sp-2); }
+  .footer a { text-decoration: none; color: var(--muted); font-size: 0.9rem; }
+  .footer a:hover { color: var(--accent-strong); }
+  .footer-bottom { border-top: 1px solid var(--border); padding-top: var(--sp-5); color: var(--muted); font-size: 0.82rem; }
+  @media (max-width: 760px) { .footer-cols { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1 / -1; } }
+</style>

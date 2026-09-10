@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cargoxy.com/sitemap-index.xml

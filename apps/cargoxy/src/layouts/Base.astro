@@ -1,0 +1,32 @@
+---
+/* cargoxy.com wrapper around the shared shell. */
+import UiBase from '@erpboss/ui/Base.astro';
+
+const { title, description, canonical, jsonLd = [] } = Astro.props;
+
+const orgJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'CargoXY',
+  url: 'https://cargoxy.com/',
+  logo: 'https://cargoxy.com/favicon.svg',
+  parentOrganization: { '@type': 'Organization', name: 'ERPBoss', url: 'https://erpboss.com/' },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'sales',
+    url: 'https://cargoxy.com/contact/',
+  },
+};
+---
+<UiBase
+  title={title}
+  description={description}
+  canonical={canonical}
+  theme="cargo"
+  siteName="CargoXY"
+  jsonLd={[orgJsonLd, ...jsonLd]}
+>
+  <slot name="nav" slot="nav" />
+  <slot />
+  <slot name="footer" slot="footer" />
+</UiBase>

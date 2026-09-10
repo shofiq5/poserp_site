@@ -1,4 +1,4 @@
-name: Deploy to Cloudflare Pages
+name: Deploy sites to Cloudflare Pages
 
 on:
   push:
@@ -19,11 +19,18 @@ jobs:
           cache: npm
 
       - run: npm ci
-      - run: npm run build:www
+      - run: npm run build:all
 
-      - name: Deploy to Cloudflare Pages
+      - name: Deploy erpboss.com
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy apps/www/dist --project-name=poserp-site
+
+      - name: Deploy cargoxy.com
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy apps/cargoxy/dist --project-name=cargoxy-site

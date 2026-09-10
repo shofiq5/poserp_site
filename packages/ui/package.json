@@ -1,0 +1,10 @@
+{
+  "name": "@erpboss/ui",
+  "version": "0.0.1",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./styles/*": "./styles/*",
+    "./Base.astro": "./Base.astro"
+  }
+}

@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Request a Demo — CargoXY';
+const description =
+  'Ask for a CargoXY walkthrough on your own routes and paperwork, or get in touch about air, sea and courier freight software.';
+const canonical = 'https://cargoxy.com/contact/';
+---
+<Base title={title} description={description} canonical={canonical}>
+  <Nav slot="nav" />
+
+  <section class="section-tight">
+    <div class="container center">
+      <span class="eyebrow" data-reveal>Contact</span>
+      <h1 data-reveal>Request a demo</h1>
+      <p class="lede" data-reveal>
+        Freight operations differ enough that a trial account rarely tells you much. Tell us the
+        lanes you run and the carriers you work with, and we will show you the setup that fits.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-3">
+        <div class="card card-hover feature-card" data-reveal>
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4zM4 4l8 8 8-8"></path></svg>
+          </div>
+          <h3>Email us</h3>
+          <p><a href="mailto:hello@erpboss.com?subject=CargoXY%20demo%20request">hello@erpboss.com</a></p>
+        </div>
+        <div class="card card-hover feature-card" data-reveal>
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+          </div>
+          <h3>Useful to mention</h3>
+          <p>Your modes (air, sea, courier), rough monthly volume, and which carriers you work with most.</p>
+        </div>
+        <div class="card card-hover feature-card" data-reveal>
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"></path></svg>
+          </div>
+          <h3>Other ERPBoss products</h3>
+          <p>CargoXY is one of three. See <a href="https://erpboss.com/erp/">ERP Boss</a> and <a href="https://erpboss.com/pos/">POSERP</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Base>

@@ -14,7 +14,10 @@
     "dev": "npm run dev -w @erpboss/www",
     "build": "npm run build -w @erpboss/www",
     "build:www": "npm run build -w @erpboss/www",
-    "preview": "npm run preview -w @erpboss/www"
+    "preview": "npm run preview -w @erpboss/www",
+    "build:cargoxy": "npm run build -w @erpboss/cargoxy",
+    "build:all": "npm run build:www && npm run build:cargoxy",
+    "dev:cargoxy": "npm run dev -w @erpboss/cargoxy"
   },
   "allowScripts": {
     "esbuild": true

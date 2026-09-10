@@ -1,0 +1,6 @@
+---
+import PageLayout from '../components/PageLayout.astro';
+import { pages } from '../data/pages.js';
+const page = pages.find((p) => p.slug === 'ocean');
+---
+<PageLayout page={page} />
