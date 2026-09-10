@@ -170,6 +170,126 @@ export const modules = [
       { q: 'Do timesheets feed anything else?', a: 'They feed both billing and project cost, which is what makes future estimates improve rather than repeat.' },
     ],
   },
+  {
+    slug: 'assets',
+    name: 'Asset Management',
+    nav: 'Assets',
+    title: 'ERP Fixed Asset Management Software — Depreciation | ERP Boss',
+    tagline: 'Fixed assets that depreciate themselves',
+    lede:
+      'Every asset carries its own depreciation schedule, its own finance book and its own maintenance history — so the balance sheet reflects what you actually own, without a spreadsheet running alongside it.',
+    description:
+      'Fixed asset registers, automatic depreciation schedules, finance books, capitalisation and asset maintenance.',
+    features: [
+      { t: 'An asset register that posts', d: 'Assets are recorded against categories with their own accounts, so acquisition, depreciation and disposal all reach the ledger without a manual journal.', i: 'M3 21h18M5 21V7l7-4 7 4v14M9 21v-4h6v4' },
+      { t: 'Depreciation schedules, calculated', d: 'Each asset carries a schedule that posts on time rather than waiting for someone to remember it at year end.', i: 'M4 19V9M10 19V5M16 19v-7M22 19H2' },
+      { t: 'Multiple finance books', d: 'Keep a different depreciation basis for statutory and management reporting on the same asset, instead of maintaining two registers.', i: 'M4 4h16v16H4zM8 9h8M8 13h5' },
+      { t: 'Capitalisation from what you bought', d: 'Turn stock items, services and costs into a capitalised asset, so the value carried is what was actually spent assembling it.', i: 'M12 2l9 5v10l-9 5-9-5V7l9-5zM3 7l9 5 9-5' },
+      { t: 'Asset maintenance', d: 'Maintenance teams, tasks and logs held against the asset — the record that turns a breakdown into a pattern you can act on.', i: 'M14.7 6.3a4 4 0 10-5.4 5.4L2 19v3h3l7.3-7.3a4 4 0 005.4-5.4z' },
+      { t: 'Movement and disposal', d: 'Transfers, adjustments and sales recorded against the asset with the accounting handled, so a disposal is not a manual write-off exercise.', i: 'M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6' },
+    ],
+    faqs: [
+      { q: 'Does depreciation post automatically?', a: 'Yes. Each asset carries its own depreciation schedule, and the entries reach the ledger on schedule rather than being journalled by hand.' },
+      { q: 'Can we depreciate differently for tax and management accounts?', a: 'Yes, through multiple finance books on the same asset, each with its own basis.' },
+      { q: 'Can we track maintenance on our assets?', a: 'Yes, with maintenance teams, scheduled tasks and a log held against the asset record.' },
+    ],
+  },
+  {
+    slug: 'subcontracting',
+    name: 'Subcontracting',
+    nav: 'Subcontracting',
+    title: 'ERP Subcontracting Software — Supplied Materials | ERP Boss',
+    tagline: 'Work sent out, materials accounted for',
+    lede:
+      'Subcontracting is where stock quietly disappears: materials go to a vendor, finished parts come back, and nobody can say what the difference cost. Every supplied item stays on your books until it returns as something else.',
+    description:
+      'Subcontracting orders and receipts with supplied-material tracking, so outsourced work is accounted for rather than estimated.',
+    features: [
+      { t: 'Subcontracting orders', d: 'Send work to a vendor as a proper order, with the service and the materials it consumes both recorded against it.', i: 'M3 3h2l2.4 12.4a2 2 0 002 1.6h8.2a2 2 0 002-1.6L21 8H6' },
+      { t: 'Supplied materials stay yours', d: 'Raw materials issued to a subcontractor remain on your stock, in their own location, until they come back as a finished item.', i: 'M12 2l9 5v10l-9 5-9-5V7l9-5zM3 7l9 5 9-5' },
+      { t: 'Subcontracting BOM', d: 'Define what the vendor consumes to produce the item, so the material issue is calculated rather than guessed at each time.', i: 'M12 2l9 5v10l-9 5-9-5V7l9-5zM12 12v10' },
+      { t: 'Receipts that reconcile', d: 'Receiving the finished item consumes the supplied materials and records the service cost, which is what makes the yield visible.', i: 'M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11' },
+      { t: 'True landed cost', d: 'Material plus service plus any additional cost rolls into the value of what comes back, so subcontracted parts are not cheaper than they look.', i: 'M2 7h20v10H2zM9 12a3 3 0 106 0 3 3 0 00-6 0z' },
+      { t: 'Losses surfaced, not absorbed', d: 'A difference between materials issued and materials consumed is visible against the order rather than quietly written into overheads.', i: 'M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z' },
+    ],
+    faqs: [
+      { q: 'Do materials sent to a subcontractor leave our stock?', a: 'No. They stay on your books in a separate location until the finished item is received, which is what keeps the valuation honest.' },
+      { q: 'How is the cost of a subcontracted item calculated?', a: 'Supplied materials, the service charge and any additional costs roll into the value of the item received.' },
+      { q: 'Can we see if a subcontractor is wasting material?', a: 'Yes. The difference between materials issued and consumed is recorded against the order rather than absorbed into general overheads.' },
+    ],
+  },
+  {
+    slug: 'quality',
+    name: 'Quality Management',
+    nav: 'Quality',
+    title: 'ERP Quality Management Software — Non-Conformance | ERP Boss',
+    tagline: 'Quality as a process, not a promise',
+    lede:
+      'Documented procedures, recorded non-conformances and actions that get closed. The structure an audit expects, kept as part of daily work rather than assembled the week before an inspection.',
+    description:
+      'Quality procedures, goals, non-conformance handling, corrective actions, reviews and customer feedback.',
+    features: [
+      { t: 'Documented procedures', d: 'Processes recorded as procedures with their steps, so the way work should be done is written down rather than held in one person\'s head.', i: 'M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zM14 2v6h6M8 13h8' },
+      { t: 'Non-conformance handling', d: 'Record what went wrong against the procedure it breached — the starting point for any corrective action that will survive scrutiny.', i: 'M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z' },
+      { t: 'Actions with resolutions', d: 'Corrective actions carry their own resolutions and owners, so an issue is closed on the record rather than in conversation.', i: 'M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11' },
+      { t: 'Goals and objectives', d: 'Quality goals broken into measurable objectives, which is what turns a policy statement into something reviewable.', i: 'M12 22a10 10 0 110-20 10 10 0 010 20zM12 16a4 4 0 110-8 4 4 0 010 8z' },
+      { t: 'Reviews with minutes', d: 'Meetings, agendas and minutes kept against the quality system, so the review trail an auditor asks for already exists.', i: 'M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2M11 3a4 4 0 110 8 4 4 0 010-8z' },
+      { t: 'Customer feedback captured', d: 'Structured feedback against templates and parameters rather than scattered email, so complaints become data.', i: 'M4 4h16v12H4zM8 20h8' },
+    ],
+    faqs: [
+      { q: 'Is this enough for an audit?', a: 'It provides the structure auditors look for — documented procedures, recorded non-conformances, corrective actions and review minutes. Whether it satisfies a specific standard depends on that standard and how you use it.' },
+      { q: 'Can we link a non-conformance to a procedure?', a: 'Yes, which is what makes a corrective action traceable to the process it was meant to fix.' },
+      { q: 'Can we collect structured customer feedback?', a: 'Yes, through feedback templates with defined parameters rather than free-form email.' },
+    ],
+  },
+  {
+    slug: 'support',
+    name: 'Support',
+    nav: 'Support',
+    title: 'ERP Helpdesk and Support Software — SLA Tracking | ERP Boss',
+    tagline: 'Issues with a clock on them',
+    lede:
+      'Customer issues tracked against service level agreements that actually measure response and resolution — so a missed commitment is visible while you can still do something about it.',
+    description:
+      'Issue tracking, service level agreements, priorities and warranty claims tied to the customer record.',
+    features: [
+      { t: 'Issues against customers', d: 'Every issue sits on the customer record alongside their orders and invoices, so support has the context a conversation needs.', i: 'M12 22a10 10 0 110-20 10 10 0 010 20zM12 8v5M12 17h.01' },
+      { t: 'Service level agreements', d: 'Response and resolution targets defined per priority and applied automatically, rather than remembered by whoever picks the ticket up.', i: 'M12 8v4l3 3M12 22a10 10 0 110-20 10 10 0 010 20z' },
+      { t: 'Priorities that mean something', d: 'Each priority carries its own targets, so urgent is a commitment with a clock rather than a label.', i: 'M13 2L3 14h7l-1 8 10-12h-7l1-8z' },
+      { t: 'The clock pauses correctly', d: 'SLA timers can hold while an issue waits on the customer, which is what stops the measurement from punishing you for someone else\'s delay.', i: 'M10 9v6M14 9v6M12 22a10 10 0 110-20 10 10 0 010 20z' },
+      { t: 'Warranty claims', d: 'Claims tracked against the item and its serial number, connecting a support case to what was actually sold.', i: 'M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z' },
+      { t: 'Issue types and history', d: 'Categorised issues build into a record of what breaks most — the difference between firefighting and fixing.', i: 'M4 19V9M10 19V5M16 19v-7M22 19H2' },
+    ],
+    faqs: [
+      { q: 'Can we set different response times per priority?', a: 'Yes. Each priority within a service level agreement carries its own response and resolution targets.' },
+      { q: 'Does the SLA clock stop while we wait on the customer?', a: 'Yes, SLA timers can be paused on defined statuses so waiting on a reply does not count against your target.' },
+      { q: 'Can support see the customer\'s orders?', a: 'Yes. Issues sit on the same customer record as their quotations, orders and invoices.' },
+    ],
+  },
+  {
+    slug: 'maintenance',
+    name: 'Maintenance',
+    nav: 'Maintenance',
+    title: 'ERP Maintenance Scheduling Software — Visits | ERP Boss',
+    tagline: 'Scheduled service, not reactive callouts',
+    lede:
+      'Maintenance schedules generated from what you sold or own, with visits recorded against them — so servicing is planned work rather than a phone call you were not expecting.',
+    description:
+      'Maintenance schedules and visit records for serviced equipment, linked to items and customers.',
+    features: [
+      { t: 'Schedules per item', d: 'Generate a service calendar from the equipment itself, so the next visit is known rather than negotiated after a failure.', i: 'M8 2v4M16 2v4M3 10h18M5 6h14a2 2 0 012 2v11a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z' },
+      { t: 'Visits recorded against the schedule', d: 'What was done, by whom and what was found, held against the plan it belonged to.', i: 'M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11' },
+      { t: 'Preventive and corrective', d: 'Both planned servicing and unplanned callouts recorded the same way, which is the only way to compare them honestly.', i: 'M14.7 6.3a4 4 0 10-5.4 5.4L2 19v3h3l7.3-7.3a4 4 0 005.4-5.4z' },
+      { t: 'Tied to the customer', d: 'Service history sits with the customer and the item sold, so a technician arrives knowing what happened last time.', i: 'M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zM3 21c0-4 4-6 9-6s9 2 9 6' },
+      { t: 'Serviceable items identified', d: 'Only what actually needs servicing carries a schedule, keeping the calendar useful rather than noisy.', i: 'M12 2l9 5v10l-9 5-9-5V7l9-5z' },
+      { t: 'A record worth keeping', d: 'Consistent visit history is what turns maintenance from a cost into an argument for replacing the thing that keeps failing.', i: 'M4 19V9M10 19V5M16 19v-7M22 19H2' },
+    ],
+    faqs: [
+      { q: 'Can schedules be generated automatically?', a: 'Yes, maintenance schedules can be produced for serviceable items rather than built by hand each period.' },
+      { q: 'Do visits link back to what we sold?', a: 'Yes. Service history is held against the customer and the item, so past work is visible before the next visit.' },
+      { q: 'Can we record unplanned callouts too?', a: 'Yes, both preventive and corrective visits are recorded the same way so they can be compared.' },
+    ],
+  },
 ];
 
 export const bySlug = Object.fromEntries(modules.map((m) => [m.slug, m]));
