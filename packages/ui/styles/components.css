@@ -237,6 +237,61 @@
   border-radius: 999px;
 }
 .divider { height: 1px; background: var(--border-soft); border: 0; }
+
+/* ── Logo strip — social proof ───────────────────────────────── */
+.logo-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-7);
+  padding-block: var(--sp-5);
+  opacity: 0.85;
+}
+.logo-strip span {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step-0);
+  color: var(--muted);
+  letter-spacing: -0.01em;
+  filter: grayscale(1);
+  transition: filter var(--dur-2) var(--ease), color var(--dur-2) var(--ease);
+}
+.logo-strip span:hover { filter: none; color: var(--fg-soft); }
+
+/* ── Testimonial ─────────────────────────────────────────────── */
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+.testimonial-stars { display: flex; gap: 0.15rem; color: #f59e0b; }
+.testimonial-stars svg { width: 1rem; height: 1rem; }
+.testimonial-quote { color: var(--fg-soft); font-size: var(--step-0); flex: 1; }
+.testimonial-person { display: flex; align-items: center; gap: var(--sp-3); }
+.testimonial-avatar {
+  width: 2.6rem; height: 2.6rem; border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-weight: 700; font-size: var(--step--1);
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: var(--accent-on);
+  flex-shrink: 0;
+}
+.testimonial-person strong { display: block; font-size: var(--step--1); }
+.testimonial-person span { display: block; color: var(--muted); font-size: 0.78rem; }
+
+/* ── Trust badges (security / compliance row) ───────────────── */
+.trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3) var(--sp-5);
+  align-items: center;
+}
+.trust-row li {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  margin: 0; font-size: var(--step--1); color: var(--muted); font-weight: 600;
+}
+.trust-row svg { width: 1.05rem; height: 1.05rem; color: var(--accent); flex-shrink: 0; }
 .skip-link {
   position: absolute;
   left: -9999px;
