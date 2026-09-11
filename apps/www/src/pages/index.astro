@@ -3,51 +3,23 @@ import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import PosLaunch from '../components/PosLaunch.astro';
+import AccountsMock from '../components/AccountsMock.astro';
+import { modules } from '../data/erp.js';
 
-const title = 'ERPBoss — ERP, POS and Logistics Software for Growing Businesses';
+const title = 'ERPBoss — Modular ERP and POS Software for Growing Businesses';
 const description =
-  'ERPBoss builds three systems for SMEs: a full ERP, a point-of-sale for retail counters, and CargoXY for air, sea and courier freight. Pick the one that fits your operation.';
+  'ERPBoss is one business system built from modules: point of sale, accounting, inventory, purchasing, sales, manufacturing, HR, payroll and more. Start with ERPBoss POS today and add modules as you grow.';
 const canonical = 'https://erpboss.com/';
 
-const products = [
-  {
-    name: 'ERP Boss',
-    tag: 'ERP',
-    href: '/erp/',
-    theme: 'erp',
-    line: 'Run the whole business on one ledger',
-    blurb:
-      'Accounting, inventory, manufacturing, sales, purchasing, HR and projects in a single system — deployed for your company, not shared with anyone else.',
-    points: ['Double-entry accounting, multi-currency', 'Stock, warehouses and valuation', 'Manufacturing, CRM, HR and projects'],
-    cta: 'Explore ERP Boss',
-    icon: 'M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5M9 11h1M14 11h1',
-  },
-  {
-    name: 'POSERP',
-    tag: 'Point of sale',
-    href: '/pos/',
-    theme: 'pos',
-    line: 'The counter, handled',
-    blurb:
-      'Ring up sales, track stock and see the day’s numbers from a phone. Built for shops that have no IT department and no time for one.',
-    points: ['Barcode billing and fast search', 'Stock that updates on every sale', 'Customer dues and installments'],
-    cta: 'Explore POSERP',
-    app: { href: 'https://pos.erpboss.com/signup', label: 'Start free trial' },
-    icon: 'M3 6h18l-1.5 12H4.5L3 6zM8 10a4 4 0 008 0',
-  },
-  {
-    name: 'CargoXY',
-    tag: 'Logistics',
-    href: '/logistics/',
-    theme: 'cargo',
-    line: 'Every shipment, no retyping',
-    blurb:
-      'Air, sea and courier freight in one platform, with EDI connectivity to airlines so shipment data is transmitted rather than rekeyed at every handoff.',
-    points: ['Airline EDI: AWB and House AWB data', 'EGM & IGM processing', 'Quotations, billing and accounts'],
-    cta: 'Explore CargoXY',
-    icon: 'M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20M4 7h16M4 17h16',
-  },
-];
+const appJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'ERPBoss',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  description,
+  url: canonical,
+};
 
 const principles = [
   {
@@ -67,60 +39,73 @@ const principles = [
   },
   {
     title: 'One platform underneath',
-    text: 'All three share the same foundations for accounts, permissions and reporting — which is why a small team can maintain them properly.',
+    text: 'Every module shares the same foundations for accounts, permissions and reporting — which is why a small team can maintain them properly.',
     icon: 'M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z',
   },
 ];
 ---
 
-<Base title={title} description={description} canonical={canonical}>
+<Base title={title} description={description} canonical={canonical} theme="erp" jsonLd={[appJsonLd]}>
   <Nav slot="nav" />
 
   <section class="hero">
-    <div class="container">
-      <span class="eyebrow" data-reveal>Three products, one company</span>
-      <h1 data-reveal>Software for the people who actually run the operation</h1>
-      <p class="lede lede-wide" data-reveal>
-        A factory floor, a shop counter and a freight desk look nothing alike — but they share a
-        problem. The software built for them is either made for enterprises they will never
-        resemble, or it is a spreadsheet. We build for the gap in between.
-      </p>
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow" data-reveal>ERPBoss</span>
+        <h1 data-reveal>One business system, built from modules</h1>
+        <p class="lede" data-reveal>
+          Most growing companies end up with a till, an accounts package and a stock spreadsheet
+          that agree with each other only by luck. ERPBoss replaces them with modules that share
+          one set of records. Start with the one you need, and add the rest as the business grows.
+        </p>
+        <div class="btn-row" style="margin-top: var(--sp-5)" data-reveal>
+          <a class="btn btn-primary" href="#modules">See the modules</a>
+          <a class="btn btn-ghost" href="/contact/">Talk to us</a>
+        </div>
+        <p class="note" data-reveal>ERPBoss POS works on its own — sign up and start selling today.</p>
+      </div>
+      <div data-reveal>
+        <AccountsMock />
+      </div>
     </div>
   </section>
 
   <PosLaunch />
 
-  <section class="section-tight">
+  <section class="section" id="modules">
     <div class="container">
-      <div class="product-grid">
-        {products.map((p) => (
-          <article class="card card-hover product-card" data-theme={p.theme} data-reveal>
-            <div class="product-head">
-              <div class="icon-badge">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                  <path d={p.icon}></path>
-                </svg>
-              </div>
-              <span class="tag">{p.tag}</span>
+      <span class="eyebrow" data-reveal>The modules</span>
+      <h2 data-reveal>Fourteen modules, one set of records</h2>
+      <p class="section-lede" data-reveal>
+        Each one is useful on its own. Together they mean a sale moves stock, stock values the
+        balance sheet, an asset depreciates on schedule and a project tells you whether it was
+        worth taking — without anyone re-entering anything.
+      </p>
+      <div class="grid grid-3" style="margin-top: var(--sp-6)">
+        <a class="card card-hover module-card" href="/pos/" data-reveal>
+          <div class="module-head">
+            <div class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 6h18l-1.5 12H4.5L3 6zM8 10a4 4 0 008 0"></path>
+              </svg>
             </div>
-            <h2>{p.name}</h2>
-            <p class="product-line">{p.line}</p>
-            <p class="product-blurb">{p.blurb}</p>
-            <ul class="checklist product-points">
-              {p.points.map((pt) => (
-                <li>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 6L9 17l-5-5"></path>
-                  </svg>
-                  <span>{pt}</span>
-                </li>
-              ))}
-            </ul>
-            <div class="btn-row">
-              <a class="btn btn-primary" href={p.href}>{p.cta}</a>
-              {p.app && <a class="btn btn-ghost" href={p.app.href}>{p.app.label} →</a>}
+            <span class="tag">Live · free trial</span>
+          </div>
+          <h3>POS</h3>
+          <p>Ring up sales, track stock and see the day’s numbers from a phone. Works standalone — no other module needed.</p>
+          <span class="module-more">Explore ERPBoss POS →</span>
+        </a>
+        {modules.map((m) => (
+          <a class="card card-hover module-card" href={`/erp/${m.slug}/`} data-reveal>
+            <div class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d={m.features[0].i}></path>
+              </svg>
             </div>
-          </article>
+            <h3>{m.name}</h3>
+            <p>{m.tagline}</p>
+            <span class="module-more">Explore →</span>
+          </a>
         ))}
       </div>
     </div>
@@ -128,10 +113,31 @@ const principles = [
 
   <section class="section section-alt">
     <div class="container">
+      <span class="eyebrow" data-reveal>Why one system</span>
+      <h2 data-reveal>The reconciliation problem, removed</h2>
+      <div class="grid grid-3" style="margin-top: var(--sp-6)">
+        <div class="card feature-card" data-reveal>
+          <h3>One event, one entry</h3>
+          <p>A sale posts revenue, tax and the cost-of-sales pair together. There is no second system to agree with, so there is nothing to reconcile.</p>
+        </div>
+        <div class="card feature-card" data-reveal>
+          <h3>Start small, grow into it</h3>
+          <p>ERPBoss POS is ready the minute you sign up. The wider system runs as your company's own instance — which is what makes customisation and data ownership straightforward.</p>
+        </div>
+        <div class="card feature-card" data-reveal>
+          <h3>Reports without exports</h3>
+          <p>Statements read the same postings your daily work creates, so a report is a view of the business rather than a monthly assembly job.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
       <span class="eyebrow" data-reveal>How we build</span>
-      <h2 data-reveal>The same four commitments across all three</h2>
+      <h2 data-reveal>Four commitments behind every module</h2>
       <p class="section-lede" data-reveal>
-        Different industries, identical discipline. These are the rules we hold each product to.
+        These are the rules we hold each module to.
       </p>
       <div class="grid grid-2" style="margin-top: var(--sp-6)">
         {principles.map((p) => (
@@ -152,11 +158,11 @@ const principles = [
   <section class="section">
     <div class="container">
       <div class="cta-banner" data-reveal>
-        <h2>Not sure which one fits?</h2>
-        <p>Tell us what you run and we will point you at the right product — or tell you plainly if none of them is a fit.</p>
+        <h2>See it running on your kind of business</h2>
+        <p>Tell us what you make or sell, and we will show you the modules that fit rather than a generic tour.</p>
         <div class="btn-row">
-          <a class="btn btn-primary" href="/contact/">Talk to us</a>
-          <a class="btn btn-ghost" href="/about/">About ERPBoss</a>
+          <a class="btn btn-primary" href="/contact/">Request a demo</a>
+          <a class="btn btn-ghost" href="/pos/">Start with POS</a>
         </div>
       </div>
     </div>
@@ -167,23 +173,22 @@ const principles = [
 
 <style>
   .hero { padding-block: var(--sp-8) var(--sp-6); }
-  .hero h1 { max-width: 20ch; margin-bottom: var(--sp-5); }
-
-  .product-grid {
+  .hero-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
-    gap: var(--sp-5);
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: var(--sp-7);
+    align-items: center;
   }
-  .product-card { display: flex; flex-direction: column; }
-  .product-head {
+  .note { color: var(--muted); font-size: var(--step--1); margin-top: var(--sp-4); }
+  .module-card { text-decoration: none; display: flex; flex-direction: column; }
+  .module-head {
     display: flex; align-items: flex-start; justify-content: space-between; gap: var(--sp-4);
   }
-  .product-card h2 { font-size: var(--step-2); margin-bottom: var(--sp-1); }
-  .product-line {
-    color: var(--accent-strong); font-weight: 600; font-size: var(--step--1);
-    margin-bottom: var(--sp-3);
+  .module-card h3 { margin-bottom: var(--sp-2); }
+  .module-card p { color: var(--muted); font-size: var(--step--1); flex: 1; }
+  .module-more {
+    margin-top: var(--sp-4);
+    font-size: var(--step--1); font-weight: 600; color: var(--accent-strong);
   }
-  .product-blurb { color: var(--muted); font-size: var(--step--1); }
-  .product-points { margin: var(--sp-4) 0 var(--sp-5); flex: 1; }
-  .product-card .btn-row { margin-top: auto; }
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
 </style>

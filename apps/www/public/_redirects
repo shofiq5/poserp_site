@@ -1,0 +1,7 @@
+# Merged into the homepage when ERPBoss became one modular system.
+/erp        /           301
+/erp/       /           301
+
+# CargoXY is a separate product with its own site.
+/logistics  https://cargoxy.com/  301
+/logistics/ https://cargoxy.com/  301

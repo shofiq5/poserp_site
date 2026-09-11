@@ -3,14 +3,13 @@ import { modules } from '../data/erp.js';
 ---
 <header class="nav">
   <div class="container nav-inner">
-    <a href="/erp/" class="brand">
+    <a href="/" class="brand">
       <span class="brand-mark" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </span>
-      ERP Boss
-      <span class="brand-by">by ERPBoss</span>
+      ERPBoss
     </a>
 
     <input type="checkbox" id="nav-toggle" class="nav-toggle" />
@@ -19,9 +18,9 @@ import { modules } from '../data/erp.js';
     </label>
 
     <nav class="links">
-      {modules.slice(0, 5).map((m) => <a href={`/erp/${m.slug}/`}>{m.nav}</a>)}
-      <a href="/erp/">All modules</a>
-      <a href="/" class="link-up">All ERPBoss products</a>
+      <a href="/pos/">POS</a>
+      {modules.slice(0, 4).map((m) => <a href={`/erp/${m.slug}/`}>{m.nav}</a>)}
+      <a href="/#modules" class="link-up">All modules</a>
       <div class="cta cta-mobile">
         <a href="/contact/" class="btn btn-primary">Request a demo</a>
       </div>

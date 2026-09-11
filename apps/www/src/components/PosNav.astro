@@ -23,8 +23,7 @@ const links = [
           <circle cx="17" cy="16.5" r="2.5" fill="currentColor"/>
         </svg>
       </span>
-      POS Plan
-      <span class="brand-by">by ERPBoss</span>
+      ERPBoss POS
     </a>
 
     <input type="checkbox" id="nav-toggle" class="nav-toggle" />
@@ -34,7 +33,7 @@ const links = [
 
     <nav class="links">
       {links.map((l) => <a href={l.href}>{l.label}</a>)}
-      <a href="/" class="link-up">All ERPBoss products</a>
+      <a href="/#modules" class="link-up">All ERPBoss modules</a>
       <div class="cta cta-mobile">
         <a href={LOGIN_URL} class="btn btn-ghost">Log in</a>
         <a href={SIGNUP_URL} class="btn btn-primary">Start free trial</a>

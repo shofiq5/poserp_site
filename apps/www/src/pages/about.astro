@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 
 const title = 'About — ERPBoss';
 const description =
-  'ERPBoss builds operational software for small teams: POS Plan for retail counters and CargoXY for freight forwarders. Built on Frappe, sold without an implementation project.';
+  'ERPBoss is a business system for small teams, built from independent modules — starting with ERPBoss POS for retail counters. Built on Frappe, sold without an implementation project.';
 const canonical = 'https://erpboss.com/about/';
 ---
 
@@ -18,7 +18,7 @@ const canonical = 'https://erpboss.com/about/';
       <h1>We build the system, not the implementation project</h1>
       <p class="lede breadcrumb-lede">
         ERPBoss makes software for small operating teams — a shop with two staff on the counter,
-        a forwarder with a handful of people booking cargo. Both are usually offered the same
+        a company that has outgrown its accounts package. Both are usually offered the same
         two bad options: enterprise software that needs a consultant, or a spreadsheet that
         needs a person.
       </p>
@@ -30,18 +30,18 @@ const canonical = 'https://erpboss.com/about/';
       <h2>What we make</h2>
       <div class="grid grid-2">
         <div class="card card-hover feature-card">
-          <h3><a href="/pos/">POS Plan</a></h3>
+          <h3><a href="/pos/">ERPBoss POS</a></h3>
           <p>
             Point-of-sale for small retailers — mobile shops, pharmacies, general stores.
             Billing, stock, customer dues and daily reports, running in a browser on whatever
-            phone or tablet is already at the counter.
+            phone or tablet is already at the counter. Works on its own.
           </p>
         </div>
         <div class="card card-hover feature-card">
-          <h3><a href="/logistics/">CargoXY</a></h3>
+          <h3><a href="/#modules">The rest of the system</a></h3>
           <p>
-            Freight software for forwarders handling air, sea and courier shipments, including
-            EDI connectivity to airlines so shipment data is transmitted rather than retyped.
+            Accounting, inventory, purchasing, sales, manufacturing, HR, payroll, projects and
+            more — modules that share one set of records, set up for your company.
           </p>
         </div>
       </div>
@@ -52,15 +52,15 @@ const canonical = 'https://erpboss.com/about/';
     <div class="container">
       <h2>How we build</h2>
       <p class="section-lede breadcrumb-lede">
-        Both products sit on <strong>Frappe</strong>, an open-source application framework, which
-        is why two systems this different can share the same foundations for accounts, roles,
-        permissions and reporting. It also means neither product is a black box: the data model
-        is inspectable and your records are exportable.
+        ERPBoss sits on <strong>Frappe</strong>, an open-source application framework, which
+        is why every module can share the same foundations for accounts, roles, permissions and
+        reporting. It also means the system is not a black box: the data model is inspectable
+        and your records are exportable.
       </p>
       <p class="section-lede breadcrumb-lede">
         We keep the feature set deliberately narrow. Every addition has to earn its place for a
         team that has no administrator, no IT department, and no appetite for a rollout. When
-        something is genuinely complex — airline messaging, multi-outlet stock — we take on that
+        something is genuinely complex — multi-outlet stock, double-entry postings — we take on that
         complexity so the person at the desk doesn't have to.
       </p>
     </div>

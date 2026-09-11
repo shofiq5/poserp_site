@@ -6,7 +6,7 @@ export const modules = [
     slug: 'accounting',
     name: 'Accounting',
     nav: 'Accounting',
-    title: 'ERP Accounting Software — Double-Entry Ledger | ERP Boss',
+    title: 'ERP Accounting Software — Double-Entry Ledger | ERPBoss',
     tagline: 'A real ledger, not a spreadsheet with totals',
     lede:
       'Every business event posts one balanced entry. Nothing is added at read time, so the trial balance and the balance sheet agree — always, without a reconciliation ritual at month end.',
@@ -30,7 +30,7 @@ export const modules = [
     slug: 'inventory',
     name: 'Inventory',
     nav: 'Inventory',
-    title: 'ERP Inventory Management Software — Stock & Warehouses | ERP Boss',
+    title: 'ERP Inventory Management Software — Stock & Warehouses | ERPBoss',
     tagline: 'Stock that reflects the shelf, not last week',
     lede:
       'Every receipt, issue, transfer and return moves the same stock ledger. What the screen says is what is on hand right now — not a figure someone updated on Friday.',
@@ -54,7 +54,7 @@ export const modules = [
     slug: 'manufacturing',
     name: 'Manufacturing',
     nav: 'Manufacturing',
-    title: 'ERP Manufacturing Software — BOM & Work Orders | ERP Boss',
+    title: 'ERP Manufacturing Software — BOM & Work Orders | ERPBoss',
     tagline: 'From bill of materials to finished goods',
     lede:
       'Define what a product is made of, plan what to build, and let the consumption of raw materials and the arrival of finished goods post themselves.',
@@ -78,7 +78,7 @@ export const modules = [
     slug: 'sales-crm',
     name: 'Sales & CRM',
     nav: 'Sales & CRM',
-    title: 'ERP Sales and CRM Software — Quotes to Invoice | ERP Boss',
+    title: 'ERP Sales and CRM Software — Quotes to Invoice | ERPBoss',
     tagline: 'One thread from first enquiry to paid invoice',
     lede:
       'A lead becomes a quotation, a quotation becomes an order, an order becomes an invoice — carrying its own history, so nobody re-enters what was already agreed.',
@@ -102,7 +102,7 @@ export const modules = [
     slug: 'purchasing',
     name: 'Purchasing',
     nav: 'Purchasing',
-    title: 'ERP Purchasing Software — Suppliers, POs & Receipts | ERP Boss',
+    title: 'ERP Purchasing Software — Suppliers, POs & Receipts | ERPBoss',
     tagline: 'Know what you ordered, what arrived, what you owe',
     lede:
       'Request, order, receive, pay — each step recorded against the last, so a disputed invoice is settled by looking rather than remembering.',
@@ -126,7 +126,7 @@ export const modules = [
     slug: 'hr',
     name: 'HR',
     nav: 'HR',
-    title: 'HR Software — Attendance, Leave, Recruitment | ERP Boss',
+    title: 'HR Software — Attendance, Leave, Recruitment | ERPBoss',
     tagline: 'The employee record everything else hangs off',
     lede:
       'Hiring, attendance, leave, appraisals and exits on one employee record — so the answer to "how much leave does she have left" is a lookup rather than an argument with a spreadsheet.',
@@ -153,7 +153,7 @@ export const modules = [
     slug: 'payroll',
     name: 'Payroll',
     nav: 'Payroll',
-    title: 'Payroll Software — Salary Structures, Tax and Gratuity | ERP Boss',
+    title: 'Payroll Software — Salary Structures, Tax and Gratuity | ERPBoss',
     tagline: 'Payroll that calculates itself and posts itself',
     lede:
       'Salary structures, tax slabs and gratuity rules defined once, then applied across a payroll run that posts its own accounting entries. Month end stops being a rebuild.',
@@ -180,7 +180,7 @@ export const modules = [
     slug: 'projects',
     name: 'Projects',
     nav: 'Projects',
-    title: 'ERP Project Management Software — Tasks to Billing | ERP Boss',
+    title: 'ERP Project Management Software — Tasks to Billing | ERPBoss',
     tagline: 'Know which projects actually made money',
     lede:
       'Tasks, timesheets, costs and billing on the same project record — so profitability is something you can read, not something you estimate afterwards.',
@@ -204,7 +204,7 @@ export const modules = [
     slug: 'assets',
     name: 'Asset Management',
     nav: 'Assets',
-    title: 'ERP Fixed Asset Management Software — Depreciation | ERP Boss',
+    title: 'ERP Fixed Asset Management Software — Depreciation | ERPBoss',
     tagline: 'Fixed assets that depreciate themselves',
     lede:
       'Every asset carries its own depreciation schedule, its own finance book and its own maintenance history — so the balance sheet reflects what you actually own, without a spreadsheet running alongside it.',
@@ -228,7 +228,7 @@ export const modules = [
     slug: 'subcontracting',
     name: 'Subcontracting',
     nav: 'Subcontracting',
-    title: 'ERP Subcontracting Software — Supplied Materials | ERP Boss',
+    title: 'ERP Subcontracting Software — Supplied Materials | ERPBoss',
     tagline: 'Work sent out, materials accounted for',
     lede:
       'Subcontracting is where stock quietly disappears: materials go to a vendor, finished parts come back, and nobody can say what the difference cost. Every supplied item stays on your books until it returns as something else.',
@@ -252,7 +252,7 @@ export const modules = [
     slug: 'quality',
     name: 'Quality Management',
     nav: 'Quality',
-    title: 'ERP Quality Management Software — Non-Conformance | ERP Boss',
+    title: 'ERP Quality Management Software — Non-Conformance | ERPBoss',
     tagline: 'Quality as a process, not a promise',
     lede:
       'Documented procedures, recorded non-conformances and actions that get closed. The structure an audit expects, kept as part of daily work rather than assembled the week before an inspection.',
@@ -276,7 +276,7 @@ export const modules = [
     slug: 'support',
     name: 'Support',
     nav: 'Support',
-    title: 'ERP Helpdesk and Support Software — SLA Tracking | ERP Boss',
+    title: 'ERP Helpdesk and Support Software — SLA Tracking | ERPBoss',
     tagline: 'Issues with a clock on them',
     lede:
       'Customer issues tracked against service level agreements that actually measure response and resolution — so a missed commitment is visible while you can still do something about it.',
@@ -300,7 +300,7 @@ export const modules = [
     slug: 'maintenance',
     name: 'Maintenance',
     nav: 'Maintenance',
-    title: 'ERP Maintenance Scheduling Software — Visits | ERP Boss',
+    title: 'ERP Maintenance Scheduling Software — Visits | ERPBoss',
     tagline: 'Scheduled service, not reactive callouts',
     lede:
       'Maintenance schedules generated from what you sold or own, with visits recorded against them — so servicing is planned work rather than a phone call you were not expecting.',
