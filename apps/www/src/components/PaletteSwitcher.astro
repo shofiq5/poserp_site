@@ -1,10 +1,10 @@
 ---
-/* Floating color-scheme switcher — lets a visitor try Onyx Monochrome
-   (default), Forest Executive or Oxford Navy Blue. Persists in
+/* Floating color-scheme switcher — lets a visitor try Forest Executive
+   (default), Onyx Monochrome or Oxford Navy Blue. Persists in
    localStorage so the choice sticks across pages and visits. */
 const palettes = [
-  { id: 'onyx', label: 'Onyx Monochrome', swatch: '#111111' },
   { id: 'forest', label: 'Forest Executive', swatch: '#1e7b4d' },
+  { id: 'onyx', label: 'Onyx Monochrome', swatch: '#111111' },
   { id: 'oxford', label: 'Oxford Navy Blue', swatch: '#14315a' },
 ];
 ---
@@ -55,18 +55,22 @@ const palettes = [
   const root = document.documentElement;
   const buttons = document.querySelectorAll('.palette-dot');
 
+  // Forest is baked into the base theme tokens, so it needs no attribute.
   function apply(id) {
-    if (id && id !== 'onyx') root.setAttribute('data-palette', id);
+    const active = id || 'forest';
+    if (active !== 'forest') root.setAttribute('data-palette', active);
     else root.removeAttribute('data-palette');
-    buttons.forEach((b) => b.classList.toggle('is-active', (b.dataset.palette ?? 'onyx') === (id ?? 'onyx')));
+    buttons.forEach((b) => b.classList.toggle('is-active', b.dataset.palette === active));
   }
 
-  apply(localStorage.getItem(KEY));
+  let saved = null;
+  try { saved = localStorage.getItem(KEY); } catch {}
+  apply(saved);
 
   buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
-      const id = btn.dataset.palette ?? 'onyx';
-      localStorage.setItem(KEY, id);
+      const id = btn.dataset.palette ?? 'forest';
+      try { localStorage.setItem(KEY, id); } catch {}
       apply(id);
     });
   });
