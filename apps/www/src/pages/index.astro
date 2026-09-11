@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import PosLaunch from '../components/PosLaunch.astro';
-import AccountsMock from '../components/AccountsMock.astro';
+import ScreenshotGallery from '../components/ScreenshotGallery.astro';
 import { modules } from '../data/erp.js';
 
 const title = 'ERPBoss — Modular ERP and POS Software for Growing Businesses';
@@ -50,20 +50,20 @@ const principles = [
 
   <section class="hero">
     <div class="hero-bg" aria-hidden="true"></div>
-    <div class="container hero-grid">
-      <div>
-        <span class="eyebrow" data-reveal>ERPBoss</span>
-        <h1 data-reveal>One business system, built from modules</h1>
-        <p class="lede" data-reveal>
-          Most growing companies end up with a till, an accounts package and a stock spreadsheet
-          that agree with each other only by luck. ERPBoss replaces them with modules that share
-          one set of records. Start with the one you need, and add the rest as the business grows.
-        </p>
-        <div class="btn-row" style="margin-top: var(--sp-5)" data-reveal>
+    <div class="container hero-inner">
+      <span class="eyebrow" data-reveal>ERPBoss</span>
+      <h1 data-reveal>We don't just build software. We build digital ecosystems.</h1>
+      <p class="lede hero-lede" data-reveal>
+        ERPBoss connects your people, processes and technology in one system of shared records —
+        so your organisation can move faster, stay in control and thrive in an increasingly
+        connected world.
+      </p>
+      <div class="hero-actions" data-reveal>
+        <div class="btn-row">
           <a class="btn btn-primary" href="#modules">See the modules</a>
           <a class="btn btn-ghost" href="/contact/">Talk to us</a>
         </div>
-        <ul class="trust-row" style="margin-top: var(--sp-5)" data-reveal>
+        <ul class="trust-row">
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
             Bank-grade data isolation
@@ -78,11 +78,10 @@ const principles = [
           </li>
         </ul>
       </div>
-      <div data-reveal>
-        <AccountsMock />
-      </div>
     </div>
   </section>
+
+  <PosLaunch />
 
   <section class="section-tight logo-band">
     <div class="container">
@@ -97,7 +96,19 @@ const principles = [
     </div>
   </section>
 
-  <PosLaunch />
+  <section class="section section-alt">
+    <div class="container">
+      <span class="eyebrow" data-reveal>Real screens, not renders</span>
+      <h2 data-reveal>See ERPBoss running</h2>
+      <p class="section-lede" data-reveal>
+        No staged marketing shots — these are the same screens your staff use to ring up a sale,
+        track an instalment and watch stock.
+      </p>
+      <div style="margin-top: var(--sp-6)">
+        <ScreenshotGallery />
+      </div>
+    </div>
+  </section>
 
   <section class="section">
     <div class="container">
@@ -267,7 +278,7 @@ const principles = [
 </Base>
 
 <style>
-  .hero { position: relative; padding-block: var(--sp-8) var(--sp-6); overflow: hidden; }
+  .hero { position: relative; padding-block: var(--sp-6) var(--sp-3); overflow: hidden; }
   .hero-bg {
     position: absolute; inset: 0; z-index: -1;
     background:
@@ -275,12 +286,14 @@ const principles = [
       radial-gradient(40% 45% at 8% 8%, color-mix(in srgb, var(--accent) 10%, transparent) 0%, transparent 65%),
       linear-gradient(180deg, var(--bg-alt), var(--bg) 65%);
   }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: var(--sp-7);
-    align-items: center;
+  .hero h1 { font-size: clamp(2rem, 1.4rem + 2.2vw, 3.1rem); max-width: none; margin-bottom: var(--sp-3); }
+  .hero-lede { max-width: 72ch; }
+  .hero-actions {
+    display: flex; flex-wrap: wrap; align-items: center;
+    gap: var(--sp-4) var(--sp-6);
+    margin-top: var(--sp-5);
   }
+  .hero-actions .trust-row { padding: 0; list-style: none; }
   .note { color: var(--muted); font-size: var(--step--1); margin-top: var(--sp-4); }
   .logo-band { border-block: 1px solid var(--border-soft); }
   .logo-band-label {
@@ -297,5 +310,13 @@ const principles = [
     margin-top: var(--sp-4);
     font-size: var(--step--1); font-weight: 600; color: var(--accent-strong);
   }
-  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
+
+  /* Phones: compact hero so the POS card fits on the first screen */
+  @media (max-width: 600px) {
+    .hero { padding-block: var(--sp-4) 0; }
+    .hero .eyebrow, .hero-lede, .hero-actions .trust-row { display: none; }
+    .hero h1 { font-size: 1.6rem; }
+    .hero-actions { margin-top: var(--sp-3); }
+    .hero-actions .btn { min-height: 40px; padding: 0.55rem 1rem; }
+  }
 </style>
