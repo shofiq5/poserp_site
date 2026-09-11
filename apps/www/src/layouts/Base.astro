@@ -2,6 +2,7 @@
 /* erpboss.com wrapper around the shared shell — injects the company's
    Organization data so individual pages don't have to. */
 import UiBase from '@erpboss/ui/Base.astro';
+import PaletteSwitcher from '../components/PaletteSwitcher.astro';
 
 const { title, description, canonical, theme, jsonLd = [] } = Astro.props;
 
@@ -29,5 +30,6 @@ const orgJsonLd = {
 >
   <slot name="nav" slot="nav" />
   <slot />
+  <PaletteSwitcher />
   <slot name="footer" slot="footer" />
 </UiBase>

@@ -72,6 +72,14 @@
   --accent: #0b7a4c; --accent-strong: #076139; --accent-deep: #043f27; --accent-tint: #e7f5ee;
 }
 
+/* ── Alternate palettes (site-wide switcher) ─────────────────── */
+[data-palette='forest'] {
+  --accent: #1e7b4d; --accent-strong: #15613c; --accent-deep: #0b2e1e; --accent-tint: #ecf6ef;
+}
+[data-palette='oxford'] {
+  --accent: #14315a; --accent-strong: #0e2545; --accent-deep: #081a33; --accent-tint: #edf1f8;
+}
+
 /* ── Dark mode — designed, not inverted ──────────────────────── */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -104,5 +112,11 @@
   }
   [data-theme='cargo'] {
     --accent: #3ec98d; --accent-strong: #63d9a5; --accent-deep: #9eecc7; --accent-tint: #0f2a1f;
+  }
+  [data-palette='forest'] {
+    --accent: #34d399; --accent-strong: #6ee7b7; --accent-deep: #a7f3d0; --accent-tint: #0f2b22; --accent-on: #0b2e1e;
+  }
+  [data-palette='oxford'] {
+    --accent: #7dabf5; --accent-strong: #a8c6f9; --accent-deep: #d3e2fc; --accent-tint: #16213c; --accent-on: #081a33;
   }
 }
