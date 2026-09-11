@@ -1,6 +1,6 @@
 ---
-const SIGNUP_URL = 'https://poserpdev.erpboss.com/signup';
-const LOGIN_URL = 'https://poserpdev.erpboss.com/login';
+const SIGNUP_URL = 'https://pos.erpboss.com/signup';
+const LOGIN_URL = 'https://pos.erpboss.com/login';
 
 // Section nav for the POS product pages at /pos/*. The umbrella site uses Nav.astro.
 const links = [
@@ -12,8 +12,7 @@ const links = [
 ];
 ---
 
-<!-- CTA -> poserpdev.erpboss.com/signup — the app's permanent domain (replaces the earlier
-     app.erpboss.com/frontend/* URLs; this host serves the SPA at root, no /frontend prefix). -->
+<!-- CTAs go to the live POS app at pos.erpboss.com (/signup, /login). -->
 <header class="nav">
   <div class="container nav-inner">
     <a href="/pos/" class="brand">

@@ -31,11 +31,13 @@ const links = [
     <nav class="links">
       {links.map((l) => <a href={l.href}>{l.label}</a>)}
       <div class="cta cta-mobile">
+        <a href="https://pos.erpboss.com/login" class="btn btn-ghost">POS log in</a>
         <a href="/contact/" class="btn btn-primary">Talk to us</a>
       </div>
     </nav>
 
     <div class="cta cta-desktop">
+      <a href="https://pos.erpboss.com/login" class="pos-login">POS log in</a>
       <a href="/contact/" class="btn btn-primary">Talk to us</a>
     </div>
   </div>
@@ -88,6 +90,8 @@ const links = [
 
   .cta { display: flex; gap: 0.6rem; align-items: center; }
   .cta-mobile { display: none; }
+  .pos-login { text-decoration: none; font-size: 0.9rem; font-weight: 600; color: var(--fg); padding-inline: 0.5rem; }
+  .pos-login:hover { color: var(--accent-strong); }
 
   .nav-toggle { display: none; }
   .nav-burger { display: none; }

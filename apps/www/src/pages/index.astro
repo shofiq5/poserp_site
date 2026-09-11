@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import PosLaunch from '../components/PosLaunch.astro';
 
 const title = 'ERPBoss — ERP, POS and Logistics Software for Growing Businesses';
 const description =
@@ -31,6 +32,7 @@ const products = [
       'Ring up sales, track stock and see the day’s numbers from a phone. Built for shops that have no IT department and no time for one.',
     points: ['Barcode billing and fast search', 'Stock that updates on every sale', 'Customer dues and installments'],
     cta: 'Explore POSERP',
+    app: { href: 'https://pos.erpboss.com/signup', label: 'Start free trial' },
     icon: 'M3 6h18l-1.5 12H4.5L3 6zM8 10a4 4 0 008 0',
   },
   {
@@ -86,6 +88,8 @@ const principles = [
     </div>
   </section>
 
+  <PosLaunch />
+
   <section class="section-tight">
     <div class="container">
       <div class="product-grid">
@@ -112,7 +116,10 @@ const principles = [
                 </li>
               ))}
             </ul>
-            <a class="btn btn-primary" href={p.href}>{p.cta}</a>
+            <div class="btn-row">
+              <a class="btn btn-primary" href={p.href}>{p.cta}</a>
+              {p.app && <a class="btn btn-ghost" href={p.app.href}>{p.app.label} →</a>}
+            </div>
           </article>
         ))}
       </div>
@@ -178,5 +185,5 @@ const principles = [
   }
   .product-blurb { color: var(--muted); font-size: var(--step--1); }
   .product-points { margin: var(--sp-4) 0 var(--sp-5); flex: 1; }
-  .product-card .btn { align-self: flex-start; }
+  .product-card .btn-row { margin-top: auto; }
 </style>
