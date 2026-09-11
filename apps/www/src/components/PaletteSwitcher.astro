@@ -1,0 +1,73 @@
+---
+/* Floating color-scheme switcher — lets a visitor try Onyx Monochrome
+   (default), Forest Executive or Oxford Navy Blue. Persists in
+   localStorage so the choice sticks across pages and visits. */
+const palettes = [
+  { id: 'onyx', label: 'Onyx Monochrome', swatch: '#111111' },
+  { id: 'forest', label: 'Forest Executive', swatch: '#1e7b4d' },
+  { id: 'oxford', label: 'Oxford Navy Blue', swatch: '#14315a' },
+];
+---
+<div class="palette-switcher" role="group" aria-label="Color theme">
+  {palettes.map((p) => (
+    <button
+      type="button"
+      class="palette-dot"
+      data-palette={p.id}
+      style={`--dot: ${p.swatch}`}
+      aria-label={p.label}
+      title={p.label}
+    ></button>
+  ))}
+</div>
+
+<style>
+  .palette-switcher {
+    position: fixed;
+    right: var(--sp-4);
+    bottom: var(--sp-4);
+    z-index: 60;
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    box-shadow: var(--shadow-lg);
+  }
+  .palette-dot {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: var(--dot);
+    border: 2px solid var(--surface);
+    box-shadow: 0 0 0 1px var(--border);
+    cursor: pointer;
+    padding: 0;
+    transition: transform var(--dur-1) var(--ease), box-shadow var(--dur-1) var(--ease);
+  }
+  .palette-dot:hover { transform: scale(1.12); }
+  .palette-dot.is-active { box-shadow: 0 0 0 2px var(--dot); }
+</style>
+
+<script>
+  const KEY = 'erpboss-palette';
+  const root = document.documentElement;
+  const buttons = document.querySelectorAll('.palette-dot');
+
+  function apply(id) {
+    if (id && id !== 'onyx') root.setAttribute('data-palette', id);
+    else root.removeAttribute('data-palette');
+    buttons.forEach((b) => b.classList.toggle('is-active', (b.dataset.palette ?? 'onyx') === (id ?? 'onyx')));
+  }
+
+  apply(localStorage.getItem(KEY));
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.palette ?? 'onyx';
+      localStorage.setItem(KEY, id);
+      apply(id);
+    });
+  });
+</script>

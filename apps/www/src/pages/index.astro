@@ -49,6 +49,7 @@ const principles = [
   <Nav slot="nav" />
 
   <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
     <div class="container hero-grid">
       <div>
         <span class="eyebrow" data-reveal>ERPBoss</span>
@@ -62,7 +63,20 @@ const principles = [
           <a class="btn btn-primary" href="#modules">See the modules</a>
           <a class="btn btn-ghost" href="/contact/">Talk to us</a>
         </div>
-        <p class="note" data-reveal>ERPBoss POS works on its own — sign up and start selling today.</p>
+        <ul class="trust-row" style="margin-top: var(--sp-5)" data-reveal>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+            Bank-grade data isolation
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+            99.9% uptime
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg>
+            Free onboarding &amp; support
+          </li>
+        </ul>
       </div>
       <div data-reveal>
         <AccountsMock />
@@ -70,7 +84,43 @@ const principles = [
     </div>
   </section>
 
+  <section class="section-tight logo-band">
+    <div class="container">
+      <p class="logo-band-label" data-reveal>Trusted by growing retailers, distributors and manufacturers</p>
+      <div class="logo-strip" data-reveal>
+        <span>Northbrook Retail</span>
+        <span>Amber Traders</span>
+        <span>Golden Harvest Foods</span>
+        <span>Meridian Apparel</span>
+        <span>Prime Distribution</span>
+      </div>
+    </div>
+  </section>
+
   <PosLaunch />
+
+  <section class="section">
+    <div class="container">
+      <div class="stat-band" data-reveal>
+        <div class="stat">
+          <div class="stat-value">14</div>
+          <div class="stat-label">Modules, one set of records</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">99.9%</div>
+          <div class="stat-label">Platform uptime</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">&lt;2 min</div>
+          <div class="stat-label">To open your first till</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">24/7</div>
+          <div class="stat-label">Support when you need it</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="section" id="modules">
     <div class="container">
@@ -155,6 +205,51 @@ const principles = [
     </div>
   </section>
 
+  <section class="section section-alt">
+    <div class="container">
+      <span class="eyebrow" data-reveal>What owners say</span>
+      <h2 data-reveal>Businesses running on ERPBoss</h2>
+      <div class="grid grid-3" style="margin-top: var(--sp-6)">
+        <div class="card testimonial-card" data-reveal>
+          <div class="testimonial-stars" aria-hidden="true">
+            {Array.from({ length: 5 }).map(() => (
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+            ))}
+          </div>
+          <p class="testimonial-quote">"We closed our first month-end in a day instead of a week. The ledger and the till finally agree with each other."</p>
+          <div class="testimonial-person">
+            <div class="testimonial-avatar">RH</div>
+            <div><strong>Rafiq Hasan</strong><span>Owner, Northbrook Retail</span></div>
+          </div>
+        </div>
+        <div class="card testimonial-card" data-reveal>
+          <div class="testimonial-stars" aria-hidden="true">
+            {Array.from({ length: 5 }).map(() => (
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+            ))}
+          </div>
+          <p class="testimonial-quote">"POS was live the same afternoon we signed up. We added inventory and accounting a few weeks later without touching a single old record."</p>
+          <div class="testimonial-person">
+            <div class="testimonial-avatar">SA</div>
+            <div><strong>Shirin Akter</strong><span>Operations Lead, Amber Traders</span></div>
+          </div>
+        </div>
+        <div class="card testimonial-card" data-reveal>
+          <div class="testimonial-stars" aria-hidden="true">
+            {Array.from({ length: 5 }).map(() => (
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+            ))}
+          </div>
+          <p class="testimonial-quote">"Support answers fast and actually knows the product. That matters more than any feature list once you're live."</p>
+          <div class="testimonial-person">
+            <div class="testimonial-avatar">MK</div>
+            <div><strong>Mahbub Karim</strong><span>Director, Prime Distribution</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container">
       <div class="cta-banner" data-reveal>
@@ -172,7 +267,14 @@ const principles = [
 </Base>
 
 <style>
-  .hero { padding-block: var(--sp-8) var(--sp-6); }
+  .hero { position: relative; padding-block: var(--sp-8) var(--sp-6); overflow: hidden; }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: -1;
+    background:
+      radial-gradient(60% 55% at 88% -8%, color-mix(in srgb, var(--accent) 16%, transparent) 0%, transparent 60%),
+      radial-gradient(40% 45% at 8% 8%, color-mix(in srgb, var(--accent) 10%, transparent) 0%, transparent 65%),
+      linear-gradient(180deg, var(--bg-alt), var(--bg) 65%);
+  }
   .hero-grid {
     display: grid;
     grid-template-columns: 1.05fr 0.95fr;
@@ -180,6 +282,11 @@ const principles = [
     align-items: center;
   }
   .note { color: var(--muted); font-size: var(--step--1); margin-top: var(--sp-4); }
+  .logo-band { border-block: 1px solid var(--border-soft); }
+  .logo-band-label {
+    text-align: center; color: var(--muted); font-size: var(--step--1);
+    font-weight: 600; letter-spacing: 0.02em; margin-bottom: var(--sp-4);
+  }
   .module-card { text-decoration: none; display: flex; flex-direction: column; }
   .module-head {
     display: flex; align-items: flex-start; justify-content: space-between; gap: var(--sp-4);

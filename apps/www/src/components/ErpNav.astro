@@ -35,10 +35,12 @@ import { modules } from '../data/erp.js';
 <style>
   .nav {
     position: sticky; top: 0; z-index: 40;
-    background: color-mix(in srgb, var(--bg) 85%, transparent);
-    backdrop-filter: saturate(180%) blur(10px);
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: saturate(180%) blur(12px);
     border-bottom: 1px solid var(--border);
+    transition: box-shadow var(--dur-2) var(--ease), border-color var(--dur-2) var(--ease);
   }
+  .nav.is-scrolled { box-shadow: var(--shadow-sm); border-color: transparent; }
   .nav-inner { display: flex; align-items: center; gap: var(--sp-5); padding-block: 0.9rem; }
   .brand {
     display: inline-flex; align-items: center; gap: var(--sp-2);
@@ -80,3 +82,10 @@ import { modules } from '../data/erp.js';
     .cta-mobile .btn { flex: 1; }
   }
 </style>
+
+<script>
+  const nav = document.querySelector('.nav');
+  const onScroll = () => nav?.classList.toggle('is-scrolled', window.scrollY > 4);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+</script>
